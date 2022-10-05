@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:hackster/screens/navigation/market_price.dart';
 
 void main() {
   runApp(const MyApp());
@@ -10,11 +11,12 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Hackster',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        primarySwatch: Colors.green,
       ),
-      home: const MyHomePage(),
+      home: MarketPrice(),
     );
   }
 }
