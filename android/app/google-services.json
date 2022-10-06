@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "185572013929",
+    "project_id": "hackster-a8254",
+    "storage_bucket": "hackster-a8254.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:185572013929:android:1a4b36189c790ee8c6aff8",
+        "android_client_info": {
+          "package_name": "com.indesigngraphics.hackster"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "185572013929-f7opvanbqctp8gturuedjj08vhi3hcd1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyARg6UnqeAJ4grdW2_7oM5S1azlku46C5M"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "185572013929-f7opvanbqctp8gturuedjj08vhi3hcd1.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
