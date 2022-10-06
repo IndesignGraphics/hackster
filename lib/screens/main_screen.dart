@@ -22,7 +22,6 @@ class _MainScreenState extends State<MainScreen> {
   void initState() {
     _pages = [
       {'page': const HomePage()},
-      {'page': const AddPost()},
       {'page': const ScanPage()},
       {'page': const ToolsPage()},
     ];
@@ -63,16 +62,10 @@ class _MainScreenState extends State<MainScreen> {
             label: 'Home',
           ),
           BottomNavigationBarItem(
-            icon: _selectedPageIndex == 1
-                ? const Icon(Icons.add_a_photo)
-                : const Icon(Icons.add_a_photo_outlined),
-            label: 'Add Post',
-          ),
-          BottomNavigationBarItem(
             icon: _selectedPageIndex == 2
                 ? const Icon(Icons.document_scanner)
                 : const Icon(Icons.document_scanner_outlined),
-            label: 'Scan',
+            label: 'Crop Care',
           ),
           BottomNavigationBarItem(
             icon: _selectedPageIndex == 4

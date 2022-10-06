@@ -1,7 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:hackster/screens/navigation/market_price.dart';
+import 'package:hackster/screens/log_in.dart';
+import 'package:hackster/screens/main_screen.dart';
+import 'firebase_options.dart';
+import 'package:firebase_core/firebase_core.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
   runApp(const MyApp());
 }
 
@@ -16,7 +23,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.green,
       ),
-      home: MarketPrice(),
+      home: const MainScreen(),
     );
   }
 }
