@@ -17,7 +17,10 @@ import 'package:flutter/foundation.dart'
 class DefaultFirebaseOptions {
   static FirebaseOptions get currentPlatform {
     if (kIsWeb) {
-      return web;
+      throw UnsupportedError(
+        'DefaultFirebaseOptions have not been configured for web - '
+        'you can reconfigure this by running the FlutterFire CLI again.',
+      );
     }
     switch (defaultTargetPlatform) {
       case TargetPlatform.android:
@@ -46,31 +49,21 @@ class DefaultFirebaseOptions {
     }
   }
 
-  static const FirebaseOptions web = FirebaseOptions(
-    apiKey: 'AIzaSyAbcHOEBTN8vcIY8k94Mun2JW0BMI7bixo',
-    appId: '1:185572013929:web:3546943c373bd21ec6aff8',
-    messagingSenderId: '185572013929',
-    projectId: 'hackster-a8254',
-    authDomain: 'hackster-a8254.firebaseapp.com',
-    storageBucket: 'hackster-a8254.appspot.com',
-    measurementId: 'G-G7CY2MJWYF',
-  );
-
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyARg6UnqeAJ4grdW2_7oM5S1azlku46C5M',
-    appId: '1:185572013929:android:1a4b36189c790ee8c6aff8',
-    messagingSenderId: '185572013929',
-    projectId: 'hackster-a8254',
-    storageBucket: 'hackster-a8254.appspot.com',
+    apiKey: 'AIzaSyCn699Ku4txFeWcDPAfII9UnfZ7skyXPv8',
+    appId: '1:574293582520:android:050ec2f4e7fc8fcbaa8a4d',
+    messagingSenderId: '574293582520',
+    projectId: 'hackster-38cbf',
+    storageBucket: 'hackster-38cbf.appspot.com',
   );
 
   static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'AIzaSyBSISX9wllIzrHygodOgwCsTiWuzL_FEpc',
-    appId: '1:185572013929:ios:9f5b6d796f91c4c0c6aff8',
-    messagingSenderId: '185572013929',
-    projectId: 'hackster-a8254',
-    storageBucket: 'hackster-a8254.appspot.com',
-    iosClientId: '185572013929-mdbe83cs7ngbasii4f31uus7e1vso53r.apps.googleusercontent.com',
+    apiKey: 'AIzaSyCKvTRdv8oy2ki0BxADWNSrEsiRDMsYDfI',
+    appId: '1:574293582520:ios:7173d59e511f62fdaa8a4d',
+    messagingSenderId: '574293582520',
+    projectId: 'hackster-38cbf',
+    storageBucket: 'hackster-38cbf.appspot.com',
+    iosClientId: '574293582520-840nnvuiot0g7r8ggmbns2lqlbhea5ve.apps.googleusercontent.com',
     iosBundleId: 'com.indesigngraphics.hackster',
   );
 }

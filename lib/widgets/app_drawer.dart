@@ -33,7 +33,10 @@ class AppDrawer extends StatelessWidget {
                 SizedBox(height: 12),
                 Text(
                   "FARMER NAME",
-                  style: TextStyle(fontWeight: FontWeight.bold),
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    color: Colors.white,
+                  ),
                 ),
                 TextButton(
                   onPressed: () {
