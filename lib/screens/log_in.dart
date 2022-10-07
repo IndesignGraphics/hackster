@@ -27,9 +27,9 @@ class _LogInState extends State<LogIn> {
   void verifyNumber(BuildContext context) async {
     number = farmerIdController.text;
     _auth.verifyPhoneNumber(
-      phoneNumber: '+91${farmerIdController.text}',
+      phoneNumber: '+91$number',
       verificationCompleted: (PhoneAuthCredential credential) async {
-        await _auth.signInWithCredential(credential);
+        // await _auth.signInWithCredential(credential);
       },
       verificationFailed: (FirebaseAuthException e) {
         if (e.code == 'invalid-phone-number') {
@@ -47,9 +47,10 @@ class _LogInState extends State<LogIn> {
         }
       },
       codeSent: (String verificationId, int? resendToken) async {
-        // setState(() {
-        //   _isCodeSent = true;
-        // });
+        setState(() {
+          _isCodeSent = true;
+          _isLoading = false;
+        });
         mVerificationId = verificationId;
       },
       codeAutoRetrievalTimeout: (String verificationId) {},
@@ -100,6 +101,7 @@ class _LogInState extends State<LogIn> {
           child: SingleChildScrollView(
             child: Column(
               children: [
+                const SizedBox(height: 20),
                 const Padding(
                   padding: EdgeInsets.all(8.0),
                   child: CircleAvatar(
@@ -150,9 +152,9 @@ class _LogInState extends State<LogIn> {
                         alignment: Alignment.topRight,
                         child: TextButton(
                           onPressed: () {
-                            // setState(() {
-                            //   _isLoading=true;
-                            // });
+                            setState(() {
+                              _isLoading=true;
+                            });
                             sendOtp(context);
                           },
                           child: const Text("Send OTP"),
@@ -184,7 +186,7 @@ class _LogInState extends State<LogIn> {
                             setState(() {
                               _isLoad = true;
                             });
-                            // verifyOtp(context);
+                            verifyOtp(context);
                           },
                           child: const Text("Verify OTP"),
                         ),

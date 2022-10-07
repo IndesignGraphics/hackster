@@ -7,10 +7,31 @@ class FarmDetails extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Farm Details'),
+        title: const Text('Farm Details'),
       ),
-      body: Center(
-        child: Text('Farm details'),
+      body: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: ListView.builder(
+          itemCount: 5,
+          itemBuilder: (context, i) {
+            return ListTile(
+              contentPadding: EdgeInsets.zero,
+              title: Card(
+                clipBehavior: Clip.hardEdge,
+                elevation: 5,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(15),
+                ),
+                child: Container(
+                  padding: const EdgeInsets.all(10),
+                  height: 75,
+                  width: double.infinity,
+                  child: Text('Land Name',style: TextStyle(fontWeight: FontWeight.bold),),
+                ),
+              ),
+            );
+          },
+        ),
       ),
     );
   }
