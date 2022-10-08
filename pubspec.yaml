@@ -71,6 +71,11 @@ flutter:
     - assets/images/neha_patel.png
     - assets/svgs/positive_graph.svg
     - assets/svgs/negative_graph.svg
+    - assets/svgs/cloudy.svg
+    - assets/svgs/umbrella.svg
+    - assets/svgs/wind.svg
+    - assets/svgs/humidity.svg
+    - assets/svgs/sun.svg
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

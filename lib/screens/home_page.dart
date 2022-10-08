@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:hackster/screens/navigation/weather.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -24,7 +25,8 @@ class HomePage extends StatelessWidget {
                       height: 75,
                       padding: const EdgeInsets.all(2),
                       decoration: BoxDecoration(
-                        border: Border.all(color: Colors.green.shade900,width: 2),
+                        border:
+                            Border.all(color: Colors.green.shade900, width: 2),
                         shape: BoxShape.circle,
                       ),
                       child: Container(
@@ -40,7 +42,8 @@ class HomePage extends StatelessWidget {
                     height: 75,
                     padding: const EdgeInsets.all(2),
                     decoration: BoxDecoration(
-                      border: Border.all(color: Colors.green.shade900,width: 2),
+                      border:
+                          Border.all(color: Colors.green.shade900, width: 2),
                       shape: BoxShape.circle,
                     ),
                     child: Container(
@@ -55,107 +58,137 @@ class HomePage extends StatelessWidget {
                   );
                 },
                 separatorBuilder: (BuildContext context, int index) {
-                  return const SizedBox(width: 10,);
+                  return const SizedBox(
+                    width: 10,
+                  );
                 },
               ),
             ),
-            const SizedBox(height: 20,),
-            Card(
-              elevation: 5,
-              clipBehavior: Clip.hardEdge,
-              shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(10)),
-              child: Container(
-                decoration: BoxDecoration(
-                    color: Colors.green,
+            const SizedBox(
+              height: 20,
+            ),
+            InkWell(
+              onTap: () {
+                Navigator.of(context)
+                    .push(MaterialPageRoute(builder: (context) => Weather()));
+              },
+              child: Card(
+                elevation: 5,
+                clipBehavior: Clip.hardEdge,
+                shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(10)),
-                child: Column(
-                  children: [
-                    const SizedBox(
-                      height: 10,
-                    ),
-                    const Text(
-                      'Chandkheda',
-                      style: TextStyle(color: Colors.white, fontSize: 28),
-                    ),
-                    const Text(
-                      'Ahmedabad',
-                      style: TextStyle(color: Colors.white, fontSize: 28),
-                    ),
-                    const SizedBox(
-                      height: 10,
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceAround,
-                      children: [
-                        const Text(
-                          'Today',
-                          style: TextStyle(color: Colors.white, fontSize: 20),
-                        ),
-                        Row(
-                          children: const [
-                            Text(
-                              '22 C',
-                              style:
-                                  TextStyle(color: Colors.white, fontSize: 20),
-                            ),
-                            SizedBox(
-                              width: 5,
-                            ),
-                            Icon(Icons.cloud,
-                                color: Colors.white, size: 30),
-                          ],
-                        )
-                      ],
-                    ),
-                    const SizedBox(
-                      height: 10,
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceAround,
-                      children: [
-                        Column(
-                          children: const [
-                            Icon(
-                              Icons.water_drop,
-                              color: Colors.white,
-                            ),
-                            Text(
-                              '1 cm',
-                              style: TextStyle(color: Colors.white),
-                            ),
-                          ],
-                        ),
-                        Column(
-                          children: const [
-                            Icon(
-                              Icons.water_drop,
-                              color: Colors.white,
-                            ),
-                            Text(
-                              '1 cm',
-                              style: TextStyle(color: Colors.white),
-                            ),
-                          ],
-                        ),
-                        Column(
-                          children: const [
-                            Icon(
-                              Icons.water_drop,
-                              color: Colors.white,
-                            ),
-                            Text(
-                              '1 cm',
-                              style: TextStyle(color: Colors.white),
-                            ),
-                          ],
-                        ),
-                      ],
-                    ),
-                    const SizedBox(
-                      height: 10,
-                    ),
-                  ],
+                child: Container(
+                  decoration: BoxDecoration(
+                      color: Color(0xFF2A3832),
+                      borderRadius: BorderRadius.circular(10)),
+                  child: Column(
+                    children: [
+                      const SizedBox(
+                        height: 10,
+                      ),
+                      const Text(
+                        'Chandkheda',
+                        style: TextStyle(color: Colors.white, fontSize: 28),
+                      ),
+                      const Text(
+                        'Ahmedabad',
+                        style: TextStyle(color: Colors.white, fontSize: 28),
+                      ),
+                      const SizedBox(
+                        height: 10,
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        children: [
+                          const Text(
+                            'Today',
+                            style: TextStyle(color: Colors.white, fontSize: 20),
+                          ),
+                          Row(
+                            children: const [
+                              Text(
+                                '22 °C',
+                                style: TextStyle(
+                                    color: Colors.white, fontSize: 20),
+                              ),
+                              SizedBox(
+                                width: 5,
+                              ),
+                              Icon(
+                                Icons.cloud,
+                                color: Colors.white,
+                                size: 30,
+                              ),
+                            ],
+                          )
+                        ],
+                      ),
+                      const SizedBox(
+                        height: 10,
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        children: [
+                          Column(
+                            children: [
+                              Card(
+                                color: Colors.white,
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(15),
+                                ),
+                                child: SvgPicture.asset(
+                                    'assets/svgs/umbrella.svg'),
+                              ),
+                              Text(
+                                '1 cm',
+                                style: TextStyle(color: Colors.white),
+                              ),
+                            ],
+                          ),
+                          Column(
+                            children: [
+                              Card(
+                                color: Colors.white,
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(15),
+                                ),
+                                child: Container(
+                                  height: 43,
+                                  child: Center(
+                                    child: SvgPicture.asset(
+                                        'assets/svgs/wind.svg'),
+                                  ),
+                                ),
+                              ),
+                              Text(
+                                '15 km/h',
+                                style: TextStyle(color: Colors.white),
+                              ),
+                            ],
+                          ),
+                          Column(
+                            children: [
+                              Card(
+                                color: Colors.white,
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(15),
+                                ),
+                                child: SvgPicture.asset(
+                                    'assets/svgs/humidity.svg'),
+                              ),
+                              Text(
+                                '50%',
+                                style: TextStyle(color: Colors.white),
+                              ),
+                            ],
+                          ),
+                        ],
+                      ),
+                      const SizedBox(
+                        height: 10,
+                      ),
+                    ],
+                  ),
                 ),
               ),
             ),
