@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:hackster/screens/add_post.dart';
-import 'package:hackster/screens/scan_page.dart';
+import 'package:hackster/screens/crop_care.dart';
 import 'package:hackster/screens/tools_page.dart';
 import 'package:hackster/widgets/app_drawer.dart';
 
@@ -22,7 +21,7 @@ class _MainScreenState extends State<MainScreen> {
   void initState() {
     _pages = [
       {'page': const HomePage()},
-      {'page': const ScanPage()},
+      {'page': const CropCare()},
       {'page': const ToolsPage()},
     ];
     super.initState();
@@ -62,13 +61,13 @@ class _MainScreenState extends State<MainScreen> {
             label: 'Home',
           ),
           BottomNavigationBarItem(
-            icon: _selectedPageIndex == 2
-                ? const Icon(Icons.document_scanner)
-                : const Icon(Icons.document_scanner_outlined),
+            icon: _selectedPageIndex == 1
+                ? const Icon(Icons.yard)
+                : const Icon(Icons.yard_outlined),
             label: 'Crop Care',
           ),
           BottomNavigationBarItem(
-            icon: _selectedPageIndex == 4
+            icon: _selectedPageIndex == 2
                 ? const Icon(Icons.handyman)
                 : const Icon(Icons.handyman_outlined),
             label: 'Tools',

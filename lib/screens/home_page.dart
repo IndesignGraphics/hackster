@@ -9,10 +9,57 @@ class HomePage extends StatelessWidget {
     return SingleChildScrollView(
       child: Container(
         padding: const EdgeInsets.all(15),
-        // margin: const EdgeInsets.all(10),
         height: MediaQuery.of(context).size.height - 160,
         child: Column(
           children: [
+            SizedBox(
+              height: 75,
+              child: ListView.separated(
+                scrollDirection: Axis.horizontal,
+                itemCount: 20,
+                itemBuilder: (context, i) {
+                  if (i == 0) {
+                    return Container(
+                      width: 75,
+                      height: 75,
+                      padding: const EdgeInsets.all(2),
+                      decoration: BoxDecoration(
+                        border: Border.all(color: Colors.green.shade900,width: 2),
+                        shape: BoxShape.circle,
+                      ),
+                      child: Container(
+                        decoration: const BoxDecoration(
+                          shape: BoxShape.circle,
+                        ),
+                        child: const Icon(Icons.add),
+                      ),
+                    );
+                  }
+                  return Container(
+                    width: 75,
+                    height: 75,
+                    padding: const EdgeInsets.all(2),
+                    decoration: BoxDecoration(
+                      border: Border.all(color: Colors.green.shade900,width: 2),
+                      shape: BoxShape.circle,
+                    ),
+                    child: Container(
+                      decoration: const BoxDecoration(
+                        shape: BoxShape.circle,
+                        image: DecorationImage(
+                          image: AssetImage('assets/images/cotton.jpg'),
+                          fit: BoxFit.fill,
+                        ),
+                      ),
+                    ),
+                  );
+                },
+                separatorBuilder: (BuildContext context, int index) {
+                  return const SizedBox(width: 10,);
+                },
+              ),
+            ),
+            const SizedBox(height: 20,),
             Card(
               elevation: 5,
               clipBehavior: Clip.hardEdge,
@@ -46,16 +93,16 @@ class HomePage extends StatelessWidget {
                           style: TextStyle(color: Colors.white, fontSize: 20),
                         ),
                         Row(
-                          children: [
-                            const Text(
+                          children: const [
+                            Text(
                               '22 C',
                               style:
                                   TextStyle(color: Colors.white, fontSize: 20),
                             ),
-                            const SizedBox(
+                            SizedBox(
                               width: 5,
                             ),
-                            const Icon(Icons.cloud,
+                            Icon(Icons.cloud,
                                 color: Colors.white, size: 30),
                           ],
                         )
@@ -68,36 +115,36 @@ class HomePage extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.spaceAround,
                       children: [
                         Column(
-                          children: [
-                            const Icon(
+                          children: const [
+                            Icon(
                               Icons.water_drop,
                               color: Colors.white,
                             ),
-                            const Text(
+                            Text(
                               '1 cm',
                               style: TextStyle(color: Colors.white),
                             ),
                           ],
                         ),
                         Column(
-                          children: [
-                            const Icon(
+                          children: const [
+                            Icon(
                               Icons.water_drop,
                               color: Colors.white,
                             ),
-                            const Text(
+                            Text(
                               '1 cm',
                               style: TextStyle(color: Colors.white),
                             ),
                           ],
                         ),
                         Column(
-                          children: [
-                            const Icon(
+                          children: const [
+                            Icon(
                               Icons.water_drop,
                               color: Colors.white,
                             ),
-                            const Text(
+                            Text(
                               '1 cm',
                               style: TextStyle(color: Colors.white),
                             ),
@@ -166,14 +213,14 @@ class HomePage extends StatelessWidget {
                                   'assets/svgs/positive_graph.svg'),
                               Column(
                                 crossAxisAlignment: CrossAxisAlignment.end,
-                                children: [
-                                  const Text(
+                                children: const [
+                                  Text(
                                     '₹58.23',
                                     style: TextStyle(
                                         fontWeight: FontWeight.bold,
                                         fontSize: 20),
                                   ),
-                                  const Text(
+                                  Text(
                                     '+10.00%',
                                     style: TextStyle(
                                         color: Colors.green, fontSize: 13),
@@ -213,15 +260,15 @@ class HomePage extends StatelessWidget {
                                   'assets/svgs/negative_graph.svg'),
                               Column(
                                 crossAxisAlignment: CrossAxisAlignment.end,
-                                children: [
-                                  const Text(
+                                children: const [
+                                  Text(
                                     '₹36.83',
                                     style: TextStyle(
                                         fontWeight: FontWeight.bold,
                                         fontSize: 20),
                                   ),
-                                  const Text(
-                                    '-10.00%',
+                                  Text(
+                                    '-7.36%',
                                     style: TextStyle(
                                         color: Colors.red, fontSize: 13),
                                   ),

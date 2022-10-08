@@ -27,8 +27,9 @@ class ProfilePage extends StatelessWidget {
                 decoration: BoxDecoration(
                   shape: BoxShape.circle,
                   image: DecorationImage(
-                      image: AssetImage('assets/images/cotton.jpg'),
-                      fit: BoxFit.fill),
+                    image: AssetImage('assets/images/cotton.jpg'),
+                    fit: BoxFit.fill,
+                  ),
                 ),
               ),
               SizedBox(
