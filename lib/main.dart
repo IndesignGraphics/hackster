@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:hackster/screens/log_in.dart';
 import 'package:hackster/screens/main_screen.dart';
@@ -12,8 +13,24 @@ void main() async {
   runApp(const MyApp());
 }
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
   const MyApp({super.key});
+
+  @override
+  State<MyApp> createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+
+  bool _isLogin = false;
+
+  @override
+  void initState() {
+    if(FirebaseAuth.instance.currentUser != null){
+      _isLogin = true;
+    }
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -23,7 +40,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.green,
       ),
-      home: const LogIn(),
+      home: _isLogin ? const MainScreen():const LogIn(),
     );
   }
 }

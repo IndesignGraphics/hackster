@@ -1,34 +1,50 @@
 {
   "project_info": {
-    "project_number": "185572013929",
-    "project_id": "hackster-a8254",
-    "storage_bucket": "hackster-a8254.appspot.com"
+    "project_number": "574293582520",
+    "firebase_url": "https://hackster-38cbf-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "hackster-38cbf",
+    "storage_bucket": "hackster-38cbf.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:185572013929:android:1a4b36189c790ee8c6aff8",
+        "mobilesdk_app_id": "1:574293582520:android:050ec2f4e7fc8fcbaa8a4d",
         "android_client_info": {
           "package_name": "com.indesigngraphics.hackster"
         }
       },
       "oauth_client": [
         {
-          "client_id": "185572013929-f7opvanbqctp8gturuedjj08vhi3hcd1.apps.googleusercontent.com",
+          "client_id": "574293582520-3aiafj6rrif74fu0o9fhrhh826a9fqk1.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.indesigngraphics.hackster",
+            "certificate_hash": "640e02ca2b474babc1ecde9d144b02660b8f64c5"
+          }
+        },
+        {
+          "client_id": "574293582520-74qkd5la9c03kbohmk9c7d5hlp3jpuv3.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyARg6UnqeAJ4grdW2_7oM5S1azlku46C5M"
+          "current_key": "AIzaSyCn699Ku4txFeWcDPAfII9UnfZ7skyXPv8"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "185572013929-f7opvanbqctp8gturuedjj08vhi3hcd1.apps.googleusercontent.com",
+              "client_id": "574293582520-74qkd5la9c03kbohmk9c7d5hlp3jpuv3.apps.googleusercontent.com",
               "client_type": 3
+            },
+            {
+              "client_id": "574293582520-840nnvuiot0g7r8ggmbns2lqlbhea5ve.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.indesigngraphics.hackster"
+              }
             }
           ]
         }
