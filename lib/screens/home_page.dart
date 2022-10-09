@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:hackster/screens/navigation/market_price.dart';
 import 'package:hackster/screens/navigation/weather.dart';
 
 class HomePage extends StatelessWidget {
@@ -25,8 +26,7 @@ class HomePage extends StatelessWidget {
                       height: 75,
                       padding: const EdgeInsets.all(2),
                       decoration: BoxDecoration(
-                        border:
-                            Border.all(color: Color(0xFF2A3832), width: 2),
+                        border: Border.all(color: Color(0xFF2A3832), width: 2),
                         shape: BoxShape.circle,
                       ),
                       child: Container(
@@ -42,8 +42,7 @@ class HomePage extends StatelessWidget {
                     height: 75,
                     padding: const EdgeInsets.all(2),
                     decoration: BoxDecoration(
-                      border:
-                          Border.all(color: Color(0xFF2A3832), width: 2),
+                      border: Border.all(color: Color(0xFF2A3832), width: 2),
                       shape: BoxShape.circle,
                     ),
                     child: Container(
@@ -316,16 +315,25 @@ class HomePage extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.end,
                       children: [
                         TextButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            Navigator.of(context).push(MaterialPageRoute(
+                                builder: (context) => MarketPrice()));
+                          },
                           child: const Text(
                             'View All Rates',
                             style: TextStyle(
                                 color: Color(0xFF2A3832), fontSize: 15),
                           ),
                         ),
-                        const Icon(
-                          Icons.arrow_forward_ios,
-                          color: Color(0xFF2A3832),
+                        InkWell(
+                          onTap: () {
+                            Navigator.of(context).push(MaterialPageRoute(
+                                builder: (context) => MarketPrice()));
+                          },
+                          child: const Icon(
+                            Icons.arrow_forward_ios,
+                            color: Color(0xFF2A3832),
+                          ),
                         ),
                         const SizedBox(
                           width: 10,
