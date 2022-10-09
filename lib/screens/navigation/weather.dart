@@ -9,11 +9,10 @@ class Weather extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Weather'),
-        backgroundColor: const Color(0xFF2A3832),
         centerTitle: true,
       ),
       body: Container(
-        color: const Color(0xFF2A3832),
+        color: Theme.of(context).primaryColor,
         padding: const EdgeInsets.all(10),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -36,9 +35,9 @@ class Weather extends StatelessWidget {
               height: 5,
             ),
             const Text(
-              'Tue,Jun 30',
+              'Tue, Jun 30',
               style: TextStyle(
-                color: Color(0xFF9A938C),
+                color: Colors.grey,
               ),
             ),
             Row(
@@ -82,7 +81,7 @@ class Weather extends StatelessWidget {
             ),
             Container(
               child: Card(
-                color: Color(0xFF77807C),
+                color: Colors.grey,
                 clipBehavior: Clip.hardEdge,
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(20),
@@ -119,12 +118,12 @@ class Weather extends StatelessWidget {
                 ),
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 5,
             ),
             Container(
               child: Card(
-                color: Color(0xFF77807C),
+                color: Colors.grey,
                 clipBehavior: Clip.hardEdge,
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(20),
@@ -171,13 +170,13 @@ class Weather extends StatelessWidget {
             ),
             Container(
               child: Card(
-                color: Color(0xFF77807C),
+                color: Colors.grey,
                 clipBehavior: Clip.hardEdge,
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(20),
                 ),
                 child: Container(
-                  padding: EdgeInsets.all(10),
+                  padding: const EdgeInsets.all(10),
                   child: Row(
                     children: [
                       Card(
@@ -221,13 +220,13 @@ class Weather extends StatelessWidget {
                     padding: EdgeInsets.symmetric(vertical: 15, horizontal: 11),
                     margin: EdgeInsets.symmetric(horizontal: 8),
                     decoration: BoxDecoration(
-                      color: Color(0xFF69736F),
+                      color: Colors.grey,
                       borderRadius: BorderRadius.circular(40),
                     ),
                     child: Column(
                       children: [
                         Text(
-                          'now',
+                          'Now',
                           style: TextStyle(
                             color: Colors.white,
                           ),

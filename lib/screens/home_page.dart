@@ -26,7 +26,7 @@ class HomePage extends StatelessWidget {
                       padding: const EdgeInsets.all(2),
                       decoration: BoxDecoration(
                         border:
-                            Border.all(color: Colors.green.shade900, width: 2),
+                            Border.all(color: Color(0xFF2A3832), width: 2),
                         shape: BoxShape.circle,
                       ),
                       child: Container(
@@ -43,7 +43,7 @@ class HomePage extends StatelessWidget {
                     padding: const EdgeInsets.all(2),
                     decoration: BoxDecoration(
                       border:
-                          Border.all(color: Colors.green.shade900, width: 2),
+                          Border.all(color: Color(0xFF2A3832), width: 2),
                       shape: BoxShape.circle,
                     ),
                     child: Container(
@@ -79,7 +79,7 @@ class HomePage extends StatelessWidget {
                     borderRadius: BorderRadius.circular(10)),
                 child: Container(
                   decoration: BoxDecoration(
-                      color: Color(0xFF2A3832),
+                      color: const Color(0xFF2A3832),
                       borderRadius: BorderRadius.circular(10)),
                   child: Column(
                     children: [
@@ -139,7 +139,7 @@ class HomePage extends StatelessWidget {
                                 child: SvgPicture.asset(
                                     'assets/svgs/umbrella.svg'),
                               ),
-                              Text(
+                              const Text(
                                 '1 cm',
                                 style: TextStyle(color: Colors.white),
                               ),
@@ -160,7 +160,7 @@ class HomePage extends StatelessWidget {
                                   ),
                                 ),
                               ),
-                              Text(
+                              const Text(
                                 '15 km/h',
                                 style: TextStyle(color: Colors.white),
                               ),
@@ -176,7 +176,7 @@ class HomePage extends StatelessWidget {
                                 child: SvgPicture.asset(
                                     'assets/svgs/humidity.svg'),
                               ),
-                              Text(
+                              const Text(
                                 '50%',
                                 style: TextStyle(color: Colors.white),
                               ),
@@ -208,7 +208,7 @@ class HomePage extends StatelessWidget {
                   children: [
                     Container(
                       width: double.infinity,
-                      color: Colors.green,
+                      color: const Color(0xFF2A3832),
                       padding: const EdgeInsets.all(10),
                       child: const Text(
                         'Market Price',

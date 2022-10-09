@@ -1,8 +1,4 @@
 <svg width="34" height="34" viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg">
-<g filter="url(#filter0_di_416_2136)">
-<circle cx="16.9275" cy="17.0224" r="12.0056" fill="#FBCA1C"/>
-<circle cx="16.9275" cy="17.0224" r="12.0056" fill="url(#paint0_radial_416_2136)" fill-opacity="0.2"/>
-</g>
 <defs>
 <filter id="filter0_di_416_2136" x="0.348316" y="0.443287" width="33.1579" height="33.1583" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
 <feFlood flood-opacity="0" result="BackgroundImageFix"/>
@@ -26,4 +22,8 @@
 <stop offset="1" stop-color="#E4750E"/>
 </radialGradient>
 </defs>
+<g filter="url(#filter0_di_416_2136)">
+<circle cx="16.9275" cy="17.0224" r="12.0056" fill="#FBCA1C"/>
+<circle cx="16.9275" cy="17.0224" r="12.0056" fill="url(#paint0_radial_416_2136)" fill-opacity="0.2"/>
+</g>
 </svg>

@@ -212,7 +212,7 @@ class CropCare extends StatelessWidget {
                   ),
                 ],
               ),
-            )
+            ),
           ],
         ),
       ),
