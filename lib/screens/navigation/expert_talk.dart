@@ -50,7 +50,6 @@ class ExpertTalk extends StatelessWidget {
                 borderRadius: BorderRadius.circular(10),
               ),
               child: Row(
-                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Container(
                     height: 150,
@@ -62,30 +61,37 @@ class ExpertTalk extends StatelessWidget {
                       ),
                     ),
                   ),
-                  Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      const Text(
-                        'Rohan Sharma',
-                        style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          fontSize: 20
+                  const SizedBox(width: 20,),
+                  SizedBox(
+                    height: 150,
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        const Text(
+                          'Rohan Sharma',
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 20
+                          ),
                         ),
-                      ),
-                      const Text('Msc in agriculture'),
-                      Row(
-                        children: [
-                          const Icon(Icons.phone),
-                          const Text('+919229436658'),
-                        ],
-                      ),
-                      Row(
-                        children: [
-                          const Icon(Icons.message),
-                          const Text('rohan@gmail.com'),
-                        ],
-                      ),
-                    ],
+                        const Text('Msc in agriculture'),
+                        Row(
+                          children: const [
+                            Icon(Icons.phone),
+                            SizedBox(width: 5,),
+                            Text('+919229436658'),
+                          ],
+                        ),
+                        Row(
+                          children: const [
+                            Icon(Icons.message),
+                            SizedBox(width: 5,),
+                            Text('rohan@gmail.com'),
+                          ],
+                        ),
+                      ],
+                    ),
                   )
                 ],
               ),
@@ -109,9 +115,8 @@ class ExpertTalk extends StatelessWidget {
                 borderRadius: BorderRadius.circular(10),
               ),
               child: Row(
-                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Container(
+                  SizedBox(
                     height: 150,
                     child: ClipRRect(
                       borderRadius: BorderRadius.circular(10),
@@ -121,30 +126,37 @@ class ExpertTalk extends StatelessWidget {
                       ),
                     ),
                   ),
-                  Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      const Text(
-                        'Murray Isman',
-                        style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          fontSize: 20
+                  const SizedBox(width: 20,),
+                  SizedBox(
+                    height: 150,
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        const Text(
+                          'Murray Isman',
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 20
+                          ),
                         ),
-                      ),
-                      const Text('Msc in agriculture'),
-                      Row(
-                        children: [
-                          const Icon(Icons.phone),
-                          const Text('+919479436658'),
-                        ],
-                      ),
-                      Row(
-                        children: [
-                          const Icon(Icons.message),
-                          const Text('murray@gmail.com'),
-                        ],
-                      ),
-                    ],
+                        const Text('Msc in agriculture'),
+                        Row(
+                          children: const [
+                            Icon(Icons.phone),
+                            SizedBox(width: 5,),
+                            Text('+919479436658'),
+                          ],
+                        ),
+                        Row(
+                          children: const [
+                            Icon(Icons.message),
+                            SizedBox(width: 5,),
+                            Text('murray@gmail.com'),
+                          ],
+                        ),
+                      ],
+                    ),
                   )
                 ],
               ),
@@ -170,7 +182,7 @@ class ExpertTalk extends StatelessWidget {
               child: Row(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Container(
+                  SizedBox(
                     height: 150,
                     child: ClipRRect(
                       borderRadius: BorderRadius.circular(10),
@@ -180,30 +192,37 @@ class ExpertTalk extends StatelessWidget {
                       ),
                     ),
                   ),
-                  Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      const Text(
-                        'Neha Patel',
-                        style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          fontSize: 20
+                  const SizedBox(width: 20,),
+                  SizedBox(
+                    height: 150,
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        const Text(
+                          'Neha Patel',
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 20
+                          ),
                         ),
-                      ),
-                      const Text('Bsc in agriculture'),
-                      Row(
-                        children: [
-                          const Icon(Icons.phone),
-                          const Text('+919229436658'),
-                        ],
-                      ),
-                      Row(
-                        children: [
-                          const Icon(Icons.message),
-                          const Text('neha@gmail.com'),
-                        ],
-                      ),
-                    ],
+                        const Text('Bsc in agriculture'),
+                        Row(
+                          children: const [
+                            Icon(Icons.phone),
+                            SizedBox(width: 5,),
+                            Text('+919229436658'),
+                          ],
+                        ),
+                        Row(
+                          children: const [
+                            Icon(Icons.message),
+                            SizedBox(width: 5,),
+                            Text('neha@gmail.com'),
+                          ],
+                        ),
+                      ],
+                    ),
                   )
                 ],
               ),
