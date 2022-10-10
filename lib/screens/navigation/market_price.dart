@@ -9,19 +9,17 @@ class MarketPrice extends StatefulWidget {
 }
 
 class _MarketPriceState extends State<MarketPrice> {
+  var items = [
+    'Rajkot',
+    'Ahmedabad',
+    'Vadodara',
+    'Surat',
+    'Gandhinagar',
+  ];
+  String dropDownValue = 'Rajkot';
+
   @override
   Widget build(BuildContext context) {
-    String dropdownvalue = 'Rajkot';
-    
-    // List of items in our dropdown menu
-    var items = [
-      'Rajkot',
-      'Ahmedabad',
-      'Vadodara',
-      'Suraj',
-      'Gandhinagar',
-    ];
-
     return DefaultTabController(
       length: 4,
       child: Scaffold(
@@ -29,11 +27,11 @@ class _MarketPriceState extends State<MarketPrice> {
           title: const Text('Market Price'),
         ),
         body: Container(
-          padding: EdgeInsets.all(10),
+          padding: const EdgeInsets.all(10),
           child: Column(
             children: [
               Container(
-                padding: EdgeInsets.all(20),
+                padding: const EdgeInsets.all(20),
                 decoration: BoxDecoration(
                   color: Theme.of(context).primaryColor,
                   borderRadius: BorderRadius.circular(12),
@@ -46,30 +44,27 @@ class _MarketPriceState extends State<MarketPrice> {
                       children: [
                         DropdownButton(
                           dropdownColor: Theme.of(context).primaryColor,
-                          value: dropdownvalue,
-                          onChanged: (String? newValue) {
+                          value: dropDownValue,
+                          onChanged: (String? value) {
                             setState(() {
-                              dropdownvalue = newValue!;
+                              dropDownValue = value!;
                             });
                           },
-                          items: items.map((String items) {
+                          items: items
+                              .map<DropdownMenuItem<String>>((String value) {
                             return DropdownMenuItem(
-                              value: items,
+                              value: value,
                               child: Text(
-                                items,
-                                style: TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 20,
-                                  fontWeight: FontWeight.bold,
-                                ),
+                                value,
+                                style: const TextStyle(color: Colors.white),
                               ),
                             );
                           }).toList(),
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 30,
                         ),
-                        Text(
+                        const Text(
                           'Vegetables',
                           style: TextStyle(
                             color: Colors.white,
@@ -77,17 +72,17 @@ class _MarketPriceState extends State<MarketPrice> {
                             fontWeight: FontWeight.bold,
                           ),
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 5,
                         ),
-                        Text(
+                        const Text(
                           'Aug 09,2022',
                           style: TextStyle(
                             color: Colors.white,
                             fontSize: 10,
                           ),
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 20,
                         ),
                       ],
@@ -97,7 +92,7 @@ class _MarketPriceState extends State<MarketPrice> {
                       children: [
                         SvgPicture.asset('assets/svgs/positive_graph.svg',
                             height: 70),
-                        Text(
+                        const Text(
                           '+1.50%',
                           style: TextStyle(
                             color: Colors.green,
@@ -109,7 +104,7 @@ class _MarketPriceState extends State<MarketPrice> {
                   ],
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 10,
               ),
               SizedBox(
@@ -119,11 +114,11 @@ class _MarketPriceState extends State<MarketPrice> {
                   bottom: TabBar(
                     indicatorWeight: 3,
                     labelColor: Theme.of(context).primaryColor,
-                    labelStyle: TextStyle(fontWeight: FontWeight.bold),
+                    labelStyle: const TextStyle(fontWeight: FontWeight.bold),
                     unselectedLabelStyle:
-                        TextStyle(fontWeight: FontWeight.normal),
+                        const TextStyle(fontWeight: FontWeight.normal),
                     isScrollable: true,
-                    tabs: [
+                    tabs: const [
                       Tab(
                         text: 'Vegetables',
                       ),
@@ -147,7 +142,7 @@ class _MarketPriceState extends State<MarketPrice> {
                       itemCount: 10,
                       itemBuilder: (ctx, i) {
                         return Container(
-                          margin: EdgeInsets.symmetric(vertical: 5),
+                          margin: const EdgeInsets.symmetric(vertical: 5),
                           color: Colors.white,
                           child: Center(
                             child: Card(
@@ -172,7 +167,7 @@ class _MarketPriceState extends State<MarketPrice> {
                                     ),
                                     SvgPicture.asset(
                                         'assets/svgs/positive_graph.svg'),
-                                    Container(
+                                    SizedBox(
                                       height: 40,
                                       child: Column(
                                         crossAxisAlignment:
@@ -205,7 +200,7 @@ class _MarketPriceState extends State<MarketPrice> {
                       itemCount: 10,
                       itemBuilder: (ctx, i) {
                         return Container(
-                          margin: EdgeInsets.symmetric(vertical: 5),
+                          margin: const EdgeInsets.symmetric(vertical: 5),
                           color: Colors.white,
                           child: Center(
                             child: Card(
@@ -230,7 +225,7 @@ class _MarketPriceState extends State<MarketPrice> {
                                     ),
                                     SvgPicture.asset(
                                         'assets/svgs/negative_graph.svg'),
-                                    Container(
+                                    SizedBox(
                                       height: 40,
                                       child: Column(
                                         crossAxisAlignment:
@@ -259,12 +254,11 @@ class _MarketPriceState extends State<MarketPrice> {
                         );
                       },
                     ),
-                    
                     ListView.builder(
                       itemCount: 10,
                       itemBuilder: (ctx, i) {
                         return Container(
-                          margin: EdgeInsets.symmetric(vertical: 5),
+                          margin: const EdgeInsets.symmetric(vertical: 5),
                           color: Colors.white,
                           child: Center(
                             child: Card(
@@ -289,7 +283,7 @@ class _MarketPriceState extends State<MarketPrice> {
                                     ),
                                     SvgPicture.asset(
                                         'assets/svgs/positive_graph.svg'),
-                                    Container(
+                                    SizedBox(
                                       height: 40,
                                       child: Column(
                                         crossAxisAlignment:
@@ -318,12 +312,11 @@ class _MarketPriceState extends State<MarketPrice> {
                         );
                       },
                     ),
-                    
                     ListView.builder(
                       itemCount: 10,
                       itemBuilder: (ctx, i) {
                         return Container(
-                          margin: EdgeInsets.symmetric(vertical: 5),
+                          margin: const EdgeInsets.symmetric(vertical: 5),
                           color: Colors.white,
                           child: Center(
                             child: Card(
@@ -348,7 +341,7 @@ class _MarketPriceState extends State<MarketPrice> {
                                     ),
                                     SvgPicture.asset(
                                         'assets/svgs/positive_graph.svg'),
-                                    Container(
+                                    SizedBox(
                                       height: 40,
                                       child: Column(
                                         crossAxisAlignment:
@@ -377,7 +370,6 @@ class _MarketPriceState extends State<MarketPrice> {
                         );
                       },
                     ),
-                    
                   ],
                 ),
               ),

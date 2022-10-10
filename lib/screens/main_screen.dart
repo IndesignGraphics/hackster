@@ -42,7 +42,11 @@ class _MainScreenState extends State<MainScreen> {
           IconButton(
             onPressed: () {},
             icon: const Icon(Icons.notifications),
-          )
+          ),
+          IconButton(
+            onPressed: () {},
+            icon: const Icon(Icons.settings),
+          ),
         ],
       ),
       drawer: const AppDrawer(),
