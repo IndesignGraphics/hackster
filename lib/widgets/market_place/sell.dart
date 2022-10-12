@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:hackster/screens/other/add_new_item_for_sell.dart';
 
 class Sell extends StatelessWidget {
   const Sell({Key? key}) : super(key: key);
@@ -19,7 +20,13 @@ class Sell extends StatelessWidget {
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
       floatingActionButton: ElevatedButton(
-        onPressed: (){},
+        onPressed: () {
+          Navigator.of(context).push(
+            MaterialPageRoute(
+              builder: ((context) => AddNewItemForSell()),
+            ),
+          );
+        },
         child: Text('Add new item for sell'),
       ),
     );
