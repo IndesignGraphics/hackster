@@ -17,14 +17,14 @@ class ProfilePage extends StatelessWidget {
       ),
       body: SingleChildScrollView(
         child: Container(
-          margin: EdgeInsets.all(10),
+          margin: const EdgeInsets.all(10),
           height: MediaQuery.of(context).size.height - 110,
           child: Column(
             children: [
               Container(
                 width: 200,
                 height: 200,
-                decoration: BoxDecoration(
+                decoration: const BoxDecoration(
                   shape: BoxShape.circle,
                   image: DecorationImage(
                     image: AssetImage('assets/images/cotton.jpg'),
@@ -32,26 +32,26 @@ class ProfilePage extends StatelessWidget {
                   ),
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 10,
               ),
-              Text(
+              const Text(
                 'Farmer Name',
                 style: TextStyle(fontWeight: FontWeight.bold, fontSize: 28),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 10,
               ),
-              Text(
+              const Text(
                 'Farmer Id',
                 style: TextStyle(fontWeight: FontWeight.bold, fontSize: 28),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 10,
               ),
               Card(
                 child: Container(
-                  padding: EdgeInsets.all(10),
+                  padding: const EdgeInsets.symmetric(vertical: 5),
                   child: Column(
                     children: [
                       InkWell(
@@ -59,17 +59,21 @@ class ProfilePage extends StatelessWidget {
                           Navigator.of(context).push(MaterialPageRoute(
                               builder: (context) => const ProfileInfo()));
                         },
-                        child: Row(
-                          children: [
-                            Icon(Icons.person),
-                            SizedBox(
-                              width: 10,
-                            ),
-                            Text('Profile Information'),
-                          ],
+                        child: Padding(
+                          padding: const EdgeInsets.symmetric(
+                              horizontal: 10, vertical: 5),
+                          child: Row(
+                            children: [
+                              const Icon(Icons.person),
+                              const SizedBox(
+                                width: 10,
+                              ),
+                              const Text('Profile Information'),
+                            ],
+                          ),
                         ),
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 10,
                       ),
                       InkWell(
@@ -77,17 +81,21 @@ class ProfilePage extends StatelessWidget {
                           Navigator.of(context).push(MaterialPageRoute(
                               builder: (context) => const FarmDetails()));
                         },
-                        child: Row(
-                          children: [
-                            Icon(Icons.agriculture),
-                            SizedBox(
-                              width: 10,
-                            ),
-                            Text('Farm Details'),
-                          ],
+                        child: Padding(
+                          padding: const EdgeInsets.symmetric(
+                              horizontal: 10, vertical: 5),
+                          child: Row(
+                            children: [
+                              const Icon(Icons.agriculture),
+                              const SizedBox(
+                                width: 10,
+                              ),
+                              const Text('Farm Details'),
+                            ],
+                          ),
                         ),
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 10,
                       ),
                       InkWell(
@@ -95,26 +103,30 @@ class ProfilePage extends StatelessWidget {
                           Navigator.of(context).push(MaterialPageRoute(
                               builder: (context) => const Qualification()));
                         },
-                        child: Row(
-                          children: [
-                            Icon(Icons.school),
-                            SizedBox(
-                              width: 10,
-                            ),
-                            Text('Qualification'),
-                          ],
+                        child: Padding(
+                          padding: const EdgeInsets.symmetric(
+                              horizontal: 10, vertical: 5),
+                          child: Row(
+                            children: [
+                              const Icon(Icons.school),
+                              const SizedBox(
+                                width: 10,
+                              ),
+                              const Text('Qualification'),
+                            ],
+                          ),
                         ),
                       ),
                     ],
                   ),
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 10,
               ),
               Card(
                 child: Container(
-                  padding: EdgeInsets.all(10),
+                  padding: const EdgeInsets.symmetric(vertical: 5),
                   child: Column(
                     children: [
                       InkWell(
@@ -122,17 +134,21 @@ class ProfilePage extends StatelessWidget {
                           Navigator.of(context).push(MaterialPageRoute(
                               builder: (context) => const HelpAndSupport()));
                         },
-                        child: Row(
-                          children: [
-                            Icon(Icons.support_agent),
-                            SizedBox(
-                              width: 10,
-                            ),
-                            Text('Help and Support'),
-                          ],
+                        child: Padding(
+                          padding: const EdgeInsets.symmetric(
+                              horizontal: 10, vertical: 5),
+                          child: Row(
+                            children: [
+                              const Icon(Icons.support_agent),
+                              const SizedBox(
+                                width: 10,
+                              ),
+                              const Text('Help and Support'),
+                            ],
+                          ),
                         ),
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 10,
                       ),
                       InkWell(
@@ -140,17 +156,21 @@ class ProfilePage extends StatelessWidget {
                           Navigator.of(context).push(MaterialPageRoute(
                               builder: (context) => const ContactUs()));
                         },
-                        child: Row(
-                          children: [
-                            Icon(Icons.contacts),
-                            SizedBox(
-                              width: 10,
-                            ),
-                            Text('Contact Us'),
-                          ],
+                        child: Padding(
+                          padding: const EdgeInsets.symmetric(
+                              horizontal: 10, vertical: 5),
+                          child: Row(
+                            children: [
+                              const Icon(Icons.contacts),
+                              const SizedBox(
+                                width: 10,
+                              ),
+                              const Text('Contact Us'),
+                            ],
+                          ),
                         ),
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 10,
                       ),
                       InkWell(
@@ -158,14 +178,18 @@ class ProfilePage extends StatelessWidget {
                           Navigator.of(context).push(MaterialPageRoute(
                               builder: (context) => const PrivacyPolicy()));
                         },
-                        child: Row(
-                          children: [
-                            Icon(Icons.verified_user),
-                            SizedBox(
-                              width: 10,
-                            ),
-                            Text('Privacy Policy'),
-                          ],
+                        child: Padding(
+                          padding: const EdgeInsets.symmetric(
+                              horizontal: 10, vertical: 5),
+                          child: Row(
+                            children: [
+                              const Icon(Icons.verified_user),
+                              const SizedBox(
+                                width: 10,
+                              ),
+                              const Text('Privacy Policy'),
+                            ],
+                          ),
                         ),
                       ),
                     ],
