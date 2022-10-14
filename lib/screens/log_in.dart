@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:http/http.dart' as http;
 import 'package:hackster/screens/main_screen.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class LogIn extends StatefulWidget {
   const LogIn({Key? key}) : super(key: key);
@@ -69,13 +70,18 @@ class _LogInState extends State<LogIn> {
     await _auth.signInWithCredential(credential);
     currentUser = _auth.currentUser!;
     userId = currentUser.uid;
-    final url =
-        'https://hackster-38cbf-default-rtdb.asia-southeast1.firebasedatabase.app/users/$userId.json';
-    await http.post(Uri.parse(url),
-        body: jsonEncode({
-          "id": userId,
-          "mobileNumber": number,
-        }));
+    final farmerIDUrl =
+        'https://hack-roso.onrender.com/getfarmer/$number';
+    final response = await http.get(Uri.parse(farmerIDUrl),);
+    final farmerData = jsonDecode(response.body);
+    final prefs = await SharedPreferences.getInstance();
+    final data = {
+      "id":userId,
+      "farmerId":farmerData['farmId'],
+      "mobileNo":number
+    };
+    String encodedData = jsonEncode(data);
+    await prefs.setString(userId, encodedData);
     if(!mounted){
       return;
     }
@@ -85,6 +91,20 @@ class _LogInState extends State<LogIn> {
       ),
     );
   }
+  //
+  // void printData() async {
+  //   const farmerIDUrl =
+  //       'https://hack-roso.onrender.com/getfarmer/8155977453';
+  //   final response = await http.get(Uri.parse(farmerIDUrl),);
+  //   final farmerData = jsonDecode(response.body);
+  //   print(farmerData['farmId']);
+  // }
+
+  // @override
+  // void initState() {
+  //   printData();
+  //   super.initState();
+  // }
 
   @override
   Widget build(BuildContext context) {

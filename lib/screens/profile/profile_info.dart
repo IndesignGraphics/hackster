@@ -1,13 +1,20 @@
 import 'package:flutter/material.dart';
 
-class ProfileInfo extends StatelessWidget {
-  const ProfileInfo({Key? key}) : super(key: key);
+class ProfileInfo extends StatefulWidget {
+  final farmerData;
+  final String farmerName;
+  const ProfileInfo({Key? key, this.farmerData, required this.farmerName}) : super(key: key);
 
+  @override
+  State<ProfileInfo> createState() => _ProfileInfoState();
+}
+
+class _ProfileInfoState extends State<ProfileInfo> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Farmer Name'),
+        title: Text(widget.farmerName),
       ),
       body: SingleChildScrollView(
         child: Container(
@@ -18,24 +25,22 @@ class ProfileInfo extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Container(
-                padding: const EdgeInsets.all(5),
+                padding: const EdgeInsets.all(10),
                 width: double.infinity,
                 decoration: BoxDecoration(
-                  color: Colors.greenAccent,
+                  // color: Colors.greenAccent,
                   borderRadius: BorderRadius.circular(10),
                   border: Border.all(color: Colors.green),
                 ),
-                child:Column(
-                  children: const [
-                    Align(
-                        alignment: Alignment.topLeft,
-                        child: Text(
-                          'Farmer ID',
-                          style: TextStyle(fontSize: 10),
-                        )),
+                child:Row(
+                  children: [
+                    const Text(
+                      'Farmer ID : ',
+                      style: TextStyle(fontSize: 18),
+                    ),
                     Text(
-                      'Farmer ID',
-                      style: TextStyle(
+                      widget.farmerData['farmId'],
+                      style: const TextStyle(
                         fontSize: 18,
                         fontWeight: FontWeight.bold,
                       ),
@@ -44,24 +49,22 @@ class ProfileInfo extends StatelessWidget {
                 ),
               ),
               Container(
-                padding: const EdgeInsets.all(5),
+                padding: const EdgeInsets.all(10),
                 width: double.infinity,
                 decoration: BoxDecoration(
-                  color: Colors.greenAccent,
+                  // color: Colors.greenAccent,
                   borderRadius: BorderRadius.circular(10),
                   border: Border.all(color: Colors.green),
                 ),
-                child: Column(
-                  children: const [
-                    Align(
-                        alignment: Alignment.topLeft,
-                        child: Text(
-                          'Farmer ID',
-                          style: TextStyle(fontSize: 10),
-                        )),
+                child: Row(
+                  children: [
+                    const Text(
+                      'Farmer Name : ',
+                      style: TextStyle(fontSize: 18),
+                    ),
                     Text(
-                      'Farmer ID',
-                      style: TextStyle(
+                      widget.farmerName,
+                      style: const TextStyle(
                         fontSize: 18,
                         fontWeight: FontWeight.bold,
                       ),
@@ -70,24 +73,22 @@ class ProfileInfo extends StatelessWidget {
                 ),
               ),
               Container(
-                padding: const EdgeInsets.all(5),
+                padding: const EdgeInsets.all(10),
                 width: double.infinity,
                 decoration: BoxDecoration(
-                  color: Colors.greenAccent,
+                  // color: Colors.greenAccent,
                   borderRadius: BorderRadius.circular(10),
                   border: Border.all(color: Colors.green),
                 ),
-                child: Column(
-                  children: const [
-                    Align(
-                        alignment: Alignment.topLeft,
-                        child: Text(
-                          'Farmer ID',
-                          style: TextStyle(fontSize: 10),
-                        )),
+                child: Row(
+                  children: [
+                    const Text(
+                      'Aadhar Number : ',
+                      style: TextStyle(fontSize: 18),
+                    ),
                     Text(
-                      'Farmer ID',
-                      style: TextStyle(
+                      widget.farmerData['perinfo']['adhar'],
+                      style: const TextStyle(
                         fontSize: 18,
                         fontWeight: FontWeight.bold,
                       ),
@@ -96,24 +97,22 @@ class ProfileInfo extends StatelessWidget {
                 ),
               ),
               Container(
-                padding: const EdgeInsets.all(5),
+                padding: const EdgeInsets.all(10),
                 width: double.infinity,
                 decoration: BoxDecoration(
-                  color: Colors.greenAccent,
+                  // color: Colors.greenAccent,
                   borderRadius: BorderRadius.circular(10),
                   border: Border.all(color: Colors.green),
                 ),
-                child: Column(
-                  children: const [
-                    Align(
-                        alignment: Alignment.topLeft,
-                        child: Text(
-                          'Farmer ID',
-                          style: TextStyle(fontSize: 10),
-                        )),
+                child: Row(
+                  children: [
+                    const Text(
+                      'Email ID : ',
+                      style: TextStyle(fontSize: 18),
+                    ),
                     Text(
-                      'Farmer ID',
-                      style: TextStyle(
+                      widget.farmerData['comminfo']['email'],
+                      style: const TextStyle(
                         fontSize: 18,
                         fontWeight: FontWeight.bold,
                       ),
@@ -122,24 +121,22 @@ class ProfileInfo extends StatelessWidget {
                 ),
               ),
               Container(
-                padding: const EdgeInsets.all(5),
+                padding: const EdgeInsets.all(10),
                 width: double.infinity,
                 decoration: BoxDecoration(
-                  color: Colors.greenAccent,
+                  // color: Colors.greenAccent,
                   borderRadius: BorderRadius.circular(10),
                   border: Border.all(color: Colors.green),
                 ),
-                child: Column(
-                  children: const [
-                    Align(
-                        alignment: Alignment.topLeft,
-                        child: Text(
-                          'Farmer ID',
-                          style: TextStyle(fontSize: 10),
-                        )),
+                child: Row(
+                  children: [
+                    const Text(
+                      'Mobile Number : ',
+                      style: TextStyle(fontSize: 18),
+                    ),
                     Text(
-                      'Farmer ID',
-                      style: TextStyle(
+                      widget.farmerData['comminfo']['mobileNumber'],
+                      style: const TextStyle(
                         fontSize: 18,
                         fontWeight: FontWeight.bold,
                       ),
@@ -148,24 +145,22 @@ class ProfileInfo extends StatelessWidget {
                 ),
               ),
               Container(
-                padding: const EdgeInsets.all(5),
+                padding: const EdgeInsets.all(10),
                 width: double.infinity,
                 decoration: BoxDecoration(
-                  color: Colors.greenAccent,
+                  // color: Colors.greenAccent,
                   borderRadius: BorderRadius.circular(10),
                   border: Border.all(color: Colors.green),
                 ),
-                child: Column(
-                  children: const [
-                    Align(
-                        alignment: Alignment.topLeft,
-                        child: Text(
-                          'Farmer ID',
-                          style: TextStyle(fontSize: 10),
-                        )),
+                child: Row(
+                  children: [
+                    const Text(
+                      'Gender : ',
+                      style: TextStyle(fontSize: 18),
+                    ),
                     Text(
-                      'Farmer ID',
-                      style: TextStyle(
+                      widget.farmerData['perinfo']['gender'],
+                      style: const TextStyle(
                         fontSize: 18,
                         fontWeight: FontWeight.bold,
                       ),
@@ -174,24 +169,22 @@ class ProfileInfo extends StatelessWidget {
                 ),
               ),
               Container(
-                padding: const EdgeInsets.all(5),
+                padding: const EdgeInsets.all(10),
                 width: double.infinity,
                 decoration: BoxDecoration(
-                  color: Colors.greenAccent,
+                  // color: Colors.greenAccent,
                   borderRadius: BorderRadius.circular(10),
                   border: Border.all(color: Colors.green),
                 ),
-                child: Column(
-                  children: const [
-                    Align(
-                        alignment: Alignment.topLeft,
-                        child: Text(
-                          'Farmer ID',
-                          style: TextStyle(fontSize: 10),
-                        )),
+                child: Row(
+                  children: [
+                    const Text(
+                      'Date of Birth : ',
+                      style: TextStyle(fontSize: 18),
+                    ),
                     Text(
-                      'Farmer ID',
-                      style: TextStyle(
+                      widget.farmerData['perinfo']['dob'],
+                      style: const TextStyle(
                         fontSize: 18,
                         fontWeight: FontWeight.bold,
                       ),
@@ -200,24 +193,22 @@ class ProfileInfo extends StatelessWidget {
                 ),
               ),
               Container(
-                padding: const EdgeInsets.all(5),
+                padding: const EdgeInsets.all(10),
                 width: double.infinity,
                 decoration: BoxDecoration(
-                  color: Colors.greenAccent,
+                  // color: Colors.greenAccent,
                   borderRadius: BorderRadius.circular(10),
                   border: Border.all(color: Colors.green),
                 ),
-                child: Column(
-                  children: const [
-                    Align(
-                        alignment: Alignment.topLeft,
-                        child: Text(
-                          'Farmer ID',
-                          style: TextStyle(fontSize: 10),
-                        )),
+                child: Row(
+                  children: [
+                    const Text(
+                      'Pincode : ',
+                      style: TextStyle(fontSize: 18),
+                    ),
                     Text(
-                      'Farmer ID',
-                      style: TextStyle(
+                      widget.farmerData['perinfo']['pincode'],
+                      style: const TextStyle(
                         fontSize: 18,
                         fontWeight: FontWeight.bold,
                       ),
@@ -226,24 +217,22 @@ class ProfileInfo extends StatelessWidget {
                 ),
               ),
               Container(
-                padding: const EdgeInsets.all(5),
+                padding: const EdgeInsets.all(10),
                 width: double.infinity,
                 decoration: BoxDecoration(
-                  color: Colors.greenAccent,
+                  // color: Colors.greenAccent,
                   borderRadius: BorderRadius.circular(10),
                   border: Border.all(color: Colors.green),
                 ),
-                child: Column(
-                  children: const [
-                    Align(
-                        alignment: Alignment.topLeft,
-                        child: Text(
-                          'Farmer ID',
-                          style: TextStyle(fontSize: 10),
-                        )),
+                child: Row(
+                  children: [
+                    const Text(
+                      'District : ',
+                      style: TextStyle(fontSize: 18),
+                    ),
                     Text(
-                      'Farmer ID',
-                      style: TextStyle(
+                      widget.farmerData['perinfo']['district'],
+                      style: const TextStyle(
                         fontSize: 18,
                         fontWeight: FontWeight.bold,
                       ),
@@ -252,24 +241,22 @@ class ProfileInfo extends StatelessWidget {
                 ),
               ),
               Container(
-                padding: const EdgeInsets.all(5),
+                padding: const EdgeInsets.all(10),
                 width: double.infinity,
                 decoration: BoxDecoration(
-                  color: Colors.greenAccent,
+                  // color: Colors.greenAccent,
                   borderRadius: BorderRadius.circular(10),
                   border: Border.all(color: Colors.green),
                 ),
-                child: Column(
-                  children: const [
-                    Align(
-                        alignment: Alignment.topLeft,
-                        child: Text(
-                          'Farmer ID',
-                          style: TextStyle(fontSize: 10),
-                        )),
+                child: Row(
+                  children:[
+                    const Text(
+                      'Taluko : ',
+                      style: TextStyle(fontSize: 18),
+                    ),
                     Text(
-                      'Farmer ID',
-                      style: TextStyle(
+                      widget.farmerData['perinfo']['taluko'],
+                      style: const TextStyle(
                         fontSize: 18,
                         fontWeight: FontWeight.bold,
                       ),
@@ -278,24 +265,22 @@ class ProfileInfo extends StatelessWidget {
                 ),
               ),
               Container(
-                padding: const EdgeInsets.all(5),
+                padding: const EdgeInsets.all(10),
                 width: double.infinity,
                 decoration: BoxDecoration(
-                  color: Colors.greenAccent,
+                  // color: Colors.greenAccent,
                   borderRadius: BorderRadius.circular(10),
                   border: Border.all(color: Colors.green),
                 ),
-                child: Column(
-                  children: const [
-                    Align(
-                        alignment: Alignment.topLeft,
-                        child: Text(
-                          'Farmer ID',
-                          style: TextStyle(fontSize: 10),
-                        )),
+                child: Row(
+                  children: [
+                    const Text(
+                      'Address : ',
+                      style: TextStyle(fontSize: 18),
+                    ),
                     Text(
-                      'Farmer ID',
-                      style: TextStyle(
+                      widget.farmerData['perinfo']['homeAddrs'],
+                      style:  const TextStyle(
                         fontSize: 18,
                         fontWeight: FontWeight.bold,
                       ),

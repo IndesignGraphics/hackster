@@ -12,7 +12,9 @@ import 'package:hackster/screens/navigation/weather.dart';
 import '../screens/navigation/profile_page.dart';
 
 class AppDrawer extends StatelessWidget {
-  const AppDrawer({Key? key}) : super(key: key);
+
+  final String farmerName,mobileNumber,profilePic;
+  const AppDrawer({Key? key, required this.farmerName, required this.mobileNumber, required this.profilePic}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -21,19 +23,25 @@ class AppDrawer extends StatelessWidget {
         padding: EdgeInsets.zero,
         children: [
           DrawerHeader(
+            decoration:
+                BoxDecoration(color: Theme.of(context).colorScheme.primary),
             child: Column(
               children: [
-                CircleAvatar(
-                  child: Icon(
-                    Icons.account_circle,
-                    size: 50,
+                Container(
+                  width: 50,
+                  height: 50,
+                  decoration: BoxDecoration(
+                    shape: BoxShape.circle,
+                    image: DecorationImage(
+                      image: NetworkImage(profilePic),
+                      fit: BoxFit.cover,
+                    ),
                   ),
-                  radius: 30,
                 ),
-                SizedBox(height: 12),
+                const SizedBox(height: 12),
                 Text(
-                  "FARMER NAME",
-                  style: TextStyle(
+                  farmerName,
+                  style: const TextStyle(
                     fontWeight: FontWeight.bold,
                     color: Colors.white,
                   ),
@@ -42,137 +50,115 @@ class AppDrawer extends StatelessWidget {
                   onPressed: () {
                     Navigator.pop(context);
                     Navigator.of(context).push(MaterialPageRoute(
-                        builder: (context) => const ProfilePage()));
+                        builder: (context) => ProfilePage(mobile: mobileNumber,)));
                   },
-                  child: Text(
+                  child: const Text(
                     "View Profile",
                     style: TextStyle(color: Colors.white),
                   ),
                 ),
               ],
             ),
-            decoration:
-                BoxDecoration(color: Theme.of(context).colorScheme.primary),
           ),
-          InkWell(
-            child: ListTile(
-                leading: Icon(Icons.credit_card),
-                title: Text("Credit/Insurance"),
-                onTap: () {
-                  Navigator.pop(context);
-
-                  Navigator.of(context).push(MaterialPageRoute(
-                      builder: (context) => const CreditInsurance()));
-                }),
-          ),
-          InkWell(
-            child: ListTile(
-              leading: Icon(Icons.currency_rupee),
-              title: Text("Market Price"),
+          ListTile(
+              leading: const Icon(Icons.credit_card),
+              title: const Text("Credit/Insurance"),
               onTap: () {
                 Navigator.pop(context);
 
                 Navigator.of(context).push(MaterialPageRoute(
-                    builder: (context) => const MarketPrice()));
-              },
-            ),
-          ),
-          InkWell(
-            child: ListTile(
-              leading: Icon(Icons.storefront),
-              title: Text("Market Place"),
-              onTap: () {
-                Navigator.pop(context);
-                Navigator.of(context).push(MaterialPageRoute(
-                    builder: (context) => const MarketPlace()));
-              },
-            ),
-          ),
-          InkWell(
-            child: ListTile(
-              leading: Icon(Icons.agriculture),
-              title: Text("Crop History"),
-              onTap: () {
-                Navigator.pop(context);
+                    builder: (context) => const CreditInsurance()));
+              }),
+          ListTile(
+            leading: const Icon(Icons.currency_rupee),
+            title: const Text("Market Price"),
+            onTap: () {
+              Navigator.pop(context);
 
-                Navigator.of(context).push(MaterialPageRoute(
-                    builder: (context) => const CropHistory()));
-              },
-            ),
+              Navigator.of(context).push(MaterialPageRoute(
+                  builder: (context) => const MarketPrice()));
+            },
           ),
-          InkWell(
-            child: ListTile(
-              leading: Icon(Icons.biotech),
-              title: Text("Soil Test"),
-              onTap: () {
-                Navigator.pop(context);
+          ListTile(
+            leading: const Icon(Icons.storefront),
+            title: const Text("Market Place"),
+            onTap: () {
+              Navigator.pop(context);
+              Navigator.of(context).push(MaterialPageRoute(
+                  builder: (context) => const MarketPlace()));
+            },
+          ),
+          ListTile(
+            leading: const Icon(Icons.agriculture),
+            title: const Text("Crop History"),
+            onTap: () {
+              Navigator.pop(context);
 
-                Navigator.of(context).push(
-                    MaterialPageRoute(builder: (context) => const SoilTest()));
-              },
-            ),
+              Navigator.of(context).push(MaterialPageRoute(
+                  builder: (context) => const CropHistory()));
+            },
           ),
-          InkWell(
-            child: ListTile(
-              leading: Icon(Icons.cloudy_snowing),
-              title: Text("Weather"),
-              onTap: () {
-                Navigator.pop(context);
+          ListTile(
+            leading: const Icon(Icons.biotech),
+            title: const Text("Soil Test"),
+            onTap: () {
+              Navigator.pop(context);
 
-                Navigator.of(context).push(
-                    MaterialPageRoute(builder: (context) => const Weather()));
-              },
-            ),
+              Navigator.of(context).push(
+                  MaterialPageRoute(builder: (context) => const SoilTest()));
+            },
           ),
-          InkWell(
-            child: ListTile(
-              leading: Icon(Icons.business),
-              title: Text("AgriBusiness"),
-              onTap: () {
-                Navigator.pop(context);
+          ListTile(
+            leading: const Icon(Icons.cloudy_snowing),
+            title: const Text("Weather"),
+            onTap: () {
+              Navigator.pop(context);
 
-                Navigator.of(context).push(MaterialPageRoute(
-                    builder: (context) => const AgriBusiness()));
-              },
-            ),
+              Navigator.of(context).push(
+                  MaterialPageRoute(builder: (context) => const Weather()));
+            },
           ),
-          InkWell(
-            child: ListTile(
-              leading: Icon(Icons.question_answer),
-              title: Text("Expert Talk"),
-              onTap: () {
-                Navigator.pop(context);
+          ListTile(
+            leading: const Icon(Icons.business),
+            title: const Text("AgriBusiness"),
+            onTap: () {
+              Navigator.pop(context);
 
-                Navigator.of(context).push(MaterialPageRoute(
-                    builder: (context) => const ExpertTalk()));
-              },
-            ),
+              Navigator.of(context).push(MaterialPageRoute(
+                  builder: (context) => const AgriBusiness()));
+            },
           ),
-          InkWell(
-            child: ListTile(
-              leading: Icon(Icons.pets),
-              title: Text("Livestock"),
-              onTap: () {
-                Navigator.pop(context);
+          ListTile(
+            leading: const Icon(Icons.question_answer),
+            title: const Text("Expert Talk"),
+            onTap: () {
+              Navigator.pop(context);
 
-                Navigator.of(context).push(
-                    MaterialPageRoute(builder: (context) => const LiveStock()));
-              },
-            ),
+              Navigator.of(context).push(MaterialPageRoute(
+                  builder: (context) => const ExpertTalk()));
+            },
           ),
-          InkWell(
-            child: ListTile(
-              leading: Icon(Icons.logout),
-              title: Text("Logout"),
-              onTap: () {
-                Navigator.pop(context);
-                ScaffoldMessenger.of(context).showSnackBar(
-                  SnackBar(
-                    content: Text('Logout'),
-                  ),
-                );
-              },
-            ),
+          ListTile(
+            leading: const Icon(Icons.pets),
+            title: const Text("Livestock"),
+            onTap: () {
+              Navigator.pop(context);
+
+              Navigator.of(context).push(
+                  MaterialPageRoute(builder: (context) => const LiveStock()));
+            },
+          ),
+          ListTile(
+            leading: const Icon(Icons.logout),
+            title: const Text("Logout"),
+            onTap: () {
+              Navigator.pop(context);
+              ScaffoldMessenger.of(context).showSnackBar(
+                const SnackBar(
+                  content: Text('Logout'),
+                ),
+              );
+            },
           ),
         ],
       ),

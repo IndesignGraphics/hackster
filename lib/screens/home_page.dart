@@ -26,7 +26,7 @@ class HomePage extends StatelessWidget {
                       height: 75,
                       padding: const EdgeInsets.all(2),
                       decoration: BoxDecoration(
-                        border: Border.all(color: Color(0xFF2A3832), width: 2),
+                        border: Border.all(color: Theme.of(context).primaryColor, width: 2),
                         shape: BoxShape.circle,
                       ),
                       child: Container(
@@ -42,7 +42,7 @@ class HomePage extends StatelessWidget {
                     height: 75,
                     padding: const EdgeInsets.all(2),
                     decoration: BoxDecoration(
-                      border: Border.all(color: Color(0xFF2A3832), width: 2),
+                      border: Border.all(color: Theme.of(context).primaryColor, width: 2),
                       shape: BoxShape.circle,
                     ),
                     child: Container(

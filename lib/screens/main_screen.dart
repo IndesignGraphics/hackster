@@ -1,7 +1,12 @@
+import 'dart:convert';
+
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:hackster/screens/crop_care.dart';
 import 'package:hackster/screens/tools_page.dart';
 import 'package:hackster/widgets/app_drawer.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+import 'package:http/http.dart' as http;
 
 import 'home_page.dart';
 
@@ -17,6 +22,32 @@ class _MainScreenState extends State<MainScreen> {
   late List<Map<String, Object>> _pages;
   int _selectedPageIndex = 0;
 
+  final FirebaseAuth _auth = FirebaseAuth.instance;
+  late String farmerName,mobileNumber,profilePic;
+
+  bool _isLoading = true;
+
+  void getFarmerData()async{
+    final prefs = await SharedPreferences.getInstance();
+    final currentUser = _auth.currentUser!;
+    final userId = currentUser.uid;
+    String? encodedData = prefs.getString(userId);
+    final decodedData = jsonDecode(encodedData!);
+    String mobileNum = decodedData['mobileNo'];
+    final url = "https://hack-roso.onrender.com/getfarmer/$mobileNum";
+    final response = await http.get(Uri.parse(url));
+    final farmerData = jsonDecode(response.body);
+    final fName = farmerData['perinfo']['firstName'];
+    final lName = farmerData['perinfo']['lastName'];
+    final image = farmerData['profilePic'];
+    setState(() {
+      farmerName = fName +" "+lName;
+      mobileNumber = mobileNum;
+      profilePic = image;
+      _isLoading = false;
+    });
+  }
+
   @override
   void initState() {
     _pages = [
@@ -24,6 +55,7 @@ class _MainScreenState extends State<MainScreen> {
       {'page': const CropCare()},
       {'page': const ToolsPage()},
     ];
+    getFarmerData();
     super.initState();
   }
 
@@ -35,9 +67,11 @@ class _MainScreenState extends State<MainScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return _isLoading ? const Scaffold(
+      body: Center(child: CircularProgressIndicator(),),
+    ) : Scaffold(
       appBar: AppBar(
-        title: const Text("Farmer Name"),
+        title: Text(farmerName),
         actions: [
           IconButton(
             onPressed: () {},
@@ -49,7 +83,7 @@ class _MainScreenState extends State<MainScreen> {
           ),
         ],
       ),
-      drawer: const AppDrawer(),
+      drawer: AppDrawer(farmerName: farmerName, mobileNumber: mobileNumber, profilePic: profilePic,),
       body: _pages[_selectedPageIndex]['page'] as Widget,
       bottomNavigationBar: BottomNavigationBar(
         onTap: _selectPage,
