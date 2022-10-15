@@ -5,6 +5,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:http/http.dart' as http;
 import 'package:hackster/screens/main_screen.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class LogIn extends StatefulWidget {
   const LogIn({Key? key}) : super(key: key);
@@ -41,7 +42,6 @@ class _LogInState extends State<LogIn> {
         setState(() {
           _isLoading = false;
         });
-        print(e);
       },
       codeSent: (String verificationId, int? resendToken) {
         mVerificationId = verificationId;
@@ -91,20 +91,6 @@ class _LogInState extends State<LogIn> {
       ),
     );
   }
-  //
-  // void printData() async {
-  //   const farmerIDUrl =
-  //       'https://hack-roso.onrender.com/getfarmer/8155977453';
-  //   final response = await http.get(Uri.parse(farmerIDUrl),);
-  //   final farmerData = jsonDecode(response.body);
-  //   print(farmerData['farmId']);
-  // }
-
-  // @override
-  // void initState() {
-  //   printData();
-  //   super.initState();
-  // }
 
   @override
   Widget build(BuildContext context) {
@@ -116,18 +102,22 @@ class _LogInState extends State<LogIn> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                const Padding(
-                  padding: EdgeInsets.all(8.0),
-                  child: CircleAvatar(
-                    radius: 80,
-                    child: Icon(Icons.account_circle, size: 100),
+                Container(
+                  width: 200,
+                  height: 200,
+                  decoration: const BoxDecoration(
+                    shape: BoxShape.circle,
+                    image: DecorationImage(
+                      image: AssetImage('assets/images/app_logo.png'),
+                      fit: BoxFit.contain,
+                    ),
                   ),
                 ),
-                const Align(
+                Align(
                   alignment: Alignment.center,
                   child: Text(
-                    "Login",
-                    style: TextStyle(
+                    AppLocalizations.of(context)?.logIn ?? "Login",
+                    style: const TextStyle(
                       fontWeight: FontWeight.bold,
                       fontSize: 36,
                     ),
@@ -149,15 +139,15 @@ class _LogInState extends State<LogIn> {
                                 child: TextFormField(
                                   validator: (value) {
                                     if (value!.isEmpty) {
-                                      return 'Please enter otp';
+                                      return AppLocalizations.of(context)?.pleaseEnterOtp;
                                     }
                                     return null;
                                   },
                                   keyboardType: TextInputType.number,
                                   controller: otpController,
-                                  decoration: const InputDecoration(
-                                    border: OutlineInputBorder(),
-                                    labelText: "Enter OTP",
+                                  decoration: InputDecoration(
+                                    border: const OutlineInputBorder(),
+                                    labelText: AppLocalizations.of(context)?.enterOtp,
                                   ),
                                 ),
                               ),
@@ -166,7 +156,7 @@ class _LogInState extends State<LogIn> {
                                 onPressed: () {
                                   verifyOtp(context);
                                 },
-                                child: const Text("Verify OTP"),
+                                child: Text(AppLocalizations.of(context)?.verifyOtp ?? 'Verify OTP'),
                               ),
                             ],
                           ),
@@ -182,18 +172,18 @@ class _LogInState extends State<LogIn> {
                                 child: TextFormField(
                                   validator: (value) {
                                     if (value!.isEmpty) {
-                                      return 'Please enter mobile number';
+                                      return AppLocalizations.of(context)?.pleaseEnterMobileNumber;
                                     }
                                     if (value.length != 10) {
-                                      return 'Please enter valid mobile number';
+                                      return AppLocalizations.of(context)?.pleaseEnterValidMobileNumber;
                                     }
                                     return null;
                                   },
                                   keyboardType: TextInputType.number,
                                   controller: farmerIdController,
-                                  decoration: const InputDecoration(
-                                    border: OutlineInputBorder(),
-                                    labelText: "Enter Mobile No.",
+                                  decoration: InputDecoration(
+                                    border: const OutlineInputBorder(),
+                                    labelText: AppLocalizations.of(context)?.enterMobileNo,
                                   ),
                                 ),
                               ),
@@ -205,7 +195,7 @@ class _LogInState extends State<LogIn> {
                                     number = farmerIdController.text;
                                     sendOtp();
                                   },
-                                  child: const Text("Send OTP"),
+                                  child: Text(AppLocalizations.of(context)?.sendOtp ?? "Send OTP"),
                                 ),
                               ),
                             ],

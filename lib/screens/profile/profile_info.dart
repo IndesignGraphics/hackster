@@ -268,7 +268,6 @@ class _ProfileInfoState extends State<ProfileInfo> {
                 padding: const EdgeInsets.all(10),
                 width: double.infinity,
                 decoration: BoxDecoration(
-                  // color: Colors.greenAccent,
                   borderRadius: BorderRadius.circular(10),
                   border: Border.all(color: Colors.green),
                 ),

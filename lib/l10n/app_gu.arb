@@ -1,0 +1,12 @@
+{
+  "language": "ગુજરાતી",
+  "logIn" : "લોગિન",
+  "pleaseEnterOtp": "મહેરબાની કરીને OTP દાખલ કરો",
+  "enterOtp": "OTP અહિયાં દાખલ કરો",
+  "verifyOtp": "OTP ચકાસો",
+  "pleaseEnterMobileNumber": "મહેરબાની કરીને મોબાઇલનંબર દાખલ કરો",
+  "pleaseEnterValidMobileNumber": "મહેરબાની કરીને સાચો મોબાઇલનંબર દાખલ કરો",
+  "enterMobileNo": "મોબાઇલ નંબર દાખલ કરો",
+  "sendOtp": "OTP મોકલો",
+  "appName" : "ખેડૂત"
+}

@@ -1,0 +1,12 @@
+{
+  "language": "English",
+  "logIn": "Login",
+  "pleaseEnterOtp": "Please Enter OTP",
+  "enterOtp": "Enter OTP",
+  "verifyOtp": "Verify OTP",
+  "pleaseEnterMobileNumber": "Please Enter Mobile Number",
+  "pleaseEnterValidMobileNumber": "Please Enter Valid Mobile Number",
+  "enterMobileNo": "Enter Mobile No.",
+  "sendOtp": "Send OTP",
+  "appName" : "Farmer"
+}
