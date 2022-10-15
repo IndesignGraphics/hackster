@@ -105,10 +105,8 @@ class _HomePageState extends State<HomePage> {
     const url = 'https://hack-roso.onrender.com/getmarket/Rajkot';
     final response = await http.get(Uri.parse(url));
     final mData = jsonDecode(response.body);
-
     setState(() {
       marketData = mData;
-
       _isMarketLoading = false;
     });
   }

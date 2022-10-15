@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class HelpAndSupport extends StatelessWidget {
   const HelpAndSupport({Key? key}) : super(key: key);
@@ -9,7 +10,7 @@ class HelpAndSupport extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text('Help and Support'),
+        title: Text(AppLocalizations.of(context)?.helpAndSupport ?? 'Help and Support'),
       ),
       body: SingleChildScrollView(
         child: Container(
@@ -17,7 +18,7 @@ class HelpAndSupport extends StatelessWidget {
           child: Column(
             children: [
               Text(
-                'Hello farmer,\nFarmer360 is ready get your feedback. Please give your feedback to use and help use to improve our application.',
+                AppLocalizations.of(context)?.helloFarmer??'Hello farmer,\nFarmer360 is ready get your feedback. Please give your feedback to use and help use to improve our application.',
                 style: TextStyle(fontSize: 20),
               ),
               SizedBox(height: 10,),

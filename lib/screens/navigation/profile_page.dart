@@ -7,6 +7,8 @@ import 'package:hackster/screens/profile/farm_details.dart';
 import 'package:hackster/screens/profile/help_and_support.dart';
 import 'package:hackster/screens/profile/privacy_policy.dart';
 import 'package:hackster/screens/profile/profile_info.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+
 // import 'package:hackster/screens/profile/qualification.dart';
 import 'package:http/http.dart' as http;
 
@@ -49,7 +51,7 @@ class _ProfilePageState extends State<ProfilePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Profile'),
+        title: Text(AppLocalizations.of(context)?.profile ?? 'Profile'),
       ),
       body: _isLoading
           ? const Center(
@@ -111,12 +113,14 @@ class _ProfilePageState extends State<ProfilePage> {
                                 padding: const EdgeInsets.symmetric(
                                     horizontal: 10, vertical: 5),
                                 child: Row(
-                                  children: const [
-                                    Icon(Icons.person),
-                                    SizedBox(
+                                  children: [
+                                    const Icon(Icons.person),
+                                    const SizedBox(
                                       width: 10,
                                     ),
-                                    Text('Profile Information'),
+                                    Text(AppLocalizations.of(context)
+                                            ?.profileInformation ??
+                                        'Profile Information'),
                                   ],
                                 ),
                               ),
@@ -138,12 +142,14 @@ class _ProfilePageState extends State<ProfilePage> {
                                 padding: const EdgeInsets.symmetric(
                                     horizontal: 10, vertical: 5),
                                 child: Row(
-                                  children: const [
-                                    Icon(Icons.agriculture),
-                                    SizedBox(
+                                  children: [
+                                    const Icon(Icons.agriculture),
+                                    const SizedBox(
                                       width: 10,
                                     ),
-                                    Text('Farm Details'),
+                                    Text(AppLocalizations.of(context)
+                                            ?.farmDetails ??
+                                        'Farm Details'),
                                   ],
                                 ),
                               ),
@@ -184,12 +190,14 @@ class _ProfilePageState extends State<ProfilePage> {
                                 padding: const EdgeInsets.symmetric(
                                     horizontal: 10, vertical: 5),
                                 child: Row(
-                                  children: const [
-                                    Icon(Icons.account_balance),
-                                    SizedBox(
+                                  children: [
+                                    const Icon(Icons.account_balance),
+                                    const SizedBox(
                                       width: 10,
                                     ),
-                                    Text('Bank Info'),
+                                    Text(AppLocalizations.of(context)
+                                            ?.bankDetails ??
+                                        'Bank Info'),
                                   ],
                                 ),
                               ),
@@ -216,12 +224,14 @@ class _ProfilePageState extends State<ProfilePage> {
                                 padding: const EdgeInsets.symmetric(
                                     horizontal: 10, vertical: 5),
                                 child: Row(
-                                  children: const [
-                                    Icon(Icons.support_agent),
-                                    SizedBox(
+                                  children: [
+                                    const Icon(Icons.support_agent),
+                                    const SizedBox(
                                       width: 10,
                                     ),
-                                    Text('Help and Support'),
+                                    Text(AppLocalizations.of(context)
+                                            ?.helpAndSupport ??
+                                        'Help and Support'),
                                   ],
                                 ),
                               ),
@@ -238,12 +248,12 @@ class _ProfilePageState extends State<ProfilePage> {
                                 padding: const EdgeInsets.symmetric(
                                     horizontal: 10, vertical: 5),
                                 child: Row(
-                                  children: const [
-                                    Icon(Icons.contacts),
-                                    SizedBox(
+                                  children: [
+                                    const Icon(Icons.contacts),
+                                    const SizedBox(
                                       width: 10,
                                     ),
-                                    Text('Contact Us'),
+                                    Text(AppLocalizations.of(context)?.contactUs ?? 'Contact Us'),
                                   ],
                                 ),
                               ),
@@ -261,12 +271,12 @@ class _ProfilePageState extends State<ProfilePage> {
                                 padding: const EdgeInsets.symmetric(
                                     horizontal: 10, vertical: 5),
                                 child: Row(
-                                  children: const [
-                                    Icon(Icons.verified_user),
-                                    SizedBox(
+                                  children:[
+                                    const Icon(Icons.verified_user),
+                                    const SizedBox(
                                       width: 10,
                                     ),
-                                    Text('Privacy Policy'),
+                                    Text(AppLocalizations.of(context)?.privacyPolicy ?? 'Privacy Policy'),
                                   ],
                                 ),
                               ),

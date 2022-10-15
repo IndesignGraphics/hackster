@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class WaterTest extends StatelessWidget {
   const WaterTest({Key? key}) : super(key: key);
@@ -20,108 +21,108 @@ class WaterTest extends StatelessWidget {
             const SizedBox(
               height: 10,
             ),
-            const Text(
-              'Test Includes',
+            Text(
+              AppLocalizations.of(context)?.testIncludes ?? 'Test Includes',
               style:
-                  TextStyle(fontWeight: FontWeight.bold, color: Colors.white),
+                  const TextStyle(fontWeight: FontWeight.bold, color: Colors.white),
             ),
             const SizedBox(
               height: 10,
             ),
-            const Text(
-              '1. Turbidity',
-              style: TextStyle(color: Colors.white),
+            Text(
+              '1. ${AppLocalizations.of(context)?.turbidity}',
+              style: const TextStyle(color: Colors.white),
             ),
             const SizedBox(
               height: 5,
             ),
-            const Text(
-              '2. Temperature',
-              style: TextStyle(color: Colors.white),
+            Text(
+              '2. ${AppLocalizations.of(context)?.temperature}',
+              style: const TextStyle(color: Colors.white),
             ),
             const SizedBox(
               height: 5,
             ),
-            const Text(
-              '3. pH',
-              style: TextStyle(color: Colors.white),
+            Text(
+              '3. ${AppLocalizations.of(context)?.ph}',
+              style: const TextStyle(color: Colors.white),
             ),
             const SizedBox(
               height: 5,
             ),
-            const Text(
-              '4. Acidity',
-              style: TextStyle(color: Colors.white),
+            Text(
+              '4. ${AppLocalizations.of(context)?.acidity}',
+              style: const TextStyle(color: Colors.white),
             ),
             const SizedBox(
               height: 5,
             ),
-            const Text(
-              '5. Electrical Conductivity',
-              style: TextStyle(color: Colors.white),
+            Text(
+              '5. ${AppLocalizations.of(context)?.electricalConductivity}',
+              style: const TextStyle(color: Colors.white),
             ),
             const SizedBox(
               height: 5,
             ),
-            const Text(
-              '6. Alkalinity',
-              style: TextStyle(color: Colors.white),
+            Text(
+              '6. ${AppLocalizations.of(context)?.alkalinity}',
+              style: const TextStyle(color: Colors.white),
             ),
             const SizedBox(
               height: 5,
             ),
-            const Text(
-              '7. Bacteria',
-              style: TextStyle(color: Colors.white),
+            Text(
+              '7. ${AppLocalizations.of(context)?.bacteria}',
+              style: const TextStyle(color: Colors.white),
             ),
             const SizedBox(
               height: 5,
             ),
-            const Text(
-              '8. Viruses',
-              style: TextStyle(color: Colors.white),
+            Text(
+              '8. ${AppLocalizations.of(context)?.viruses}',
+              style: const TextStyle(color: Colors.white),
             ),
             const SizedBox(
               height: 5,
             ),
-            const Text(
-              '9. Chloride',
-              style: TextStyle(color: Colors.white),
+            Text(
+              '9. ${AppLocalizations.of(context)?.chloride}',
+              style: const TextStyle(color: Colors.white),
             ),
             const SizedBox(
               height: 5,
             ),
-            const Text(
-              '10. Dissolved oxygen',
-              style: TextStyle(color: Colors.white),
+            Text(
+              '10. ${AppLocalizations.of(context)?.dissolvedOxygen}',
+              style: const TextStyle(color: Colors.white),
             ),
             const SizedBox(
               height: 5,
             ),
-            const Text(
-              '11. Hardness',
-              style: TextStyle(color: Colors.white),
+            Text(
+              '11. ${AppLocalizations.of(context)?.hardness}',
+              style: const TextStyle(color: Colors.white),
             ),
             const SizedBox(
               height: 5,
             ),
-            const Text(
-              '12. Biochemical oxygen demand (BOD)',
-              style: TextStyle(color: Colors.white),
+            Text(
+              '12. ${AppLocalizations.of(context)?.bioChemicalOxygenDemand}',
+              style: const TextStyle(color: Colors.white),
             ),
             const SizedBox(
               height: 5,
             ),
-            const Text(
-              '13. Chemical oxygen demand (COD)',
-              style: TextStyle(color: Colors.white),
+            Text(
+              '13. ${AppLocalizations.of(context)?.chemicalOxygenDemand}',
+              style: const TextStyle(color: Colors.white),
             ),
             const SizedBox(
               height: 5,
             ),
-            const Text(
-              '14. Radioactive substances',
-              style: TextStyle(color: Colors.white),
+            Text(
+              '14. ${AppLocalizations.of(context)?.radioactiveSubstances}',
+              style: const TextStyle(color: Colors.white),
             ),
           ],
         ),

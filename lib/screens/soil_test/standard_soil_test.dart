@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class StandardSoilTest extends StatelessWidget {
   const StandardSoilTest({Key? key}) : super(key: key);
@@ -7,7 +8,7 @@ class StandardSoilTest extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Standard Soil Test'),
+        title: Text(AppLocalizations.of(context)?.standardSoilTest ?? 'Standard Soil Test'),
       ),
       body: Container(
         width: double.infinity,
@@ -20,107 +21,107 @@ class StandardSoilTest extends StatelessWidget {
             const SizedBox(
               height: 10,
             ),
-            const Text(
-              'Test Includes',
+            Text(
+              AppLocalizations.of(context)?.testIncludes ?? 'Test Includes',
               style:
                   TextStyle(fontWeight: FontWeight.bold, color: Colors.white),
             ),
             const SizedBox(
               height: 10,
             ),
-            const Text(
-              '1. pH',
+            Text(
+              '1. ${AppLocalizations.of(context)?.ph}',
               style: TextStyle(color: Colors.white),
             ),
             const SizedBox(
               height: 5,
             ),
-            const Text(
-              '2. Organic Carbon',
+            Text(
+              '2. ${AppLocalizations.of(context)?.organicCarbon}',
               style: TextStyle(color: Colors.white),
             ),
             const SizedBox(
               height: 5,
             ),
-            const Text(
-              '3. Potassium',
+             Text(
+              '3. ${AppLocalizations.of(context)?.potassium}',
               style: TextStyle(color: Colors.white),
             ),
             const SizedBox(
               height: 5,
             ),
-            const Text(
-              '4. Phosphorus',
+            Text(
+              '4. ${AppLocalizations.of(context)?.phosphorus}',
               style: TextStyle(color: Colors.white),
             ),
             const SizedBox(
               height: 5,
             ),
-            const Text(
-              '5. Electrical Conductivity',
+            Text(
+              '5. ${AppLocalizations.of(context)?.electricalConductivity}',
               style: TextStyle(color: Colors.white),
             ),
             const SizedBox(
               height: 5,
             ),
-            const Text(
-              '6. Nitrogen',
+            Text(
+              '6. ${AppLocalizations.of(context)?.nitrogen}',
               style: TextStyle(color: Colors.white),
             ),
             const SizedBox(
               height: 5,
             ),
-            const Text(
-              '7. Calcium',
+            Text(
+              '7. ${AppLocalizations.of(context)?.calcium}',
               style: TextStyle(color: Colors.white),
             ),
             const SizedBox(
               height: 5,
             ),
-            const Text(
-              '8. Magnesium',
+            Text(
+              '8. ${AppLocalizations.of(context)?.magnesium}',
               style: TextStyle(color: Colors.white),
             ),
             const SizedBox(
               height: 5,
             ),
-            const Text(
-              '9. Sulfur',
+            Text(
+              '9. ${AppLocalizations.of(context)?.sulfur}',
               style: TextStyle(color: Colors.white),
             ),
             const SizedBox(
               height: 5,
             ),
-            const Text(
-              '10. Zinc',
+            Text(
+              '10. ${AppLocalizations.of(context)?.zinc}',
               style: TextStyle(color: Colors.white),
             ),
             const SizedBox(
               height: 5,
             ),
-            const Text(
-              '11. Manganese',
+            Text(
+              '11. ${AppLocalizations.of(context)?.manganese}',
               style: TextStyle(color: Colors.white),
             ),
             const SizedBox(
               height: 5,
             ),
-            const Text(
-              '12. Iron',
+            Text(
+              '12. ${AppLocalizations.of(context)?.iron}',
               style: TextStyle(color: Colors.white),
             ),
             const SizedBox(
               height: 5,
             ),
-            const Text(
-              '13. Copper',
+            Text(
+              '13. ${AppLocalizations.of(context)?.copper}',
               style: TextStyle(color: Colors.white),
             ),
             const SizedBox(
               height: 5,
             ),
-            const Text(
-              '14. Boron',
+            Text(
+              '14. ${AppLocalizations.of(context)?.boron}',
               style: TextStyle(color: Colors.white),
             ),
           ],

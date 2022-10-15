@@ -8,6 +8,7 @@ import 'package:hackster/screens/navigation/market_place.dart';
 import 'package:hackster/screens/navigation/market_price.dart';
 import 'package:hackster/screens/navigation/soil_test.dart';
 import 'package:hackster/screens/navigation/weather.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 import '../screens/navigation/profile_page.dart';
 
@@ -52,9 +53,9 @@ class AppDrawer extends StatelessWidget {
                     Navigator.of(context).push(MaterialPageRoute(
                         builder: (context) => ProfilePage(mobile: mobileNumber,)));
                   },
-                  child: const Text(
-                    "View Profile",
-                    style: TextStyle(color: Colors.white),
+                  child: Text(
+                    AppLocalizations.of(context)?.viewProfile ?? "View Profile",
+                    style: const TextStyle(color: Colors.white),
                   ),
                 ),
               ],
@@ -62,7 +63,7 @@ class AppDrawer extends StatelessWidget {
           ),
           ListTile(
               leading: const Icon(Icons.credit_card),
-              title: const Text("Credit/Insurance"),
+              title: Text(AppLocalizations.of(context)?.creditInsurance ?? "Credit/Insurance"),
               onTap: () {
                 Navigator.pop(context);
 
@@ -71,7 +72,7 @@ class AppDrawer extends StatelessWidget {
               }),
           ListTile(
             leading: const Icon(Icons.currency_rupee),
-            title: const Text("Market Price"),
+            title: Text(AppLocalizations.of(context)?.marketPrice ?? "Market Price"),
             onTap: () {
               Navigator.pop(context);
 
@@ -81,7 +82,7 @@ class AppDrawer extends StatelessWidget {
           ),
           ListTile(
             leading: const Icon(Icons.storefront),
-            title: const Text("Market Place"),
+            title: Text(AppLocalizations.of(context)?.marketPlace??"Market Place"),
             onTap: () {
               Navigator.pop(context);
               Navigator.of(context).push(MaterialPageRoute(
@@ -90,7 +91,7 @@ class AppDrawer extends StatelessWidget {
           ),
           ListTile(
             leading: const Icon(Icons.agriculture),
-            title: const Text("Crop History"),
+            title: Text(AppLocalizations.of(context)?.cropHistory??"Crop History"),
             onTap: () {
               Navigator.pop(context);
 
@@ -100,7 +101,7 @@ class AppDrawer extends StatelessWidget {
           ),
           ListTile(
             leading: const Icon(Icons.biotech),
-            title: const Text("Soil Test"),
+            title: Text(AppLocalizations.of(context)?.soilTest ?? "Soil Test"),
             onTap: () {
               Navigator.pop(context);
 
@@ -110,7 +111,7 @@ class AppDrawer extends StatelessWidget {
           ),
           ListTile(
             leading: const Icon(Icons.cloudy_snowing),
-            title: const Text("Weather"),
+            title: Text(AppLocalizations.of(context)?.weather ?? "Weather"),
             onTap: () {
               Navigator.pop(context);
 
@@ -120,7 +121,7 @@ class AppDrawer extends StatelessWidget {
           ),
           ListTile(
             leading: const Icon(Icons.business),
-            title: const Text("AgriBusiness"),
+            title: Text(AppLocalizations.of(context)?.agriBusiness ?? "AgriBusiness"),
             onTap: () {
               Navigator.pop(context);
 
@@ -130,7 +131,7 @@ class AppDrawer extends StatelessWidget {
           ),
           ListTile(
             leading: const Icon(Icons.question_answer),
-            title: const Text("Expert Talk"),
+            title: Text(AppLocalizations.of(context)?.expertTalk ?? "Expert Talk"),
             onTap: () {
               Navigator.pop(context);
 
@@ -140,7 +141,7 @@ class AppDrawer extends StatelessWidget {
           ),
           ListTile(
             leading: const Icon(Icons.pets),
-            title: const Text("Livestock"),
+            title: Text(AppLocalizations.of(context)?.liveStock ?? "Livestock"),
             onTap: () {
               Navigator.pop(context);
 
@@ -150,7 +151,7 @@ class AppDrawer extends StatelessWidget {
           ),
           ListTile(
             leading: const Icon(Icons.logout),
-            title: const Text("Logout"),
+            title: Text(AppLocalizations.of(context)?.logOut ?? "Logout"),
             onTap: () {
               Navigator.pop(context);
               ScaffoldMessenger.of(context).showSnackBar(

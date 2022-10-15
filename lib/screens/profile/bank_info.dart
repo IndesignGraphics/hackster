@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 import 'package:http/http.dart' as http;
 
@@ -38,148 +39,152 @@ class _BankInfoState extends State<BankInfo> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Bank Info'),
+        title: Text(AppLocalizations.of(context)?.bankDetails ?? 'Bank Info'),
       ),
-      body: _isLoading ? Center(child: CircularProgressIndicator(),) : Container(
-        padding: EdgeInsets.all(10),
-        width: double.infinity,
-        child: Column(
-          children: [
-            Container(
+      body: _isLoading
+          ? const Center(
+              child: CircularProgressIndicator(),
+            )
+          : Container(
               padding: const EdgeInsets.all(10),
               width: double.infinity,
-              decoration: BoxDecoration(
-                // color: Colors.greenAccent,
-                borderRadius: BorderRadius.circular(10),
-                border: Border.all(color: Colors.green),
-              ),
-              child: Row(
+              child: Column(
                 children: [
-                  const Text(
-                    'Bank Name : ',
-                    style: TextStyle(fontSize: 18),
+                  Container(
+                    padding: const EdgeInsets.all(10),
+                    width: double.infinity,
+                    decoration: BoxDecoration(
+                      // color: Colors.greenAccent,
+                      borderRadius: BorderRadius.circular(10),
+                      border: Border.all(color: Colors.green),
+                    ),
+                    child: Row(
+                      children: [
+                        Text(
+                          '${AppLocalizations.of(context)?.bankName} : ',
+                          style: const TextStyle(fontSize: 18),
+                        ),
+                        Text(
+                          bankData['bankName'],
+                          style: const TextStyle(
+                            fontSize: 18,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ],
+                    ),
                   ),
-                  Text(
-                    bankData['bankName'],
-                    style: const TextStyle(
-                      fontSize: 18,
-                      fontWeight: FontWeight.bold,
+                  const SizedBox(
+                    height: 15,
+                  ),
+                  Container(
+                    padding: const EdgeInsets.all(10),
+                    width: double.infinity,
+                    decoration: BoxDecoration(
+                      // color: Colors.greenAccent,
+                      borderRadius: BorderRadius.circular(10),
+                      border: Border.all(color: Colors.green),
+                    ),
+                    child: Row(
+                      children: [
+                        Text(
+                          '${AppLocalizations.of(context)?.branchName} : ',
+                          style: const TextStyle(fontSize: 18),
+                        ),
+                        Text(
+                          bankData['branchName'],
+                          style: const TextStyle(
+                            fontSize: 18,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  const SizedBox(
+                    height: 15,
+                  ),
+                  Container(
+                    padding: const EdgeInsets.all(10),
+                    width: double.infinity,
+                    decoration: BoxDecoration(
+                      // color: Colors.greenAccent,
+                      borderRadius: BorderRadius.circular(10),
+                      border: Border.all(color: Colors.green),
+                    ),
+                    child: Row(
+                      children: [
+                        Text(
+                          '${AppLocalizations.of(context)?.taluko} : ',
+                          style: const TextStyle(fontSize: 18),
+                        ),
+                        Text(
+                          bankData['taluka'],
+                          style: const TextStyle(
+                            fontSize: 18,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  const SizedBox(
+                    height: 15,
+                  ),
+                  Container(
+                    padding: const EdgeInsets.all(10),
+                    width: double.infinity,
+                    decoration: BoxDecoration(
+                      // color: Colors.greenAccent,
+                      borderRadius: BorderRadius.circular(10),
+                      border: Border.all(color: Colors.green),
+                    ),
+                    child: Row(
+                      children: [
+                        Text(
+                          '${AppLocalizations.of(context)?.accountNumber} : ',
+                          style: const TextStyle(fontSize: 18),
+                        ),
+                        Text(
+                          bankData['accountNumber'],
+                          style: const TextStyle(
+                            fontSize: 18,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  const SizedBox(
+                    height: 15,
+                  ),
+                  Container(
+                    padding: const EdgeInsets.all(10),
+                    width: double.infinity,
+                    decoration: BoxDecoration(
+                      // color: Colors.greenAccent,
+                      borderRadius: BorderRadius.circular(10),
+                      border: Border.all(color: Colors.green),
+                    ),
+                    child: Row(
+                      children: [
+                        Text(
+                          '${AppLocalizations.of(context)?.ifscCode}  : ',
+                          style: const TextStyle(fontSize: 18),
+                        ),
+                        Text(
+                          bankData['ifsc'],
+                          style: const TextStyle(
+                            fontSize: 18,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ],
                     ),
                   ),
                 ],
               ),
             ),
-            const SizedBox(
-              height: 15,
-            ),
-            Container(
-              padding: const EdgeInsets.all(10),
-              width: double.infinity,
-              decoration: BoxDecoration(
-                // color: Colors.greenAccent,
-                borderRadius: BorderRadius.circular(10),
-                border: Border.all(color: Colors.green),
-              ),
-              child: Row(
-                children: [
-                  const Text(
-                    'Branch Name : ',
-                    style: TextStyle(fontSize: 18),
-                  ),
-                  Text(
-                    bankData['branchName'],
-                    style: const TextStyle(
-                      fontSize: 18,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                ],
-              ),
-            ),
-            const SizedBox(
-              height: 15,
-            ),
-            Container(
-              padding: const EdgeInsets.all(10),
-              width: double.infinity,
-              decoration: BoxDecoration(
-                // color: Colors.greenAccent,
-                borderRadius: BorderRadius.circular(10),
-                border: Border.all(color: Colors.green),
-              ),
-              child: Row(
-                children: [
-                  const Text(
-                    'Taluka : ',
-                    style: TextStyle(fontSize: 18),
-                  ),
-                  Text(
-                    bankData['taluka'],
-                    style: const TextStyle(
-                      fontSize: 18,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                ],
-              ),
-            ),
-            const SizedBox(
-              height: 15,
-            ),
-            Container(
-              padding: const EdgeInsets.all(10),
-              width: double.infinity,
-              decoration: BoxDecoration(
-                // color: Colors.greenAccent,
-                borderRadius: BorderRadius.circular(10),
-                border: Border.all(color: Colors.green),
-              ),
-              child: Row(
-                children: [
-                  const Text(
-                    'Account Number : ',
-                    style: TextStyle(fontSize: 18),
-                  ),
-                  Text(
-                    bankData['accountNumber'],
-                    style: const TextStyle(
-                      fontSize: 18,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                ],
-              ),
-            ),
-            const SizedBox(
-              height: 15,
-            ),
-            Container(
-              padding: const EdgeInsets.all(10),
-              width: double.infinity,
-              decoration: BoxDecoration(
-                // color: Colors.greenAccent,
-                borderRadius: BorderRadius.circular(10),
-                border: Border.all(color: Colors.green),
-              ),
-              child: Row(
-                children: [
-                  const Text(
-                    'IFSC code  : ',
-                    style: TextStyle(fontSize: 18),
-                  ),
-                  Text(
-                    bankData['ifsc'],
-                    style: const TextStyle(
-                      fontSize: 18,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                ],
-              ),
-            ),
-          ],
-        ),
-      ),
     );
   }
 }

@@ -6,6 +6,7 @@ import 'package:geocoding/geocoding.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:http/http.dart' as http;
 import 'package:intl/intl.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class Weather extends StatefulWidget {
   const Weather({Key? key}) : super(key: key);
@@ -122,7 +123,7 @@ class _WeatherState extends State<Weather> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Weather'),
+        title: Text(AppLocalizations.of(context)?.weather ?? 'Weather'),
         centerTitle: true,
       ),
       body: _isLoading
@@ -136,15 +137,15 @@ class _WeatherState extends State<Weather> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              '${subLocality},',
-              style: TextStyle(
+              '$subLocality,',
+              style: const TextStyle(
                 color: Colors.white,
                 fontSize: 25,
               ),
             ),
             Text(
               area,
-              style: TextStyle(
+              style: const TextStyle(
                 color: Colors.white,
                 fontSize: 25,
               ),
@@ -154,7 +155,7 @@ class _WeatherState extends State<Weather> {
             ),
             Text(
               date,
-              style: TextStyle(
+              style: const TextStyle(
                 color: Colors.grey,
               ),
             ),
@@ -172,7 +173,7 @@ class _WeatherState extends State<Weather> {
                         Text(
                           (weatherData['main']['temp'] - 273.15)
                               .toStringAsFixed(2),
-                          style: TextStyle(
+                          style: const TextStyle(
                             color: Colors.white,
                             fontSize: 50,
                             fontWeight: FontWeight.bold,
@@ -180,7 +181,7 @@ class _WeatherState extends State<Weather> {
                         ),
                         Text(
                           weatherData['weather'][0]['main'],
-                          style: TextStyle(
+                          style: const TextStyle(
                             color: Colors.white,
                             fontSize: 19,
                           ),
@@ -198,135 +199,129 @@ class _WeatherState extends State<Weather> {
                 ),
               ],
             ),
-            Container(
-              child: Card(
-                color: Colors.grey,
-                clipBehavior: Clip.hardEdge,
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(20),
-                ),
-                child: Container(
-                  padding: EdgeInsets.all(10),
-                  child: Row(
-                    children: [
-                      Card(
-                        color: Colors.white,
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(15),
-                        ),
-                        child: SvgPicture.asset('assets/svgs/umbrella.svg'),
+            Card(
+              color: Colors.grey,
+              clipBehavior: Clip.hardEdge,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(20),
+              ),
+              child: Container(
+                padding: const EdgeInsets.all(10),
+                child: Row(
+                  children: [
+                    Card(
+                      color: Colors.white,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(15),
                       ),
-                      SizedBox(
-                        width: 10,
-                      ),
-                      Expanded(
-                        child: Text(
-                          'RainFall',
-                          style: TextStyle(color: Colors.white),
-                        ),
-                      ),
-                      Text(
-                        weatherData['clouds']['all'].toString(),
+                      child: SvgPicture.asset('assets/svgs/umbrella.svg'),
+                    ),
+                    const SizedBox(
+                      width: 10,
+                    ),
+                    const Expanded(
+                      child: Text(
+                        'RainFall',
                         style: TextStyle(color: Colors.white),
                       ),
-                      SizedBox(
-                        width: 30,
-                      )
-                    ],
-                  ),
+                    ),
+                    Text(
+                      weatherData['clouds']['all'].toString(),
+                      style: const TextStyle(color: Colors.white),
+                    ),
+                    const SizedBox(
+                      width: 30,
+                    )
+                  ],
                 ),
               ),
             ),
             const SizedBox(
               height: 5,
             ),
-            Container(
-              child: Card(
-                color: Colors.grey,
-                clipBehavior: Clip.hardEdge,
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(20),
-                ),
-                child: Container(
-                  padding: EdgeInsets.all(10),
-                  child: Row(
-                    children: [
-                      Card(
-                        color: Colors.white,
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(15),
-                        ),
-                        child: Container(
-                          height: 43,
-                          child: Center(
-                            child: SvgPicture.asset('assets/svgs/wind.svg'),
-                          ),
+            Card(
+              color: Colors.grey,
+              clipBehavior: Clip.hardEdge,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(20),
+              ),
+              child: Container(
+                padding: const EdgeInsets.all(10),
+                child: Row(
+                  children: [
+                    Card(
+                      color: Colors.white,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(15),
+                      ),
+                      child: SizedBox(
+                        height: 43,
+                        child: Center(
+                          child: SvgPicture.asset('assets/svgs/wind.svg'),
                         ),
                       ),
-                      SizedBox(
-                        width: 10,
-                      ),
-                      Expanded(
-                        child: Text(
-                          'Wind',
-                          style: TextStyle(color: Colors.white),
-                        ),
-                      ),
-                      Text(
-                        '${weatherData['wind']['speed']} m/s',
+                    ),
+                    const SizedBox(
+                      width: 10,
+                    ),
+                    const Expanded(
+                      child: Text(
+                        'Wind',
                         style: TextStyle(color: Colors.white),
                       ),
-                      SizedBox(
-                        width: 30,
-                      )
-                    ],
-                  ),
+                    ),
+                    Text(
+                      '${weatherData['wind']['speed']} m/s',
+                      style: const TextStyle(color: Colors.white),
+                    ),
+                    const SizedBox(
+                      width: 30,
+                    )
+                  ],
                 ),
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 5,
             ),
-            Container(
-              child: Card(
-                color: Colors.grey,
-                clipBehavior: Clip.hardEdge,
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(20),
-                ),
-                child: Container(
-                  padding: const EdgeInsets.all(10),
-                  child: Row(
-                    children: [
-                      Card(
-                        color: Colors.white,
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(15),
-                        ),
-                        child: SvgPicture.asset('assets/svgs/humidity.svg'),
+            Card(
+              color: Colors.grey,
+              clipBehavior: Clip.hardEdge,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(20),
+              ),
+              child: Container(
+                padding: const EdgeInsets.all(10),
+                child: Row(
+                  children: [
+                    Card(
+                      color: Colors.white,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(15),
                       ),
-                      SizedBox(
-                        width: 10,
-                      ),
-                      Expanded(
-                        child: Text(
-                          'Humidity',
-                          style: TextStyle(color: Colors.white),
-                        ),
-                      ),
-                      Text(
-                        weatherData['main']['humidity'].toString(),
+                      child: SvgPicture.asset('assets/svgs/humidity.svg'),
+                    ),
+                    const SizedBox(
+                      width: 10,
+                    ),
+                    const Expanded(
+                      child: Text(
+                        'Humidity',
                         style: TextStyle(color: Colors.white),
                       ),
-                      SizedBox(
-                        width: 30,
-                      )
-                    ],
-                  ),
+                    ),
+                    Text(
+                      weatherData['main']['humidity'].toString(),
+                      style: const TextStyle(color: Colors.white),
+                    ),
+                    const SizedBox(
+                      width: 30,
+                    )
+                  ],
                 ),
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 10,
             ),
             SizedBox(
@@ -336,8 +331,8 @@ class _WeatherState extends State<Weather> {
                 itemCount: 10,
                 itemBuilder: ((context, i) {
                   return Container(
-                    padding: EdgeInsets.symmetric(vertical: 15, horizontal: 11),
-                    margin: EdgeInsets.symmetric(horizontal: 8),
+                    padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 11),
+                    margin: const EdgeInsets.symmetric(horizontal: 8),
                     decoration: BoxDecoration(
                       color: Colors.grey,
                       borderRadius: BorderRadius.circular(40),
@@ -346,21 +341,21 @@ class _WeatherState extends State<Weather> {
                       children: [
                         Text(
                           _getFormattedDate(i),
-                          style: TextStyle(
+                          style: const TextStyle(
                             color: Colors.white,
                           ),
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 3,
                         ),
                         SvgPicture.asset('assets/svgs/sun.svg'),
-                        SizedBox(
+                        const SizedBox(
                           height: 3,
                         ),
                         Text(
                           (forecastData[i]['main']['temp'] - 273.15)
                               .toStringAsFixed(0)+'°C',
-                          style: TextStyle(
+                          style: const TextStyle(
                             color: Colors.white,
                           ),
                         ),

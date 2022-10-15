@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hackster/screens/soil_test/basic_soil_test.dart';
 import 'package:hackster/screens/soil_test/water_test.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 import '../soil_test/standard_soil_test.dart';
 
@@ -12,13 +13,13 @@ class SoilTest extends StatelessWidget {
     final width = MediaQuery.of(context).size.width - 20;
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Soil Test'),
+        title: Text(AppLocalizations.of(context)?.soilTest ?? 'Soil Test'),
       ),
-      body: SingleChildScrollView(
-        child: Container(
-          height: MediaQuery.of(context).size.height - 110,
-          width: MediaQuery.of(context).size.width,
-          padding: const EdgeInsets.all(10),
+      body: Container(
+        height: MediaQuery.of(context).size.height,
+        width: MediaQuery.of(context).size.width,
+        padding: const EdgeInsets.all(10),
+        child: SingleChildScrollView(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -31,7 +32,7 @@ class SoilTest extends StatelessWidget {
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(10)),
                       child: Container(
-                        height: (width / 3) - 10,
+                        height: (width / 3) ,
                         width: (width / 3) - 10,
                         color: Theme.of(context).primaryColor,
                         child: Column(
@@ -43,9 +44,10 @@ class SoilTest extends StatelessWidget {
                               height: (width / 3) - 40,
                               width: (width / 3) - 10,
                             ),
-                            const Text(
-                              'Basic Soil Test',
-                              style: TextStyle(color: Colors.white),
+                            Text(
+                              AppLocalizations.of(context)?.basicSoilTest ??
+                                  'Basic Soil Test',
+                              style: const TextStyle(color: Colors.white),
                             ),
                             const SizedBox(),
                           ],
@@ -55,7 +57,7 @@ class SoilTest extends StatelessWidget {
                     onTap: () {
                       Navigator.of(context).push(
                         MaterialPageRoute(
-                          builder: (context) =>const BasicSoilTest(),
+                          builder: (context) => const BasicSoilTest(),
                         ),
                       );
                     },
@@ -66,7 +68,7 @@ class SoilTest extends StatelessWidget {
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(10)),
                       child: Container(
-                        height: (width / 3) - 10,
+                        height: (width / 3),
                         width: (width / 3) - 10,
                         color: Theme.of(context).primaryColor,
                         child: Column(
@@ -78,9 +80,10 @@ class SoilTest extends StatelessWidget {
                               height: (width / 3) - 40,
                               width: (width / 3) - 10,
                             ),
-                            const Text(
-                              'Standard Soil Test',
-                              style: TextStyle(color: Colors.white),
+                            Text(
+                              AppLocalizations.of(context)?.standardSoilTest ??
+                                  'Standard Soil Test',
+                              style: const TextStyle(color: Colors.white),
                             ),
                             const SizedBox(),
                           ],
@@ -90,7 +93,7 @@ class SoilTest extends StatelessWidget {
                     onTap: () {
                       Navigator.of(context).push(
                         MaterialPageRoute(
-                          builder: (context) =>const StandardSoilTest(),
+                          builder: (context) => const StandardSoilTest(),
                         ),
                       );
                     },
@@ -101,7 +104,7 @@ class SoilTest extends StatelessWidget {
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(10)),
                       child: Container(
-                        height: (width / 3) - 10,
+                        height: (width / 3),
                         width: (width / 3) - 10,
                         color: Theme.of(context).primaryColor,
                         child: Column(
@@ -113,9 +116,10 @@ class SoilTest extends StatelessWidget {
                               height: (width / 3) - 40,
                               width: (width / 3) - 10,
                             ),
-                            const Text(
-                              'Water Test',
-                              style: TextStyle(color: Colors.white),
+                            Text(
+                              AppLocalizations.of(context)?.waterTest ??
+                                  'Water Test',
+                              style: const TextStyle(color: Colors.white),
                             ),
                             const SizedBox(),
                           ],
@@ -125,7 +129,7 @@ class SoilTest extends StatelessWidget {
                     onTap: () {
                       Navigator.of(context).push(
                         MaterialPageRoute(
-                          builder: (context) =>const WaterTest(),
+                          builder: (context) => const WaterTest(),
                         ),
                       );
                     },
@@ -135,8 +139,10 @@ class SoilTest extends StatelessWidget {
               const SizedBox(
                 height: 20,
               ),
-              const Text('Soil Test Reports',
-                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 28)),
+              Text(
+                AppLocalizations.of(context)?.soilTestReports ?? 'Soil Test Reports',
+                style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 28),
+              ),
               const SizedBox(
                 height: 20,
               ),
@@ -157,9 +163,9 @@ class SoilTest extends StatelessWidget {
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          const Text(
-                            'Basic Soil Test',
-                            style: TextStyle(fontWeight: FontWeight.bold),
+                          Text(
+                            AppLocalizations.of(context)?.basicSoilTest ?? 'Basic Soil Test',
+                            style: const TextStyle(fontWeight: FontWeight.bold),
                           ),
                           Column(
                             children: const [
@@ -190,59 +196,59 @@ class SoilTest extends StatelessWidget {
                           color: Theme.of(context).primaryColor),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
-                        children: const [
-                          SizedBox(
+                        children: [
+                          const SizedBox(
                             height: 5,
                           ),
                           Text(
-                            'Soil Sample Analysis',
-                            style: TextStyle(
+                            AppLocalizations.of(context)?.soilSampleAnalysis ?? 'Soil Sample Analysis',
+                            style: const TextStyle(
                                 color: Colors.white,
                                 fontWeight: FontWeight.bold),
                           ),
-                          SizedBox(
+                          const SizedBox(
                             height: 10,
                           ),
                           Text(
-                            '1. pH : 5.4',
-                            style: TextStyle(color: Colors.white),
+                            '1. ${AppLocalizations.of(context)?.ph} : 5.4',
+                            style: const TextStyle(color: Colors.white),
                           ),
-                          SizedBox(
+                          const SizedBox(
                             height: 5,
                           ),
                           Text(
-                            '2. Organic Carbon : 120',
-                            style: TextStyle(color: Colors.white),
+                            '2. ${AppLocalizations.of(context)?.organicCarbon} : 120',
+                            style: const TextStyle(color: Colors.white),
                           ),
-                          SizedBox(
+                          const SizedBox(
                             height: 5,
                           ),
                           Text(
-                            '3. Potassium : 22',
-                            style: TextStyle(color: Colors.white),
+                            '3. ${AppLocalizations.of(context)?.potassium} : 22',
+                            style: const TextStyle(color: Colors.white),
                           ),
-                          SizedBox(
+                          const SizedBox(
                             height: 5,
                           ),
                           Text(
-                            '4. Phosphorus : 23',
-                            style: TextStyle(color: Colors.white),
+                            '4. ${AppLocalizations.of(context)?.phosphorus} : 23',
+                            style: const TextStyle(color: Colors.white),
                           ),
-                          SizedBox(
+                          const SizedBox(
                             height: 5,
                           ),
                           Text(
-                            '5. Electrical Conductivity : 30%',
-                            style: TextStyle(color: Colors.white),
+                            '5. ${AppLocalizations.of(context)?.electricalConductivity} : 30%',
+                            style: const TextStyle(color: Colors.white),
                           ),
-                          SizedBox(
+                          const SizedBox(
                             height: 5,
                           ),
                           Text(
-                            '6. Nitrogen : 120-200',
-                            style: TextStyle(color: Colors.white),
+                            '6. ${AppLocalizations.of(context)?.nitrogen} : 120-200',
+                            style: const TextStyle(color: Colors.white),
                           ),
-                          SizedBox(
+                          const SizedBox(
                             height: 5,
                           ),
                         ],
@@ -271,9 +277,9 @@ class SoilTest extends StatelessWidget {
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          const Text(
-                            'Basic Soil Test',
-                            style: TextStyle(fontWeight: FontWeight.bold),
+                          Text(
+                            AppLocalizations.of(context)?.basicSoilTest ?? 'Basic Soil Test',
+                            style: const TextStyle(fontWeight: FontWeight.bold),
                           ),
                           Column(
                             children: const [
@@ -304,59 +310,59 @@ class SoilTest extends StatelessWidget {
                           color: Theme.of(context).primaryColor),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
-                        children: const [
-                          SizedBox(
+                        children: [
+                          const SizedBox(
                             height: 5,
                           ),
                           Text(
-                            'Soil Sample Analysis',
-                            style: TextStyle(
+                            AppLocalizations.of(context)?.soilSampleAnalysis ?? 'Soil Sample Analysis',
+                            style: const TextStyle(
                                 color: Colors.white,
                                 fontWeight: FontWeight.bold),
                           ),
-                          SizedBox(
+                          const SizedBox(
                             height: 10,
                           ),
                           Text(
-                            '1. pH : 5.4',
-                            style: TextStyle(color: Colors.white),
+                            '1. ${AppLocalizations.of(context)?.ph} : 5.4',
+                            style: const TextStyle(color: Colors.white),
                           ),
-                          SizedBox(
+                          const SizedBox(
                             height: 5,
                           ),
                           Text(
-                            '2. Organic Carbon : 120',
-                            style: TextStyle(color: Colors.white),
+                            '2. ${AppLocalizations.of(context)?.organicCarbon} : 120',
+                            style: const TextStyle(color: Colors.white),
                           ),
-                          SizedBox(
+                          const SizedBox(
                             height: 5,
                           ),
                           Text(
-                            '3. Potassium : 22',
-                            style: TextStyle(color: Colors.white),
+                            '3. ${AppLocalizations.of(context)?.potassium} : 22',
+                            style: const TextStyle(color: Colors.white),
                           ),
-                          SizedBox(
+                          const SizedBox(
                             height: 5,
                           ),
                           Text(
-                            '4. Phosphorus : 23',
-                            style: TextStyle(color: Colors.white),
+                            '4. ${AppLocalizations.of(context)?.phosphorus} : 23',
+                            style: const TextStyle(color: Colors.white),
                           ),
-                          SizedBox(
+                          const SizedBox(
                             height: 5,
                           ),
                           Text(
-                            '5. Electrical Conductivity : 30%',
-                            style: TextStyle(color: Colors.white),
+                            '5. ${AppLocalizations.of(context)?.electricalConductivity} : 30%',
+                            style: const TextStyle(color: Colors.white),
                           ),
-                          SizedBox(
+                          const SizedBox(
                             height: 5,
                           ),
                           Text(
-                            '6. Nitrogen : 120-200',
-                            style: TextStyle(color: Colors.white),
+                            '6. ${AppLocalizations.of(context)?.nitrogen} : 120-200',
+                            style: const TextStyle(color: Colors.white),
                           ),
-                          SizedBox(
+                          const SizedBox(
                             height: 5,
                           ),
                         ],
