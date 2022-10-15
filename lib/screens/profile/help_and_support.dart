@@ -16,6 +16,11 @@ class HelpAndSupport extends StatelessWidget {
           padding: EdgeInsets.all(10),
           child: Column(
             children: [
+              Text(
+                'Hello farmer,\nFarmer360 is ready get your feedback. Please give your feedback to use and help use to improve our application.',
+                style: TextStyle(fontSize: 20),
+              ),
+              SizedBox(height: 10,),
               TextField(
                 controller: _feedbackController,
                 decoration: InputDecoration(
