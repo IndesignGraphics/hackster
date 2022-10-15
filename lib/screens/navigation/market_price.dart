@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:http/http.dart' as http;
+import 'package:intl/intl.dart';
 
 class MarketPrice extends StatefulWidget {
   const MarketPrice({Key? key}) : super(key: key);
@@ -17,6 +18,8 @@ class _MarketPriceState extends State<MarketPrice> {
     'amreli',
     'jamnagar',
   ];
+
+  var date = DateFormat('MMM d,y').format(DateTime.now());
 
   bool _isLoading = true;
   late var marketData;
@@ -102,8 +105,8 @@ class _MarketPriceState extends State<MarketPrice> {
                               const SizedBox(
                                 height: 5,
                               ),
-                              const Text(
-                                'Aug 09,2022',
+                               Text(
+                                date,
                                 style: TextStyle(
                                   color: Colors.white,
                                   fontSize: 10,

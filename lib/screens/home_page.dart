@@ -131,62 +131,7 @@ class _HomePageState extends State<HomePage> {
               height: MediaQuery.of(context).size.height - 160,
               child: Column(
                 children: [
-                  SizedBox(
-                    height: 75,
-                    child: ListView.separated(
-                      scrollDirection: Axis.horizontal,
-                      itemCount: 20,
-                      itemBuilder: (context, i) {
-                        if (i == 0) {
-                          return Container(
-                            width: 75,
-                            height: 75,
-                            padding: const EdgeInsets.all(2),
-                            decoration: BoxDecoration(
-                              border: Border.all(
-                                  color: Theme.of(context).primaryColor,
-                                  width: 2),
-                              shape: BoxShape.circle,
-                            ),
-                            child: Container(
-                              decoration: const BoxDecoration(
-                                shape: BoxShape.circle,
-                              ),
-                              child: const Icon(Icons.add),
-                            ),
-                          );
-                        }
-                        return Container(
-                          width: 75,
-                          height: 75,
-                          padding: const EdgeInsets.all(2),
-                          decoration: BoxDecoration(
-                            border: Border.all(
-                                color: Theme.of(context).primaryColor,
-                                width: 2),
-                            shape: BoxShape.circle,
-                          ),
-                          child: Container(
-                            decoration: const BoxDecoration(
-                              shape: BoxShape.circle,
-                              image: DecorationImage(
-                                image: AssetImage('assets/images/cotton.jpg'),
-                                fit: BoxFit.fill,
-                              ),
-                            ),
-                          ),
-                        );
-                      },
-                      separatorBuilder: (BuildContext context, int index) {
-                        return const SizedBox(
-                          width: 10,
-                        );
-                      },
-                    ),
-                  ),
-                  const SizedBox(
-                    height: 20,
-                  ),
+                  
                   InkWell(
                     onTap: () {
                       Navigator.of(context).push(MaterialPageRoute(

@@ -8,8 +8,9 @@ class Credit extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SingleChildScrollView(
-        child: SizedBox(
+        child: Container(
           height: MediaQuery.of(context).size.height,
+          padding: EdgeInsets.all(10),
           child: ListView.builder(
             itemCount: 10,
             itemBuilder: (context, i) {

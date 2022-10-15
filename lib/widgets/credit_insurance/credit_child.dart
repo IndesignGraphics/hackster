@@ -6,8 +6,10 @@ class CreditChild extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
-      child: SizedBox(
-        height: 100,
+      elevation: 3,
+      child: Container(
+        height: 116,
+        padding: EdgeInsets.all(10),
         child: Column(
           children: const [
             Text('Farm title : Shivji Land'),
