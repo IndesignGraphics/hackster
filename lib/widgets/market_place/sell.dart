@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hackster/screens/other/add_new_item_for_sell.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class Sell extends StatelessWidget {
   const Sell({Key? key}) : super(key: key);
@@ -9,7 +10,7 @@ class Sell extends StatelessWidget {
     return Scaffold(
       body: SingleChildScrollView(
         child: Container(
-          padding: EdgeInsets.all(10),
+          padding: const EdgeInsets.all(10),
           height: MediaQuery.of(context).size.height,
           child: ListView.builder(
             itemCount: 5,
@@ -17,27 +18,31 @@ class Sell extends StatelessWidget {
               return Card(
                 elevation: 3,
                 child: Container(
-                  padding: EdgeInsets.all(10),
+                  padding: const EdgeInsets.all(10),
                   child: Row(children: [
                     Expanded(
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            'Crop Type : Vegetables',
-                            style: TextStyle(fontSize: 16),
+                            '${AppLocalizations.of(context)?.cropType} : Vegetables',
+                            style: const TextStyle(fontSize: 16),
                           ),
-                          Text('Crop Name : Tamatar',
-                            style: TextStyle(fontSize: 16),
+                          Text(
+                            '${AppLocalizations.of(context)?.cropName} : Tamatar',
+                            style: const TextStyle(fontSize: 16),
                           ),
-                          Text('Quantity : 200kg',
-                            style: TextStyle(fontSize: 16),
+                          Text(
+                            '${AppLocalizations.of(context)?.quantity} : 200kg',
+                            style: const TextStyle(fontSize: 16),
                           ),
-                          Text('Price : 1500',
-                            style: TextStyle(fontSize: 16),
+                          Text(
+                            '${AppLocalizations.of(context)?.price} : 1500',
+                            style: const TextStyle(fontSize: 16),
                           ),
-                          Text('Description : This is good.',
-                            style: TextStyle(fontSize: 16),
+                          Text(
+                            '${AppLocalizations.of(context)?.description} : This is good.',
+                            style: const TextStyle(fontSize: 16),
                           ),
                         ],
                       ),
@@ -56,11 +61,11 @@ class Sell extends StatelessWidget {
         onPressed: () {
           Navigator.of(context).push(
             MaterialPageRoute(
-              builder: ((context) => AddNewItemForSell()),
+              builder: ((context) => const AddNewItemForSell()),
             ),
           );
         },
-        child: Text('Add new item for sell'),
+        child: Text(AppLocalizations.of(context)?.addNewItemForSell??'Add new item for sell'),
       ),
     );
   }

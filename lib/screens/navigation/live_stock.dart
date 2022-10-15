@@ -1,22 +1,23 @@
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class LiveStock extends StatelessWidget {
   const LiveStock({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    List<String> listOfLiveStock = [
-      'Cattle & Buffalo Development',
-      'Fodder Development',
-      'Poultry Development',
-      'Dairy Development',
-      'Veterinary Service and Animal Health',
-      'Sheep, Goat and Wool Development',
-      'Other Live Stock Development',
-      'Horse and Camel Development',
-      'Sheep Development Branch',
-      'LiveStock Health (Statistics)'
+    List<String?> listOfLiveStock = [
+      AppLocalizations.of(context)?.cattleAndBuffaloDevelopment,
+      AppLocalizations.of(context)?.fodderDevelopment,
+      AppLocalizations.of(context)?.poultryDevelopment,
+      AppLocalizations.of(context)?.dairyDevelopment,
+      AppLocalizations.of(context)?.veterinaryServiceAndAnimalHealth,
+      AppLocalizations.of(context)?.sheepGoatAndWoolDevelopment,
+      AppLocalizations.of(context)?.otherLiveStockDevelopment,
+      AppLocalizations.of(context)?.horseAndCamelDevelopment,
+      AppLocalizations.of(context)?.sheepDevelopmentBranch,
+      AppLocalizations.of(context)?.livestockHealth
     ];
 
     List<String> listOfLinks = [
@@ -45,7 +46,7 @@ class LiveStock extends StatelessWidget {
 
     return Scaffold(
         appBar: AppBar(
-          title: const Text('LiveStock'),
+          title: Text(AppLocalizations.of(context)?.liveStock ?? 'LiveStock'),
         ),
         body: Column(
           children: [
@@ -77,7 +78,7 @@ class LiveStock extends StatelessWidget {
                                 borderRadius: BorderRadius.circular(10),
                                 color: Theme.of(context).primaryColor),
                             child: Text(
-                              listOfLiveStock[i],
+                              listOfLiveStock[i]!,
                               style: const TextStyle(
                                   color: Colors.white,
                                   fontWeight: FontWeight.bold),

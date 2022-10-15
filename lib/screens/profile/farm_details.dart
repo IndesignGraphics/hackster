@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hackster/screens/profile/land_details.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class FarmDetails extends StatefulWidget {
   final farmerData;
@@ -31,7 +32,7 @@ class _FarmDetailsState extends State<FarmDetails> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Farm Details'),
+        title: Text(AppLocalizations.of(context)?.farmDetails ?? 'Farm Details'),
       ),
       body: _isLoading
           ? const Center(
@@ -50,15 +51,15 @@ class _FarmDetailsState extends State<FarmDetails> {
                         Column(
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                           children: [
-                            Text('Land Name : ${_landList[i]['title']}'),
+                            Text('${AppLocalizations.of(context)?.landName} : ${_landList[i]['title']}'),
                             const SizedBox(
                               height: 10,
                             ),
-                            Text('Survey No : ${_landList[i]['surveyNum']}'),
+                            Text('${AppLocalizations.of(context)?.surveyNo} : ${_landList[i]['surveyNum']}'),
                             const SizedBox(
                               height: 10,
                             ),
-                            Text('UPIN : ${_landList[i]['upin']}'),
+                            Text('${AppLocalizations.of(context)?.upin} : ${_landList[i]['upin']}'),
                           ],
                         ),
                         SizedBox(

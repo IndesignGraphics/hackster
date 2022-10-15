@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class ProfileInfo extends StatelessWidget {
   final farmerData;
@@ -29,9 +30,9 @@ class ProfileInfo extends StatelessWidget {
                 ),
                 child:Row(
                   children: [
-                    const Text(
-                      'Farmer ID : ',
-                      style: TextStyle(fontSize: 18),
+                    Text(
+                      '${AppLocalizations.of(context)?.farmerID} : ',
+                      style: const TextStyle(fontSize: 18),
                     ),
                     Text(
                       farmerData['farmId'],
@@ -53,9 +54,9 @@ class ProfileInfo extends StatelessWidget {
                 ),
                 child: Row(
                   children: [
-                    const Text(
-                      'Farmer Name : ',
-                      style: TextStyle(fontSize: 18),
+                    Text(
+                      '${AppLocalizations.of(context)?.farmerName} : ',
+                      style: const TextStyle(fontSize: 18),
                     ),
                     Text(
                       farmerName,
@@ -77,9 +78,9 @@ class ProfileInfo extends StatelessWidget {
                 ),
                 child: Row(
                   children: [
-                    const Text(
-                      'Aadhar Number : ',
-                      style: TextStyle(fontSize: 18),
+                    Text(
+                      '${AppLocalizations.of(context)?.aadharNumber} : ',
+                      style: const TextStyle(fontSize: 18),
                     ),
                     Text(
                       farmerData['perinfo']['adhar'],
@@ -101,9 +102,9 @@ class ProfileInfo extends StatelessWidget {
                 ),
                 child: Row(
                   children: [
-                    const Text(
-                      'Email ID : ',
-                      style: TextStyle(fontSize: 18),
+                    Text(
+                      '${AppLocalizations.of(context)?.emailID} : ',
+                      style: const TextStyle(fontSize: 18),
                     ),
                     Text(
                       farmerData['comminfo']['email'],
@@ -125,9 +126,9 @@ class ProfileInfo extends StatelessWidget {
                 ),
                 child: Row(
                   children: [
-                    const Text(
-                      'Mobile Number : ',
-                      style: TextStyle(fontSize: 18),
+                    Text(
+                      '${AppLocalizations.of(context)?.mobileNumber} : ',
+                      style: const TextStyle(fontSize: 18),
                     ),
                     Text(
                       farmerData['comminfo']['mobileNumber'],
@@ -149,9 +150,9 @@ class ProfileInfo extends StatelessWidget {
                 ),
                 child: Row(
                   children: [
-                    const Text(
-                      'Gender : ',
-                      style: TextStyle(fontSize: 18),
+                    Text(
+                      '${AppLocalizations.of(context)?.gender} : ',
+                      style: const TextStyle(fontSize: 18),
                     ),
                     Text(
                       farmerData['perinfo']['gender'],
@@ -173,9 +174,9 @@ class ProfileInfo extends StatelessWidget {
                 ),
                 child: Row(
                   children: [
-                    const Text(
-                      'Date of Birth : ',
-                      style: TextStyle(fontSize: 18),
+                    Text(
+                      '${AppLocalizations.of(context)?.dateOfBirth} : ',
+                      style: const TextStyle(fontSize: 18),
                     ),
                     Text(
                       farmerData['perinfo']['dob'],
@@ -197,9 +198,9 @@ class ProfileInfo extends StatelessWidget {
                 ),
                 child: Row(
                   children: [
-                    const Text(
-                      'Pincode : ',
-                      style: TextStyle(fontSize: 18),
+                    Text(
+                      '${AppLocalizations.of(context)?.pincode} : ',
+                      style: const TextStyle(fontSize: 18),
                     ),
                     Text(
                       farmerData['perinfo']['pincode'],
@@ -221,9 +222,9 @@ class ProfileInfo extends StatelessWidget {
                 ),
                 child: Row(
                   children: [
-                    const Text(
-                      'District : ',
-                      style: TextStyle(fontSize: 18),
+                    Text(
+                      '${AppLocalizations.of(context)?.district} : ',
+                      style: const TextStyle(fontSize: 18),
                     ),
                     Text(
                       farmerData['perinfo']['district'],
@@ -245,9 +246,9 @@ class ProfileInfo extends StatelessWidget {
                 ),
                 child: Row(
                   children:[
-                    const Text(
-                      'Taluko : ',
-                      style: TextStyle(fontSize: 18),
+                    Text(
+                      '${AppLocalizations.of(context)?.taluko} : ',
+                      style: const TextStyle(fontSize: 18),
                     ),
                     Text(
                       farmerData['perinfo']['taluko'],
@@ -268,8 +269,8 @@ class ProfileInfo extends StatelessWidget {
                 ),
                 child: Row(
                   children: [
-                    const Text(
-                      'Address : ',
+                    Text(
+                      '${AppLocalizations.of(context)?.address} : ',
                       style: TextStyle(fontSize: 18),
                     ),
                     Text(

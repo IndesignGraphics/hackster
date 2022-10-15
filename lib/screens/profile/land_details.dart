@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 import 'package:http/http.dart' as http;
 
@@ -63,9 +64,9 @@ class _LandDetailsState extends State<LandDetails> {
                       ),
                       child: Row(
                         children: [
-                          const Text(
-                            'Land Title : ',
-                            style: TextStyle(fontSize: 18),
+                          Text(
+                            '${AppLocalizations.of(context)?.landName} : ',
+                            style: const TextStyle(fontSize: 18),
                           ),
                           Text(
                             landData['landTitle'],
@@ -92,9 +93,9 @@ class _LandDetailsState extends State<LandDetails> {
                       ),
                       child: Row(
                         children: [
-                          const Text(
-                            'Survey Number : ',
-                            style: TextStyle(fontSize: 18),
+                          Text(
+                            '${AppLocalizations.of(context)?.surveyNo} : ',
+                            style: const TextStyle(fontSize: 18),
                           ),
                           Text(
                             landData['newSurveyNumber'],
@@ -121,9 +122,9 @@ class _LandDetailsState extends State<LandDetails> {
                       ),
                       child: Row(
                         children: [
-                          const Text(
-                            'UPIN : ',
-                            style: TextStyle(fontSize: 18),
+                          Text(
+                            '${AppLocalizations.of(context)?.upin} : ',
+                            style: const TextStyle(fontSize: 18),
                           ),
                           Text(
                             landData['UPIN'],
@@ -151,9 +152,9 @@ class _LandDetailsState extends State<LandDetails> {
                       ),
                       child: Row(
                         children: [
-                          const Text(
-                            'Village : ',
-                            style: TextStyle(fontSize: 18),
+                          Text(
+                            '${AppLocalizations.of(context)?.village} : ',
+                            style: const TextStyle(fontSize: 18),
                           ),
                           Text(
                             landData['village'],
@@ -180,9 +181,9 @@ class _LandDetailsState extends State<LandDetails> {
                       ),
                       child: Row(
                         children: [
-                          const Text(
-                            'Taluko : ',
-                            style: TextStyle(fontSize: 18),
+                          Text(
+                            '${AppLocalizations.of(context)?.taluko} : ',
+                            style: const TextStyle(fontSize: 18),
                           ),
                           Text(
                             landData['taluka'],
@@ -209,9 +210,9 @@ class _LandDetailsState extends State<LandDetails> {
                       ),
                       child: Row(
                         children: [
-                          const Text(
-                            'District : ',
-                            style: TextStyle(fontSize: 18),
+                          Text(
+                            '${AppLocalizations.of(context)?.district} : ',
+                            style: const TextStyle(fontSize: 18),
                           ),
                           Text(
                             landData['district'],
@@ -238,9 +239,9 @@ class _LandDetailsState extends State<LandDetails> {
                       ),
                       child: Row(
                         children: [
-                          const Text(
-                            'Old Survey No. : ',
-                            style: TextStyle(fontSize: 18),
+                          Text(
+                            '${AppLocalizations.of(context)?.oldSurveyNo} : ',
+                            style: const TextStyle(fontSize: 18),
                           ),
                           Text(
                             landData['oldSurveyNumber'],
@@ -267,9 +268,9 @@ class _LandDetailsState extends State<LandDetails> {
                       ),
                       child: Row(
                         children: [
-                          const Text(
-                            'Total Area : ',
-                            style: TextStyle(fontSize: 18),
+                          Text(
+                            '${AppLocalizations.of(context)?.totalArea} : ',
+                            style: const TextStyle(fontSize: 18),
                           ),
                           Text(
                             landData['totalArea'],
@@ -296,9 +297,9 @@ class _LandDetailsState extends State<LandDetails> {
                       ),
                       child: Row(
                         children: [
-                          const Text(
-                            'Total Assesment Rs. : ',
-                            style: TextStyle(fontSize: 18),
+                          Text(
+                            '${AppLocalizations.of(context)?.totalAssesmentRs} : ',
+                            style: const TextStyle(fontSize: 18),
                           ),
                           Text(
                             landData['totalAssesment'],
@@ -325,9 +326,9 @@ class _LandDetailsState extends State<LandDetails> {
                       ),
                       child: Row(
                         children: [
-                          const Text(
-                            'Land Use : ',
-                            style: TextStyle(fontSize: 18),
+                          Text(
+                            '${AppLocalizations.of(context)?.landUse} : ',
+                            style: const TextStyle(fontSize: 18),
                           ),
                           Text(
                             landData['landUse'],
@@ -354,9 +355,9 @@ class _LandDetailsState extends State<LandDetails> {
                       ),
                       child: Row(
                         children: [
-                          const Text(
-                            'Tenure : ',
-                            style: TextStyle(fontSize: 18),
+                          Text(
+                            '${AppLocalizations.of(context)?.tenure} : ',
+                            style: const TextStyle(fontSize: 18),
                           ),
                           Text(
                             landData['tenure'],

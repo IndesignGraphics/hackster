@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:http/http.dart' as http;
 import 'package:intl/intl.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class MarketPrice extends StatefulWidget {
   const MarketPrice({Key? key}) : super(key: key);
@@ -38,7 +39,6 @@ class _MarketPriceState extends State<MarketPrice> {
 
   @override
   void initState() {
-    // TODO: implement initState
     _loadMarketData();
     super.initState();
   }
@@ -49,10 +49,10 @@ class _MarketPriceState extends State<MarketPrice> {
       length: 4,
       child: Scaffold(
         appBar: AppBar(
-          title: const Text('Market Price'),
+          title: Text(AppLocalizations.of(context)?.marketPrice ?? 'Market Price'),
         ),
         body: _isLoading
-            ? Center(
+            ? const Center(
                 child: CircularProgressIndicator(),
               )
             : Container(
@@ -94,9 +94,9 @@ class _MarketPriceState extends State<MarketPrice> {
                               const SizedBox(
                                 height: 30,
                               ),
-                              const Text(
-                                'Vegetables',
-                                style: TextStyle(
+                              Text(
+                                AppLocalizations.of(context)?.vegetables ?? 'Vegetables',
+                                style: const TextStyle(
                                   color: Colors.white,
                                   fontSize: 29,
                                   fontWeight: FontWeight.bold,
@@ -107,7 +107,7 @@ class _MarketPriceState extends State<MarketPrice> {
                               ),
                                Text(
                                 date,
-                                style: TextStyle(
+                                style: const TextStyle(
                                   color: Colors.white,
                                   fontSize: 10,
                                 ),
@@ -149,18 +149,18 @@ class _MarketPriceState extends State<MarketPrice> {
                           unselectedLabelStyle:
                               const TextStyle(fontWeight: FontWeight.normal),
                           isScrollable: true,
-                          tabs: const [
+                          tabs: [
                             Tab(
-                              text: 'Vegetables',
+                              text: AppLocalizations.of(context)?.vegetables,
                             ),
                             Tab(
-                              text: 'Fruits',
+                              text: AppLocalizations.of(context)?.fruits,
                             ),
                             Tab(
-                              text: 'Cereals',
+                              text: AppLocalizations.of(context)?.cereals,
                             ),
                             Tab(
-                              text: 'Pulses',
+                              text: AppLocalizations.of(context)?.pulses,
                             ),
                           ],
                         ),

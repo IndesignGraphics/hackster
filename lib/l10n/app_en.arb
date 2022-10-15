@@ -25,6 +25,7 @@
   "expertTalk": "Expert Talk",
   "liveStock" : "LiveStock",
   "logOut": "Logout",
+  "profile" : "Profile",
   "profileInformation": "Profile Information",
   "farmDetails" : "Farm Details",
   "qualification" : "Qualification",
@@ -133,5 +134,17 @@
   "branchName" : "Branch Name",
   "accountNumber" : "Account Number",
   "ifscCode" : "IFSC Code",
-  "bankDetails" : "Bank Details"
+  "bankDetails" : "Bank Details",
+  "totalCredit" : "Total Credit",
+  "vegetables" : "Vegetables",
+  "fruits" : "Fruits",
+  "cereals" : "Cereals",
+  "pulses" : "Pulses",
+  "helloFarmer" : "Hello farmer,\nFarmer360 is ready get your feedback. Please give your feedback to use and help use to improve our application.",
+  "termsAndCondition" : "Welcome to Farmer360\nThese terms and condition outline the rules and regulations for the use of Farmer360 Website And/or mobile application  by accessing that website and/or installing the app. We assume you accept these terms and Condition. Do not use Farmer360 if you do not agree to take all of the terms and conditions started on this page.\nThe above terminology applies to these terms and Conditions.",
+  "tAC" : "Terms and Condition\n",
+  "contact" : "Need more Help?\nYou can directly reach to us at\nhackster@gmail.com",
+  "enterYourFeedback" : "Enter your Feedback.",
+  "price" : "Price",
+  "description" : "Description"
 }
