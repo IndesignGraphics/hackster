@@ -1,20 +1,15 @@
 import 'package:flutter/material.dart';
 
-class ProfileInfo extends StatefulWidget {
+class ProfileInfo extends StatelessWidget {
   final farmerData;
   final String farmerName;
   const ProfileInfo({Key? key, this.farmerData, required this.farmerName}) : super(key: key);
 
   @override
-  State<ProfileInfo> createState() => _ProfileInfoState();
-}
-
-class _ProfileInfoState extends State<ProfileInfo> {
-  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(widget.farmerName),
+        title: Text(farmerName),
       ),
       body: SingleChildScrollView(
         child: Container(
@@ -39,7 +34,7 @@ class _ProfileInfoState extends State<ProfileInfo> {
                       style: TextStyle(fontSize: 18),
                     ),
                     Text(
-                      widget.farmerData['farmId'],
+                      farmerData['farmId'],
                       style: const TextStyle(
                         fontSize: 18,
                         fontWeight: FontWeight.bold,
@@ -63,7 +58,7 @@ class _ProfileInfoState extends State<ProfileInfo> {
                       style: TextStyle(fontSize: 18),
                     ),
                     Text(
-                      widget.farmerName,
+                      farmerName,
                       style: const TextStyle(
                         fontSize: 18,
                         fontWeight: FontWeight.bold,
@@ -87,7 +82,7 @@ class _ProfileInfoState extends State<ProfileInfo> {
                       style: TextStyle(fontSize: 18),
                     ),
                     Text(
-                      widget.farmerData['perinfo']['adhar'],
+                      farmerData['perinfo']['adhar'],
                       style: const TextStyle(
                         fontSize: 18,
                         fontWeight: FontWeight.bold,
@@ -111,7 +106,7 @@ class _ProfileInfoState extends State<ProfileInfo> {
                       style: TextStyle(fontSize: 18),
                     ),
                     Text(
-                      widget.farmerData['comminfo']['email'],
+                      farmerData['comminfo']['email'],
                       style: const TextStyle(
                         fontSize: 18,
                         fontWeight: FontWeight.bold,
@@ -135,7 +130,7 @@ class _ProfileInfoState extends State<ProfileInfo> {
                       style: TextStyle(fontSize: 18),
                     ),
                     Text(
-                      widget.farmerData['comminfo']['mobileNumber'],
+                      farmerData['comminfo']['mobileNumber'],
                       style: const TextStyle(
                         fontSize: 18,
                         fontWeight: FontWeight.bold,
@@ -159,7 +154,7 @@ class _ProfileInfoState extends State<ProfileInfo> {
                       style: TextStyle(fontSize: 18),
                     ),
                     Text(
-                      widget.farmerData['perinfo']['gender'],
+                      farmerData['perinfo']['gender'],
                       style: const TextStyle(
                         fontSize: 18,
                         fontWeight: FontWeight.bold,
@@ -183,7 +178,7 @@ class _ProfileInfoState extends State<ProfileInfo> {
                       style: TextStyle(fontSize: 18),
                     ),
                     Text(
-                      widget.farmerData['perinfo']['dob'],
+                      farmerData['perinfo']['dob'],
                       style: const TextStyle(
                         fontSize: 18,
                         fontWeight: FontWeight.bold,
@@ -207,7 +202,7 @@ class _ProfileInfoState extends State<ProfileInfo> {
                       style: TextStyle(fontSize: 18),
                     ),
                     Text(
-                      widget.farmerData['perinfo']['pincode'],
+                      farmerData['perinfo']['pincode'],
                       style: const TextStyle(
                         fontSize: 18,
                         fontWeight: FontWeight.bold,
@@ -231,7 +226,7 @@ class _ProfileInfoState extends State<ProfileInfo> {
                       style: TextStyle(fontSize: 18),
                     ),
                     Text(
-                      widget.farmerData['perinfo']['district'],
+                      farmerData['perinfo']['district'],
                       style: const TextStyle(
                         fontSize: 18,
                         fontWeight: FontWeight.bold,
@@ -255,7 +250,7 @@ class _ProfileInfoState extends State<ProfileInfo> {
                       style: TextStyle(fontSize: 18),
                     ),
                     Text(
-                      widget.farmerData['perinfo']['taluko'],
+                      farmerData['perinfo']['taluko'],
                       style: const TextStyle(
                         fontSize: 18,
                         fontWeight: FontWeight.bold,
@@ -278,7 +273,7 @@ class _ProfileInfoState extends State<ProfileInfo> {
                       style: TextStyle(fontSize: 18),
                     ),
                     Text(
-                      widget.farmerData['perinfo']['homeAddrs'],
+                      farmerData['perinfo']['homeAddrs'],
                       style:  const TextStyle(
                         fontSize: 18,
                         fontWeight: FontWeight.bold,

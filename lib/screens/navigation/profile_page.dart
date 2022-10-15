@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
+import 'package:hackster/screens/profile/bank_info.dart';
 import 'package:hackster/screens/profile/contact_us.dart';
 import 'package:hackster/screens/profile/farm_details.dart';
 import 'package:hackster/screens/profile/help_and_support.dart';
@@ -166,6 +167,29 @@ class _ProfilePageState extends State<ProfilePage> {
                                       width: 10,
                                     ),
                                     Text('Qualification'),
+                                  ],
+                                ),
+                              ),
+                            ),
+                            const SizedBox(
+                              height: 10,
+                            ),
+                            InkWell(
+                              onTap: () {
+                                Navigator.of(context).push(MaterialPageRoute(
+                                  builder: (context) => BankInfo(widget.mobile),
+                                ));
+                              },
+                              child: Padding(
+                                padding: const EdgeInsets.symmetric(
+                                    horizontal: 10, vertical: 5),
+                                child: Row(
+                                  children: const [
+                                    Icon(Icons.account_balance),
+                                    SizedBox(
+                                      width: 10,
+                                    ),
+                                    Text('Bank Info'),
                                   ],
                                 ),
                               ),
