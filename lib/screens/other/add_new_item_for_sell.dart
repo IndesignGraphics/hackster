@@ -1,4 +1,7 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
+import 'package:image_picker/image_picker.dart';
 
 class AddNewItemForSell extends StatefulWidget {
   const AddNewItemForSell({super.key});
@@ -27,6 +30,68 @@ class _AddNewItemForSellState extends State<AddNewItemForSell> {
   var talukaValue = 'Ahmedabad';
 
   final _formKey = GlobalKey<FormState>();
+
+  XFile? _imageFile;
+  final ImagePicker _picker = ImagePicker();
+  File? _selectedImageFile;
+
+  void selectImage(BuildContext context) async {
+    await showDialog(
+        context: context,
+        builder: (BuildContext context) {
+          return SimpleDialog(
+            title: const Text('Select Image from'),
+            children: <Widget>[
+              SimpleDialogOption(
+                onPressed: () async {
+                  Navigator.pop(context);
+                  _imageFile = await _picker.pickImage(
+                    source: ImageSource.gallery,
+                    maxHeight: 1000,
+                    maxWidth: 1000,
+                  );
+                  setState(() {
+                    _selectedImageFile = File(_imageFile?.path ?? '');
+                  });
+                },
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: const [
+                    Icon(Icons.photo),
+                    SizedBox(
+                      width: 10,
+                    ),
+                    Text('Gallery'),
+                  ],
+                ),
+              ),
+              SimpleDialogOption(
+                onPressed: () async {
+                  Navigator.pop(context);
+                  _imageFile = await _picker.pickImage(
+                    source: ImageSource.camera,
+                    maxHeight: 1000,
+                    maxWidth: 1000,
+                  );
+                  setState(() {
+                    _selectedImageFile = File(_imageFile?.path ?? '');
+                  });
+                },
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: const [
+                    Icon(Icons.camera_alt),
+                    SizedBox(
+                      width: 10,
+                    ),
+                    Text('Camera')
+                  ],
+                ),
+              ),
+            ],
+          );
+        });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -196,12 +261,33 @@ class _AddNewItemForSellState extends State<AddNewItemForSell> {
                   decoration: BoxDecoration(
                       border: Border.all(color: Theme.of(context).primaryColor),
                       borderRadius: BorderRadius.circular(10)),
-                  child: IconButton(
-                    onPressed: () {},
-                    icon: const Icon(
-                      Icons.add_a_photo,
-                      size: 50,
-                    ),
+                  child: _imageFile == null
+                      ? IconButton(
+                          onPressed: () {
+                            selectImage(context);
+                          },
+                          icon: const Icon(
+                            Icons.add_a_photo,
+                            size: 50,
+                          ),
+                        )
+                      : Image.file(_selectedImageFile!),
+                ),
+                const SizedBox(height: 20,),
+                if(_imageFile != null)
+                  ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.white,
+                    side: BorderSide(
+                      width: 2.0
+                    )
+                  ),
+                  onPressed: () {
+                    selectImage(context);
+                  },
+                  child: Text(
+                    'Change Photo',
+                    style: TextStyle(fontWeight: FontWeight.bold,color: Theme.of(context).primaryColor),
                   ),
                 ),
                 const SizedBox(
