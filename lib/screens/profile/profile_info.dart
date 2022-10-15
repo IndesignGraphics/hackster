@@ -188,30 +188,30 @@ class ProfileInfo extends StatelessWidget {
                   ],
                 ),
               ),
-              Container(
-                padding: const EdgeInsets.all(10),
-                width: double.infinity,
-                decoration: BoxDecoration(
-                  // color: Colors.greenAccent,
-                  borderRadius: BorderRadius.circular(10),
-                  border: Border.all(color: Colors.green),
-                ),
-                child: Row(
-                  children: [
-                    Text(
-                      '${AppLocalizations.of(context)?.pincode} : ',
-                      style: const TextStyle(fontSize: 18),
-                    ),
-                    Text(
-                      farmerData['perinfo']['pincode'],
-                      style: const TextStyle(
-                        fontSize: 18,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                  ],
-                ),
-              ),
+              // Container(
+              //   padding: const EdgeInsets.all(10),
+              //   width: double.infinity,
+              //   decoration: BoxDecoration(
+              //     // color: Colors.greenAccent,
+              //     borderRadius: BorderRadius.circular(10),
+              //     border: Border.all(color: Colors.green),
+              //   ),
+              //   child: Row(
+              //     children: [
+              //       Text(
+              //         '${AppLocalizations.of(context)?.pincode} : ',
+              //         style: const TextStyle(fontSize: 18),
+              //       ),
+              //       Text(
+              //         farmerData['perinfo']['pincode'],
+              //         style: const TextStyle(
+              //           fontSize: 18,
+              //           fontWeight: FontWeight.bold,
+              //         ),
+              //       ),
+              //     ],
+              //   ),
+              // ),
               Container(
                 padding: const EdgeInsets.all(10),
                 width: double.infinity,

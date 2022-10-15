@@ -49,95 +49,98 @@ class _MarketPriceState extends State<MarketPrice> {
       length: 4,
       child: Scaffold(
         appBar: AppBar(
-          title: Text(AppLocalizations.of(context)?.marketPrice ?? 'Market Price'),
+          title:
+              Text(AppLocalizations.of(context)?.marketPrice ?? 'Market Price'),
         ),
-        body: _isLoading
-            ? const Center(
-                child: CircularProgressIndicator(),
-              )
-            : Container(
-                padding: const EdgeInsets.all(10),
-                child: Column(
+        body: Container(
+          padding: const EdgeInsets.all(10),
+          child: Column(
+            children: [
+              Container(
+                padding: const EdgeInsets.all(20),
+                decoration: BoxDecoration(
+                  color: Theme.of(context).primaryColor,
+                  borderRadius: BorderRadius.circular(12),
+                ),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Container(
-                      padding: const EdgeInsets.all(20),
-                      decoration: BoxDecoration(
-                        color: Theme.of(context).primaryColor,
-                        borderRadius: BorderRadius.circular(12),
-                      ),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              DropdownButton(
-                                dropdownColor: Theme.of(context).primaryColor,
-                                value: dropDownValue,
-                                onChanged: (String? value) {
-                                  setState(() {
-                                    dropDownValue = value!;
-                                  });
-                                },
-                                items: items.map<DropdownMenuItem<String>>(
-                                    (String value) {
-                                  return DropdownMenuItem(
-                                    value: value,
-                                    child: Text(
-                                      value,
-                                      style:
-                                          const TextStyle(color: Colors.white),
-                                    ),
-                                  );
-                                }).toList(),
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        DropdownButton(
+                          dropdownColor: Theme.of(context).primaryColor,
+                          value: dropDownValue,
+                          onChanged: (String? value) {
+                            setState(() {
+                              dropDownValue = value!;
+                              _loadMarketData();
+                              _isLoading = true;
+                            });
+                          },
+                          items: items
+                              .map<DropdownMenuItem<String>>((String value) {
+                            return DropdownMenuItem(
+                              value: value,
+                              child: Text(
+                                value,
+                                style: const TextStyle(color: Colors.white),
                               ),
-                              const SizedBox(
-                                height: 30,
-                              ),
-                              Text(
-                                AppLocalizations.of(context)?.vegetables ?? 'Vegetables',
-                                style: const TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 29,
-                                  fontWeight: FontWeight.bold,
-                                ),
-                              ),
-                              const SizedBox(
-                                height: 5,
-                              ),
-                               Text(
-                                date,
-                                style: const TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 10,
-                                ),
-                              ),
-                              const SizedBox(
-                                height: 20,
-                              ),
-                            ],
+                            );
+                          }).toList(),
+                        ),
+                        const SizedBox(
+                          height: 30,
+                        ),
+                        Text(
+                          AppLocalizations.of(context)?.vegetables ??
+                              'Vegetables',
+                          style: const TextStyle(
+                            color: Colors.white,
+                            fontSize: 29,
+                            fontWeight: FontWeight.bold,
                           ),
-                          Column(
-                            crossAxisAlignment: CrossAxisAlignment.end,
-                            children: [
-                              SvgPicture.asset('assets/svgs/positive_graph.svg',
-                                  height: 70),
-                              const Text(
-                                '+1.50%',
-                                style: TextStyle(
-                                  color: Colors.green,
-                                  fontSize: 10,
-                                ),
-                              ),
-                            ],
+                        ),
+                        const SizedBox(
+                          height: 5,
+                        ),
+                        Text(
+                          date,
+                          style: const TextStyle(
+                            color: Colors.white,
+                            fontSize: 10,
                           ),
-                        ],
-                      ),
+                        ),
+                        const SizedBox(
+                          height: 20,
+                        ),
+                      ],
                     ),
-                    const SizedBox(
-                      height: 10,
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.end,
+                      children: [
+                        SvgPicture.asset('assets/svgs/positive_graph.svg',
+                            height: 70),
+                        const Text(
+                          '+1.50%',
+                          style: TextStyle(
+                            color: Colors.green,
+                            fontSize: 10,
+                          ),
+                        ),
+                      ],
                     ),
-                    SizedBox(
+                  ],
+                ),
+              ),
+              const SizedBox(
+                height: 10,
+              ),
+              _isLoading
+                  ? SizedBox(
+                      height: 0,
+                    )
+                  : SizedBox(
                       height: 50,
                       child: AppBar(
                         backgroundColor: Colors.white,
@@ -166,7 +169,13 @@ class _MarketPriceState extends State<MarketPrice> {
                         ),
                       ),
                     ),
-                    Expanded(
+              _isLoading
+                  ? const Expanded(
+                    child:  Center(
+                        child: CircularProgressIndicator(),
+                      ),
+                  )
+                  : Expanded(
                       child: TabBarView(
                         children: [
                           ListView.builder(
@@ -420,9 +429,9 @@ class _MarketPriceState extends State<MarketPrice> {
                         ],
                       ),
                     ),
-                  ],
-                ),
-              ),
+            ],
+          ),
+        ),
       ),
     );
   }
