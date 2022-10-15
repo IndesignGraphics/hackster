@@ -117,7 +117,7 @@ class ToolsPage extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 Container(
-                  padding: EdgeInsets.all(10),
+                  padding: const EdgeInsets.all(10),
                   decoration: BoxDecoration(
                       color: Colors.blueGrey.shade100,
                       borderRadius: BorderRadius.circular(10)),
@@ -182,7 +182,7 @@ class ToolsPage extends StatelessWidget {
                           ),
                           Text(
                             _listOfFertilizers[i]['title']!,
-                            style: TextStyle(
+                            style: const TextStyle(
                               fontWeight: FontWeight.bold,
                             ),
                           ),
@@ -191,14 +191,14 @@ class ToolsPage extends StatelessWidget {
                           ),
                           Text(
                             'From ₹${_listOfFertilizers[i]['price']}',
-                            style: TextStyle(
+                            style: const TextStyle(
                               color: Colors.teal,
                               fontWeight: FontWeight.bold,
                             ),
                           ),
                            Text(
                             _listOfFertilizers[i]['quantity']!,
-                            style: TextStyle(
+                            style: const TextStyle(
                               color: Colors.grey,
                               fontWeight: FontWeight.bold,
                             ),
@@ -282,7 +282,7 @@ class ToolsPage extends StatelessWidget {
                           ),
                            Text(
                             _listOfPesticides[i]['title']!,
-                            style: TextStyle(
+                            style: const TextStyle(
                               fontWeight: FontWeight.bold,
                             ),
                           ),
@@ -291,14 +291,14 @@ class ToolsPage extends StatelessWidget {
                           ),
                            Text(
                             'From ₹${_listOfPesticides[i]['price']!}',
-                            style: TextStyle(
+                            style: const TextStyle(
                               color: Colors.teal,
                               fontWeight: FontWeight.bold,
                             ),
                           ),
                            Text(
                             _listOfPesticides[i]['quantity']!,
-                            style: TextStyle(
+                            style: const TextStyle(
                               color: Colors.grey,
                               fontWeight: FontWeight.bold,
                             ),
@@ -379,7 +379,7 @@ class ToolsPage extends StatelessWidget {
                           ),
                            Text(
                             _listOfSeeds[i]['title']!,
-                            style: TextStyle(
+                            style:const TextStyle(
                               fontWeight: FontWeight.bold,
                             ),
                           ),
@@ -388,14 +388,14 @@ class ToolsPage extends StatelessWidget {
                           ),
                            Text(
                             'From ₹${_listOfSeeds[i]['price']}',
-                            style: TextStyle(
+                            style: const TextStyle(
                               color: Colors.teal,
                               fontWeight: FontWeight.bold,
                             ),
                           ),
                            Text(
                             _listOfSeeds[i]['quantity']!,
-                            style: TextStyle(
+                            style: const TextStyle(
                               color: Colors.grey,
                               fontWeight: FontWeight.bold,
                             ),
