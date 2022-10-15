@@ -8,12 +8,45 @@ class Sell extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SingleChildScrollView(
-        child: SizedBox(
+        child: Container(
+          padding: EdgeInsets.all(10),
           height: MediaQuery.of(context).size.height,
           child: ListView.builder(
             itemCount: 5,
             itemBuilder: (context, i) {
-              return Text('Sell Item ${i + 1}');
+              return Card(
+                elevation: 3,
+                child: Container(
+                  padding: EdgeInsets.all(10),
+                  child: Row(children: [
+                    Expanded(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            'Crop Type : Vegetables',
+                            style: TextStyle(fontSize: 16),
+                          ),
+                          Text('Crop Name : Tamatar',
+                            style: TextStyle(fontSize: 16),
+                          ),
+                          Text('Quantity : 200kg',
+                            style: TextStyle(fontSize: 16),
+                          ),
+                          Text('Price : 1500',
+                            style: TextStyle(fontSize: 16),
+                          ),
+                          Text('Description : This is good.',
+                            style: TextStyle(fontSize: 16),
+                          ),
+                        ],
+                      ),
+                    ),
+                    Image.asset('assets/images/cotton.jpg',
+                        width: MediaQuery.of(context).size.width / 2.5),
+                  ]),
+                ),
+              );
             },
           ),
         ),
