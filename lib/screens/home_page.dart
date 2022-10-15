@@ -21,6 +21,7 @@ class _HomePageState extends State<HomePage> {
   late String subLocality, area;
   bool _isMarketLoading = true;
   bool _isWeatherLoading = true;
+  bool _isLocationAvailable = false;
   late var weatherData;
   late var marketData;
 
@@ -33,6 +34,7 @@ class _HomePageState extends State<HomePage> {
       if (!mounted) {
         return false;
       }
+      _isLocationAvailable = false;
       ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
           content: Text(
               'Location services are disabled. Please enable the services')));
@@ -45,6 +47,7 @@ class _HomePageState extends State<HomePage> {
         if (!mounted) {
           return false;
         }
+        _isLocationAvailable = false;
         ScaffoldMessenger.of(context).showSnackBar(
             const SnackBar(content: Text('Location permissions are denied')));
         return false;
@@ -54,11 +57,14 @@ class _HomePageState extends State<HomePage> {
       if (!mounted) {
         return false;
       }
+
+      _isLocationAvailable = false;
       ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
           content: Text(
               'Location permissions are permanently denied, we cannot request permissions.')));
       return false;
     }
+    _isLocationAvailable = true;
     return true;
   }
 
@@ -125,145 +131,159 @@ class _HomePageState extends State<HomePage> {
             child: CircularProgressIndicator(),
           )
         : Container(
-          padding: const EdgeInsets.all(15),
-          height: MediaQuery.of(context).size.height - 160,
-          child: SingleChildScrollView(
-            child: Column(
+            padding: const EdgeInsets.all(15),
+            height: MediaQuery.of(context).size.height - 160,
+            child: SingleChildScrollView(
+              child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  InkWell(
-                    onTap: () {
-                      Navigator.of(context).push(MaterialPageRoute(
-                          builder: (context) => const Weather()));
-                    },
-                    child: Card(
-                      elevation: 5,
-                      clipBehavior: Clip.hardEdge,
-                      shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(10)),
-                      child: Container(
-                        decoration: BoxDecoration(
-                            color: const Color(0xFF2A3832),
-                            borderRadius: BorderRadius.circular(10)),
-                        child: Column(
-                          children: [
-                            const SizedBox(
-                              height: 10,
-                            ),
-                            Text(
-                              subLocality,
-                              style: const TextStyle(
-                                  color: Colors.white, fontSize: 28),
-                            ),
-                            Text(
-                              area,
-                              style: const TextStyle(
-                                  color: Colors.white, fontSize: 28),
-                            ),
-                            const SizedBox(
-                              height: 10,
-                            ),
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceAround,
-                              children: [
-                                const Text(
-                                  'Today',
-                                  style: TextStyle(
-                                      color: Colors.white, fontSize: 20),
-                                ),
-                                Row(
-                                  children: [
-                                    Text(
-                                      (weatherData['main']['temp'] - 273.15)
-                                          .toStringAsFixed(2),
-                                      style: const TextStyle(
-                                          color: Colors.white, fontSize: 20),
-                                    ),
-                                    const SizedBox(
-                                      width: 5,
-                                    ),
-                                    const Icon(
-                                      Icons.cloud,
-                                      color: Colors.white,
-                                      size: 30,
-                                    ),
-                                  ],
-                                )
-                              ],
-                            ),
-                            const SizedBox(
-                              height: 10,
-                            ),
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceAround,
-                              children: [
-                                Column(
-                                  children: [
-                                    Card(
-                                      color: Colors.white,
-                                      shape: RoundedRectangleBorder(
-                                        borderRadius: BorderRadius.circular(15),
+                  !_isLocationAvailable
+                      ? Center(
+                          child: Text(
+                            'Can\'t fetch weather because locatin is not allowed.',
+                          ),
+                        )
+                      : InkWell(
+                          onTap: () {
+                            Navigator.of(context).push(MaterialPageRoute(
+                                builder: (context) => const Weather()));
+                          },
+                          child: Card(
+                            elevation: 5,
+                            clipBehavior: Clip.hardEdge,
+                            shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(10)),
+                            child: Container(
+                              decoration: BoxDecoration(
+                                  color: const Color(0xFF2A3832),
+                                  borderRadius: BorderRadius.circular(10)),
+                              child: Column(
+                                children: [
+                                  const SizedBox(
+                                    height: 10,
+                                  ),
+                                  Text(
+                                    subLocality,
+                                    style: const TextStyle(
+                                        color: Colors.white, fontSize: 28),
+                                  ),
+                                  Text(
+                                    area,
+                                    style: const TextStyle(
+                                        color: Colors.white, fontSize: 28),
+                                  ),
+                                  const SizedBox(
+                                    height: 10,
+                                  ),
+                                  Row(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceAround,
+                                    children: [
+                                      const Text(
+                                        'Today',
+                                        style: TextStyle(
+                                            color: Colors.white, fontSize: 20),
                                       ),
-                                      child: SvgPicture.asset(
-                                          'assets/svgs/umbrella.svg'),
-                                    ),
-                                    Text(
-                                      weatherData['clouds']['all'].toString(),
-                                      style:
-                                          const TextStyle(color: Colors.white),
-                                    ),
-                                  ],
-                                ),
-                                Column(
-                                  children: [
-                                    Card(
-                                      color: Colors.white,
-                                      shape: RoundedRectangleBorder(
-                                        borderRadius: BorderRadius.circular(15),
+                                      Row(
+                                        children: [
+                                          Text(
+                                            (weatherData['main']['temp'] -
+                                                    273.15)
+                                                .toStringAsFixed(2),
+                                            style: const TextStyle(
+                                                color: Colors.white,
+                                                fontSize: 20),
+                                          ),
+                                          const SizedBox(
+                                            width: 5,
+                                          ),
+                                          const Icon(
+                                            Icons.cloud,
+                                            color: Colors.white,
+                                            size: 30,
+                                          ),
+                                        ],
+                                      )
+                                    ],
+                                  ),
+                                  const SizedBox(
+                                    height: 10,
+                                  ),
+                                  Row(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceAround,
+                                    children: [
+                                      Column(
+                                        children: [
+                                          Card(
+                                            color: Colors.white,
+                                            shape: RoundedRectangleBorder(
+                                              borderRadius:
+                                                  BorderRadius.circular(15),
+                                            ),
+                                            child: SvgPicture.asset(
+                                                'assets/svgs/umbrella.svg'),
+                                          ),
+                                          Text(
+                                            weatherData['clouds']['all']
+                                                .toString(),
+                                            style: const TextStyle(
+                                                color: Colors.white),
+                                          ),
+                                        ],
                                       ),
-                                      child: SizedBox(
-                                        height: 43,
-                                        child: Center(
-                                          child: SvgPicture.asset(
-                                              'assets/svgs/wind.svg'),
-                                        ),
+                                      Column(
+                                        children: [
+                                          Card(
+                                            color: Colors.white,
+                                            shape: RoundedRectangleBorder(
+                                              borderRadius:
+                                                  BorderRadius.circular(15),
+                                            ),
+                                            child: SizedBox(
+                                              height: 43,
+                                              child: Center(
+                                                child: SvgPicture.asset(
+                                                    'assets/svgs/wind.svg'),
+                                              ),
+                                            ),
+                                          ),
+                                          Text(
+                                            '${weatherData['wind']['speed']} m/s',
+                                            style: const TextStyle(
+                                                color: Colors.white),
+                                          ),
+                                        ],
                                       ),
-                                    ),
-                                    Text(
-                                      '${weatherData['wind']['speed']} m/s',
-                                      style:
-                                          const TextStyle(color: Colors.white),
-                                    ),
-                                  ],
-                                ),
-                                Column(
-                                  children: [
-                                    Card(
-                                      color: Colors.white,
-                                      shape: RoundedRectangleBorder(
-                                        borderRadius: BorderRadius.circular(15),
+                                      Column(
+                                        children: [
+                                          Card(
+                                            color: Colors.white,
+                                            shape: RoundedRectangleBorder(
+                                              borderRadius:
+                                                  BorderRadius.circular(15),
+                                            ),
+                                            child: SvgPicture.asset(
+                                                'assets/svgs/humidity.svg'),
+                                          ),
+                                          Text(
+                                            weatherData['main']['humidity']
+                                                .toString(),
+                                            style: const TextStyle(
+                                                color: Colors.white),
+                                          ),
+                                        ],
                                       ),
-                                      child: SvgPicture.asset(
-                                          'assets/svgs/humidity.svg'),
-                                    ),
-                                    Text(
-                                      weatherData['main']['humidity']
-                                          .toString(),
-                                      style:
-                                          const TextStyle(color: Colors.white),
-                                    ),
-                                  ],
-                                ),
-                              ],
+                                    ],
+                                  ),
+                                  const SizedBox(
+                                    height: 10,
+                                  ),
+                                ],
+                              ),
                             ),
-                            const SizedBox(
-                              height: 10,
-                            ),
-                          ],
+                          ),
                         ),
-                      ),
-                    ),
-                  ),
                   const SizedBox(
                     height: 20,
                   ),
@@ -435,7 +455,7 @@ class _HomePageState extends State<HomePage> {
                   const SizedBox(
                     height: 20,
                   ),
-                   Text(
+                  Text(
                     'Agri News',
                     style: TextStyle(
                       fontWeight: FontWeight.bold,
@@ -447,7 +467,7 @@ class _HomePageState extends State<HomePage> {
                     color: Theme.of(context).primaryColor,
                     thickness: 3,
                   ),
-                   Card(
+                  Card(
                     elevation: 3,
                     child: Container(
                       padding: EdgeInsets.all(5),
@@ -477,7 +497,7 @@ class _HomePageState extends State<HomePage> {
                   ),
                 ],
               ),
-          ),
-        );
+            ),
+          );
   }
 }
