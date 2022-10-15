@@ -38,7 +38,7 @@ class _BankInfoState extends State<BankInfo> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Bank Info'),
+        title: const Text('Bank Info'),
       ),
       body: _isLoading ? Center(child: CircularProgressIndicator(),) : Container(
         padding: EdgeInsets.all(10),
@@ -69,7 +69,7 @@ class _BankInfoState extends State<BankInfo> {
                 ],
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 15,
             ),
             Container(
@@ -96,7 +96,7 @@ class _BankInfoState extends State<BankInfo> {
                 ],
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 15,
             ),
             Container(
@@ -123,7 +123,7 @@ class _BankInfoState extends State<BankInfo> {
                 ],
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 15,
             ),
             Container(
@@ -150,7 +150,7 @@ class _BankInfoState extends State<BankInfo> {
                 ],
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 15,
             ),
             Container(
@@ -164,7 +164,7 @@ class _BankInfoState extends State<BankInfo> {
               child: Row(
                 children: [
                   const Text(
-                    'IFSE code  : ',
+                    'IFSC code  : ',
                     style: TextStyle(fontSize: 18),
                   ),
                   Text(

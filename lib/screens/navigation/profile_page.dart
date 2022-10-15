@@ -7,7 +7,7 @@ import 'package:hackster/screens/profile/farm_details.dart';
 import 'package:hackster/screens/profile/help_and_support.dart';
 import 'package:hackster/screens/profile/privacy_policy.dart';
 import 'package:hackster/screens/profile/profile_info.dart';
-import 'package:hackster/screens/profile/qualification.dart';
+// import 'package:hackster/screens/profile/qualification.dart';
 import 'package:http/http.dart' as http;
 
 class ProfilePage extends StatefulWidget {
@@ -148,29 +148,29 @@ class _ProfilePageState extends State<ProfilePage> {
                                 ),
                               ),
                             ),
-                            const SizedBox(
-                              height: 10,
-                            ),
-                            InkWell(
-                              onTap: () {
-                                Navigator.of(context).push(MaterialPageRoute(
-                                    builder: (context) =>
-                                        const Qualification()));
-                              },
-                              child: Padding(
-                                padding: const EdgeInsets.symmetric(
-                                    horizontal: 10, vertical: 5),
-                                child: Row(
-                                  children: const [
-                                    Icon(Icons.school),
-                                    SizedBox(
-                                      width: 10,
-                                    ),
-                                    Text('Qualification'),
-                                  ],
-                                ),
-                              ),
-                            ),
+                            // const SizedBox(
+                            //   height: 10,
+                            // ),
+                            // InkWell(
+                            //   onTap: () {
+                            //     Navigator.of(context).push(MaterialPageRoute(
+                            //         builder: (context) =>
+                            //             const Qualification()));
+                            //   },
+                            //   child: Padding(
+                            //     padding: const EdgeInsets.symmetric(
+                            //         horizontal: 10, vertical: 5),
+                            //     child: Row(
+                            //       children: const [
+                            //         Icon(Icons.school),
+                            //         SizedBox(
+                            //           width: 10,
+                            //         ),
+                            //         Text('Qualification'),
+                            //       ],
+                            //     ),
+                            //   ),
+                            // ),
                             const SizedBox(
                               height: 10,
                             ),

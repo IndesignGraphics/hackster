@@ -3,7 +3,8 @@ import 'dart:convert';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:hackster/provider/locale_provider.dart';
-import 'package:hackster/screens/crop_care.dart';
+// import 'package:hackster/screens/crop_care.dart';
+import 'package:hackster/screens/government_scheme.dart';
 import 'package:hackster/screens/tools_page.dart';
 import 'package:hackster/widgets/app_drawer.dart';
 import 'package:provider/provider.dart';
@@ -54,7 +55,7 @@ class _MainScreenState extends State<MainScreen> {
   void initState() {
     _pages = [
       {'page': const HomePage()},
-      {'page': const CropCare()},
+      {'page': const GovernmentScheme()},
       {'page': const ToolsPage()},
     ];
     getFarmerData();
@@ -80,10 +81,10 @@ class _MainScreenState extends State<MainScreen> {
             appBar: AppBar(
               title: Text(farmerName),
               actions: [
-                IconButton(
-                  onPressed: () {},
-                  icon: const Icon(Icons.notifications),
-                ),
+                // IconButton(
+                //   onPressed: () {},
+                //   icon: const Icon(Icons.notifications),
+                // ),
                 DropdownButton<String>(
                   dropdownColor: Theme.of(context).primaryColor,
                     value: AppLocalizations.of(context)?.language,
@@ -123,19 +124,19 @@ class _MainScreenState extends State<MainScreen> {
                   icon: _selectedPageIndex == 0
                       ? const Icon(Icons.home_filled)
                       : const Icon(Icons.home_outlined),
-                  label: 'Home',
+                  label: AppLocalizations.of(context)?.home,
                 ),
                 BottomNavigationBarItem(
                   icon: _selectedPageIndex == 1
-                      ? const Icon(Icons.yard)
-                      : const Icon(Icons.yard_outlined),
-                  label: 'Crop Care',
+                      ? const Icon(Icons.paid)
+                      : const Icon(Icons.paid_outlined),
+                  label: AppLocalizations.of(context)?.governmentScheme,
                 ),
                 BottomNavigationBarItem(
                   icon: _selectedPageIndex == 2
                       ? const Icon(Icons.handyman)
                       : const Icon(Icons.handyman_outlined),
-                  label: 'Tools',
+                  label: AppLocalizations.of(context)?.tools,
                 ),
               ],
             ),

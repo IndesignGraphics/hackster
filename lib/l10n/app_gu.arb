@@ -12,6 +12,7 @@
   "marketPrice": "બજાર ભાવ",
   "home": "હોમ",
   "cropCare": "પાક સરંક્ષણ",
+  "governmentScheme" : "યોજનાઓ",
   "tools": "સાધનો",
   "viewALlRates": "બધી વિગત જોવો",
   "viewProfile": "પ્રોફાઇલ જોવો",
@@ -127,5 +128,10 @@
   "otherLiveStockDevelopment" : "અન્ય પશુધન વિકાસ",
   "horseAndCamelDevelopment" : "ઘોડો અને ઊંટ વિકાસ",
   "sheepDevelopmentBranch" : "ઘેંટા વિકાસ શાખા",
-  "livestockHealth" : "પશુધન આરોગ્ય (આંકડા)"
+  "livestockHealth" : "પશુધન આરોગ્ય (આંકડા)",
+  "bankName" : "બેન્કનું નામ",
+  "branchName" : "શાખાનું નામ",
+  "accountNumber" : "ખાતા નંબર",
+  "ifscCode" : "IFSC કોડ",
+  "bankDetails" : "બેન્કની વિગત"
 }

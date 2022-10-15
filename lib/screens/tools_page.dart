@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class ToolsPage extends StatelessWidget {
   const ToolsPage({Key? key}) : super(key: key);
@@ -7,10 +8,10 @@ class ToolsPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return SingleChildScrollView(
       child: Container(
-        padding: EdgeInsets.all(10),
+        padding: const EdgeInsets.all(10),
         child: Column(
           children: [
-            SizedBox(
+            const SizedBox(
               height: 15,
             ),
             Row(
@@ -21,35 +22,35 @@ class ToolsPage extends StatelessWidget {
                   decoration: BoxDecoration(
                       color: Colors.blueGrey.shade100,
                       borderRadius: BorderRadius.circular(10)),
-                  child: Icon(Icons.healing),
+                  child: const Icon(Icons.healing),
                 ),
-                SizedBox(
+                const SizedBox(
                   width: 20,
                 ),
                 Expanded(
                   child: Text(
-                    'Fertilizers',
-                    style: TextStyle(
+                    AppLocalizations.of(context)?.fertilizers??'Fertilizers',
+                    style: const TextStyle(
                       fontWeight: FontWeight.bold,
                       fontSize: 18,
                     ),
                   ),
                 ),
                 Text(
-                  'View All',
-                  style: TextStyle(
+                  AppLocalizations.of(context)?.viewAll??'View All',
+                  style: const TextStyle(
                       color: Colors.blue, fontWeight: FontWeight.bold),
                 ),
-                SizedBox(
+                const SizedBox(
                   width: 10,
                 ),
               ],
             ),
-            SizedBox(
+            const SizedBox(
               height: 10,
             ),
             SizedBox(
-              height: 220,
+              height: 230,
               child: ListView.builder(
                 scrollDirection: Axis.horizontal,
                 itemCount: 5,
@@ -63,27 +64,27 @@ class ToolsPage extends StatelessWidget {
                     child: Container(
                       width: 170,
                       height: 220,
-                      padding: EdgeInsets.all(10),
-                      decoration: BoxDecoration(
+                      padding: const EdgeInsets.all(10),
+                      decoration: const BoxDecoration(
                         color: Colors.white,
                       ),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           ClipRRect(
-                            child: Image.asset('assets/images/cotton.jpg'),
                             borderRadius: BorderRadius.circular(10),
+                            child: Image.asset('assets/images/cotton.jpg'),
                           ),
-                          SizedBox(
+                          const SizedBox(
                             height: 10,
                           ),
-                          Text(
+                          const Text(
                             'UREA',
                             style: TextStyle(
                               fontWeight: FontWeight.bold,
                             ),
                           ),
-                          Text(
+                          const Text(
                             'by Southern Petrochemicals',
                             softWrap: false,
                             overflow: TextOverflow.fade,
@@ -91,17 +92,17 @@ class ToolsPage extends StatelessWidget {
                               fontWeight: FontWeight.bold,
                             ),
                           ),
-                          SizedBox(
+                          const SizedBox(
                             height: 5,
                           ),
-                          Text(
+                          const Text(
                             'From ₹266.00',
                             style: TextStyle(
                               color: Colors.teal,
                               fontWeight: FontWeight.bold,
                             ),
                           ),
-                          Text(
+                          const Text(
                             '45kg',
                             style: TextStyle(
                               color: Colors.grey,
@@ -115,46 +116,46 @@ class ToolsPage extends StatelessWidget {
                 },
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 30,
             ),
             Row(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 Container(
-                  padding: EdgeInsets.all(10),
+                  padding: const EdgeInsets.all(10),
                   decoration: BoxDecoration(
                       color: Colors.blueGrey.shade100,
                       borderRadius: BorderRadius.circular(10)),
-                  child: Icon(Icons.sanitizer),
+                  child: const Icon(Icons.sanitizer),
                 ),
-                SizedBox(
+                const SizedBox(
                   width: 20,
                 ),
                 Expanded(
                   child: Text(
-                    'Pesticides',
-                    style: TextStyle(
+                    AppLocalizations.of(context)?.pesticides??'Pesticides',
+                    style: const TextStyle(
                       fontWeight: FontWeight.bold,
                       fontSize: 18,
                     ),
                   ),
                 ),
                 Text(
-                  'View All',
-                  style: TextStyle(
+                  AppLocalizations.of(context)?.viewAll ?? 'View All',
+                  style: const TextStyle(
                       color: Colors.blue, fontWeight: FontWeight.bold),
                 ),
-                SizedBox(
+                const SizedBox(
                   width: 10,
                 ),
               ],
             ),
-            SizedBox(
+            const SizedBox(
               height: 10,
             ),
             SizedBox(
-              height: 220,
+              height: 230,
               child: ListView.builder(
                 scrollDirection: Axis.horizontal,
                 itemCount: 5,
@@ -168,27 +169,27 @@ class ToolsPage extends StatelessWidget {
                     child: Container(
                       width: 170,
                       height: 220,
-                      padding: EdgeInsets.all(10),
-                      decoration: BoxDecoration(
+                      padding: const EdgeInsets.all(10),
+                      decoration: const BoxDecoration(
                         color: Colors.white,
                       ),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           ClipRRect(
-                            child: Image.asset('assets/images/cotton.jpg'),
                             borderRadius: BorderRadius.circular(10),
+                            child: Image.asset('assets/images/cotton.jpg'),
                           ),
-                          SizedBox(
+                          const SizedBox(
                             height: 10,
                           ),
-                          Text(
+                          const Text(
                             'Regent SC',
                             style: TextStyle(
                               fontWeight: FontWeight.bold,
                             ),
                           ),
-                          Text(
+                          const Text(
                             'by Bayer',
                             softWrap: false,
                             overflow: TextOverflow.fade,
@@ -196,17 +197,17 @@ class ToolsPage extends StatelessWidget {
                               fontWeight: FontWeight.bold,
                             ),
                           ),
-                          SizedBox(
+                          const SizedBox(
                             height: 5,
                           ),
-                          Text(
+                          const Text(
                             'From ₹1350.00',
                             style: TextStyle(
                               color: Colors.teal,
                               fontWeight: FontWeight.bold,
                             ),
                           ),
-                          Text(
+                          const Text(
                             '3 SKU available',
                             style: TextStyle(
                               color: Colors.grey,
@@ -220,46 +221,46 @@ class ToolsPage extends StatelessWidget {
                 },
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 30,
             ),
             Row(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 Container(
-                  padding: EdgeInsets.all(10),
+                  padding: const EdgeInsets.all(10),
                   decoration: BoxDecoration(
                       color: Colors.blueGrey.shade100,
                       borderRadius: BorderRadius.circular(10)),
-                  child: Icon(Icons.compost),
+                  child: const Icon(Icons.compost),
                 ),
-                SizedBox(
+                const SizedBox(
                   width: 20,
                 ),
                 Expanded(
                   child: Text(
-                    'Herbicides',
-                    style: TextStyle(
+                    AppLocalizations.of(context)?.herbicides ?? 'Herbicides',
+                    style: const TextStyle(
                       fontWeight: FontWeight.bold,
                       fontSize: 18,
                     ),
                   ),
                 ),
                 Text(
-                  'View All',
-                  style: TextStyle(
+                  AppLocalizations.of(context)?.viewAll??'View All',
+                  style: const TextStyle(
                       color: Colors.blue, fontWeight: FontWeight.bold),
                 ),
-                SizedBox(
+                const SizedBox(
                   width: 10,
                 ),
               ],
             ),
-            SizedBox(
+            const SizedBox(
               height: 10,
             ),
             SizedBox(
-              height: 220,
+              height: 230,
               child: ListView.builder(
                 scrollDirection: Axis.horizontal,
                 itemCount: 5,
@@ -273,27 +274,27 @@ class ToolsPage extends StatelessWidget {
                     child: Container(
                       width: 170,
                       height: 220,
-                      padding: EdgeInsets.all(10),
-                      decoration: BoxDecoration(
+                      padding: const EdgeInsets.all(10),
+                      decoration: const BoxDecoration(
                         color: Colors.white,
                       ),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           ClipRRect(
-                            child: Image.asset('assets/images/cotton.jpg'),
                             borderRadius: BorderRadius.circular(10),
+                            child: Image.asset('assets/images/cotton.jpg'),
                           ),
-                          SizedBox(
+                          const SizedBox(
                             height: 10,
                           ),
-                          Text(
+                          const Text(
                             'Ricestar',
                             style: TextStyle(
                               fontWeight: FontWeight.bold,
                             ),
                           ),
-                          Text(
+                          const Text(
                             'by BASF',
                             softWrap: false,
                             overflow: TextOverflow.fade,
@@ -301,17 +302,17 @@ class ToolsPage extends StatelessWidget {
                               fontWeight: FontWeight.bold,
                             ),
                           ),
-                          SizedBox(
+                          const SizedBox(
                             height: 5,
                           ),
-                          Text(
+                          const Text(
                             'From ₹1300.00',
                             style: TextStyle(
                               color: Colors.teal,
                               fontWeight: FontWeight.bold,
                             ),
                           ),
-                          Text(
+                          const Text(
                             '500ml',
                             style: TextStyle(
                               color: Colors.grey,

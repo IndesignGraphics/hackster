@@ -11,6 +11,7 @@
   "appName" : "Farmer",
   "marketPrice" : "Market Price",
   "home" : "Home",
+  "governmentScheme" : "Scheme",
   "cropCare" : "Crop Care",
   "tools":"Tools",
   "viewALlRates" : "View All Rates",
@@ -127,5 +128,10 @@
   "otherLiveStockDevelopment" : "Other Livestock Development",
   "horseAndCamelDevelopment" : "Horse and Camel Development",
   "sheepDevelopmentBranch" : "Sheep Development Branch",
-  "livestockHealth" : "Livestock Health (Statistics)"
+  "livestockHealth" : "Livestock Health (Statistics)",
+  "bankName" : "Bank Name",
+  "branchName" : "Branch Name",
+  "accountNumber" : "Account Number",
+  "ifscCode" : "IFSC Code",
+  "bankDetails" : "Bank Details"
 }

@@ -7,6 +7,7 @@ import 'package:geolocator/geolocator.dart';
 import 'package:hackster/screens/navigation/market_price.dart';
 import 'package:hackster/screens/navigation/weather.dart';
 import 'package:http/http.dart' as http;
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -101,7 +102,7 @@ class _HomePageState extends State<HomePage> {
   }
 
   void _loadMarketData() async {
-    final url = 'https://hack-roso.onrender.com/getmarket/Rajkot';
+    const url = 'https://hack-roso.onrender.com/getmarket/Rajkot';
     final response = await http.get(Uri.parse(url));
     final mData = jsonDecode(response.body);
 
@@ -131,7 +132,6 @@ class _HomePageState extends State<HomePage> {
               height: MediaQuery.of(context).size.height - 160,
               child: Column(
                 children: [
-                  
                   InkWell(
                     onTap: () {
                       Navigator.of(context).push(MaterialPageRoute(
@@ -283,9 +283,10 @@ class _HomePageState extends State<HomePage> {
                             width: double.infinity,
                             color: const Color(0xFF2A3832),
                             padding: const EdgeInsets.all(10),
-                            child: const Text(
-                              'Market Price',
-                              style: TextStyle(
+                            child: Text(
+                              AppLocalizations.of(context)?.marketPrice ??
+                                  'Market Price',
+                              style: const TextStyle(
                                   fontWeight: FontWeight.bold,
                                   color: Colors.white,
                                   fontSize: 18),
@@ -309,14 +310,14 @@ class _HomePageState extends State<HomePage> {
                                   mainAxisAlignment:
                                       MainAxisAlignment.spaceAround,
                                   children: [
-                                    Container(
+                                    SizedBox(
                                       width: 40,
                                       child: Image.network(
                                           marketData['vegtables'][0]['image']),
                                     ),
                                     Text(
                                       marketData['vegtables'][0]['name'],
-                                      style: TextStyle(
+                                      style: const TextStyle(
                                         fontWeight: FontWeight.bold,
                                         fontSize: 20,
                                       ),
@@ -327,18 +328,18 @@ class _HomePageState extends State<HomePage> {
                                       children: [
                                         Text(
                                           '₹${marketData['vegtables'][0]['maxprice']}',
-                                          style: TextStyle(
+                                          style: const TextStyle(
                                               fontWeight: FontWeight.bold,
                                               fontSize: 20),
                                         ),
-                                        Text(
+                                        const Text(
                                           '+10.00%',
                                           style: TextStyle(
                                               color: Colors.green,
                                               fontSize: 13),
                                         ),
                                       ],
-                                    )
+                                    ),
                                   ],
                                 ),
                               ),
@@ -362,14 +363,14 @@ class _HomePageState extends State<HomePage> {
                                   mainAxisAlignment:
                                       MainAxisAlignment.spaceAround,
                                   children: [
-                                    Container(
+                                    SizedBox(
                                       width: 40,
                                       child: Image.network(
                                           marketData['fruits'][0]['image']),
                                     ),
                                     Text(
                                       marketData['fruits'][0]['name'],
-                                      style: TextStyle(
+                                      style: const TextStyle(
                                         fontWeight: FontWeight.bold,
                                         fontSize: 20,
                                       ),
@@ -380,11 +381,11 @@ class _HomePageState extends State<HomePage> {
                                       children: [
                                         Text(
                                           '₹${marketData['fruits'][0]['maxprice']}',
-                                          style: TextStyle(
+                                          style: const TextStyle(
                                               fontWeight: FontWeight.bold,
                                               fontSize: 20),
                                         ),
-                                        Text(
+                                        const Text(
                                           '-7.36%',
                                           style: TextStyle(
                                               color: Colors.red, fontSize: 13),
@@ -402,18 +403,18 @@ class _HomePageState extends State<HomePage> {
                               TextButton(
                                 onPressed: () {
                                   Navigator.of(context).push(MaterialPageRoute(
-                                      builder: (context) => MarketPrice()));
+                                      builder: (context) => const MarketPrice()));
                                 },
-                                child: const Text(
-                                  'View All Rates',
-                                  style: TextStyle(
+                                child: Text(
+                                  AppLocalizations.of(context)?.viewALlRates ??'View All Rates',
+                                  style: const TextStyle(
                                       color: Color(0xFF2A3832), fontSize: 15),
                                 ),
                               ),
                               InkWell(
                                 onTap: () {
                                   Navigator.of(context).push(MaterialPageRoute(
-                                      builder: (context) => MarketPrice()));
+                                      builder: (context) => const MarketPrice()));
                                 },
                                 child: const Icon(
                                   Icons.arrow_forward_ios,

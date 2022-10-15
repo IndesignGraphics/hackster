@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class CropCare extends StatelessWidget {
   const CropCare({Key? key}) : super(key: key);
@@ -25,16 +26,16 @@ class CropCare extends StatelessWidget {
                   ),
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: const [
-                      Icon(
+                    children: [
+                      const Icon(
                         Icons.healing,
                         size: 50,
                       ),
                       Text(
-                        'Fertilizers',
-                        style: TextStyle(
+                        AppLocalizations.of(context)?.fertilizers ?? 'Fertilizers',
+                        style: const TextStyle(
                             fontWeight: FontWeight.bold, fontSize: 20),
-                      )
+                      ),
                     ],
                   ),
                 ),
@@ -47,16 +48,16 @@ class CropCare extends StatelessWidget {
                   ),
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: const [
-                      Icon(
+                    children: [
+                      const Icon(
                         Icons.sanitizer,
                         size: 50,
                       ),
                       Text(
-                        'Pesticides',
-                        style: TextStyle(
+                        AppLocalizations.of(context)?.pesticides ?? 'Pesticides',
+                        style: const TextStyle(
                             fontWeight: FontWeight.bold, fontSize: 20),
-                      )
+                      ),
                     ],
                   ),
                 ),
@@ -69,14 +70,14 @@ class CropCare extends StatelessWidget {
                   ),
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: const [
-                      Icon(
+                    children: [
+                      const Icon(
                         Icons.lightbulb,
                         size: 50,
                       ),
                       Text(
-                        'Tips',
-                        style: TextStyle(
+                        AppLocalizations.of(context)?.tips ??'Tips',
+                        style: const TextStyle(
                             fontWeight: FontWeight.bold, fontSize: 20),
                       )
                     ],
@@ -94,11 +95,11 @@ class CropCare extends StatelessWidget {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
-                  const Align(
+                  Align(
                     alignment: Alignment.topLeft,
                     child: Text(
-                      'Heal Your Crop',
-                      style: TextStyle(
+                      AppLocalizations.of(context)?.healYourCrop ?? 'Heal Your Crop',
+                      style: const TextStyle(
                         fontSize: 28,
                         fontWeight: FontWeight.bold,
                       ),
@@ -108,32 +109,32 @@ class CropCare extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: [
                       Column(
-                        children: const [
-                          Icon(
+                        children: [
+                          const Icon(
                             Icons.add_a_photo,
                             size: 100,
                           ),
-                          Text('Take Picture')
+                          Text(AppLocalizations.of(context)?.takePicture ??'Take Picture')
                         ],
                       ),
                       const Icon(Icons.arrow_forward_ios),
                       Column(
-                        children: const [
-                          Icon(
+                        children:[
+                          const Icon(
                             Icons.security_update_warning,
                             size: 100,
                           ),
-                          Text('See Diagnosis')
+                          Text(AppLocalizations.of(context)?.seeDiagnosis ?? 'See Diagnosis')
                         ],
                       ),
                       const Icon(Icons.arrow_forward_ios),
                       Column(
-                        children: const [
-                          Icon(
+                        children:[
+                          const Icon(
                             Icons.medical_services,
                             size: 100,
                           ),
-                          Text('Get Medicine')
+                          Text(AppLocalizations.of(context)?.getMedicine ?? 'Get Medicine')
                         ],
                       ),
                     ],
@@ -148,11 +149,11 @@ class CropCare extends StatelessWidget {
                           borderRadius: BorderRadius.circular(40),
                         ),
                       ),
-                      child: const Padding(
-                        padding: EdgeInsets.all(10),
+                      child: Padding(
+                        padding: const EdgeInsets.all(10),
                         child: Text(
-                          'Take a Picture',
-                          style: TextStyle(
+                          AppLocalizations.of(context)?.takePicture ?? 'Take a Picture',
+                          style: const TextStyle(
                             fontWeight: FontWeight.bold,
                             fontSize: 24,
                           ),
@@ -174,13 +175,13 @@ class CropCare extends StatelessWidget {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      const Text('Previous Pictures'),
+                      Text(AppLocalizations.of(context)?.previousPicture ?? 'Previous Pictures'),
                       TextButton(
                         onPressed: () {},
                         style: TextButton.styleFrom(
                           foregroundColor: Colors.blueGrey,
                         ),
-                        child: const Text('View All'),
+                        child: Text(AppLocalizations.of(context)?.viewAll ?? 'View All'),
                       )
                     ],
                   ),
