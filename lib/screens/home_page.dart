@@ -124,11 +124,12 @@ class _HomePageState extends State<HomePage> {
         ? const Center(
             child: CircularProgressIndicator(),
           )
-        : SingleChildScrollView(
-            child: Container(
-              padding: const EdgeInsets.all(15),
-              height: MediaQuery.of(context).size.height - 160,
-              child: Column(
+        : Container(
+          padding: const EdgeInsets.all(15),
+          height: MediaQuery.of(context).size.height - 160,
+          child: SingleChildScrollView(
+            child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   InkWell(
                     onTap: () {
@@ -401,10 +402,12 @@ class _HomePageState extends State<HomePage> {
                               TextButton(
                                 onPressed: () {
                                   Navigator.of(context).push(MaterialPageRoute(
-                                      builder: (context) => const MarketPrice()));
+                                      builder: (context) =>
+                                          const MarketPrice()));
                                 },
                                 child: Text(
-                                  AppLocalizations.of(context)?.viewALlRates ??'View All Rates',
+                                  AppLocalizations.of(context)?.viewALlRates ??
+                                      'View All Rates',
                                   style: const TextStyle(
                                       color: Color(0xFF2A3832), fontSize: 15),
                                 ),
@@ -412,7 +415,8 @@ class _HomePageState extends State<HomePage> {
                               InkWell(
                                 onTap: () {
                                   Navigator.of(context).push(MaterialPageRoute(
-                                      builder: (context) => const MarketPrice()));
+                                      builder: (context) =>
+                                          const MarketPrice()));
                                 },
                                 child: const Icon(
                                   Icons.arrow_forward_ios,
@@ -431,10 +435,49 @@ class _HomePageState extends State<HomePage> {
                   const SizedBox(
                     height: 20,
                   ),
-                  const Card(),
+                   Text(
+                    'Agri News',
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      color: Theme.of(context).primaryColor,
+                      fontSize: 22,
+                    ),
+                  ),
+                  Divider(
+                    color: Theme.of(context).primaryColor,
+                    thickness: 3,
+                  ),
+                   Card(
+                    elevation: 3,
+                    child: Container(
+                      padding: EdgeInsets.all(5),
+                      child: Image.asset('assets/images/news1.png'),
+                    ),
+                  ),
+                  Card(
+                    elevation: 3,
+                    child: Container(
+                      padding: EdgeInsets.all(5),
+                      child: Image.asset('assets/images/news2.png'),
+                    ),
+                  ),
+                  Card(
+                    elevation: 3,
+                    child: Container(
+                      padding: EdgeInsets.all(5),
+                      child: Image.asset('assets/images/news3.jpg'),
+                    ),
+                  ),
+                  Card(
+                    elevation: 3,
+                    child: Container(
+                      padding: EdgeInsets.all(5),
+                      child: Image.asset('assets/images/news4.png'),
+                    ),
+                  ),
                 ],
               ),
-            ),
-          );
+          ),
+        );
   }
 }
