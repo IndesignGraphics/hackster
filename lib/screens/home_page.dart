@@ -6,7 +6,7 @@ import 'package:geocoding/geocoding.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:hackster/screens/navigation/market_price.dart';
 import 'package:hackster/screens/navigation/weather.dart';
-import 'package:http/http.dart'as http;
+import 'package:http/http.dart' as http;
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -18,8 +18,10 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   Position? _currentPosition;
   late String subLocality, area;
-  bool _isLoading = true;
+  bool _isMarketLoading = true;
+  bool _isWeatherLoading = true;
   late var weatherData;
+  late var marketData;
 
   Future<bool> _handleLocationPermission() async {
     bool serviceEnabled;
@@ -93,19 +95,33 @@ class _HomePageState extends State<HomePage> {
     final wData = jsonDecode(response.body);
     setState(() {
       weatherData = wData;
-      _isLoading = false;
+
+      _isWeatherLoading = false;
+    });
+  }
+
+  void _loadMarketData() async {
+    final url = 'https://hack-roso.onrender.com/getmarket/Rajkot';
+    final response = await http.get(Uri.parse(url));
+    final mData = jsonDecode(response.body);
+
+    setState(() {
+      marketData = mData;
+
+      _isMarketLoading = false;
     });
   }
 
   @override
   void initState() {
+    _loadMarketData();
     _loadWeatherData();
     super.initState();
   }
 
   @override
   Widget build(BuildContext context) {
-    return _isLoading
+    return _isMarketLoading || _isWeatherLoading
         ? const Center(
             child: CircularProgressIndicator(),
           )
@@ -173,8 +189,8 @@ class _HomePageState extends State<HomePage> {
                   ),
                   InkWell(
                     onTap: () {
-                      Navigator.of(context).push(
-                          MaterialPageRoute(builder: (context) => const Weather()));
+                      Navigator.of(context).push(MaterialPageRoute(
+                          builder: (context) => const Weather()));
                     },
                     child: Card(
                       elevation: 5,
@@ -214,7 +230,8 @@ class _HomePageState extends State<HomePage> {
                                 Row(
                                   children: [
                                     Text(
-                                      (weatherData['main']['temp']-273.15).toStringAsFixed(2),
+                                      (weatherData['main']['temp'] - 273.15)
+                                          .toStringAsFixed(2),
                                       style: const TextStyle(
                                           color: Colors.white, fontSize: 20),
                                     ),
@@ -248,7 +265,8 @@ class _HomePageState extends State<HomePage> {
                                     ),
                                     Text(
                                       weatherData['clouds']['all'].toString(),
-                                      style: const TextStyle(color: Colors.white),
+                                      style:
+                                          const TextStyle(color: Colors.white),
                                     ),
                                   ],
                                 ),
@@ -269,7 +287,8 @@ class _HomePageState extends State<HomePage> {
                                     ),
                                     Text(
                                       '${weatherData['wind']['speed']} m/s',
-                                      style: const TextStyle(color: Colors.white),
+                                      style:
+                                          const TextStyle(color: Colors.white),
                                     ),
                                   ],
                                 ),
@@ -284,8 +303,10 @@ class _HomePageState extends State<HomePage> {
                                           'assets/svgs/humidity.svg'),
                                     ),
                                     Text(
-                                      weatherData['main']['humidity'].toString(),
-                                      style:const TextStyle(color: Colors.white),
+                                      weatherData['main']['humidity']
+                                          .toString(),
+                                      style:
+                                          const TextStyle(color: Colors.white),
                                     ),
                                   ],
                                 ),
@@ -343,22 +364,24 @@ class _HomePageState extends State<HomePage> {
                                   mainAxisAlignment:
                                       MainAxisAlignment.spaceAround,
                                   children: [
-                                    Image.asset('assets/images/pea.png'),
-                                    const Text(
-                                      'Pea',
+                                    Container(
+                                      width: 40,
+                                      child: Image.network(
+                                          marketData['vegtables'][0]['image']),
+                                    ),
+                                    Text(
+                                      marketData['vegtables'][0]['name'],
                                       style: TextStyle(
                                         fontWeight: FontWeight.bold,
                                         fontSize: 20,
                                       ),
                                     ),
-                                    SvgPicture.asset(
-                                        'assets/svgs/positive_graph.svg'),
                                     Column(
                                       crossAxisAlignment:
                                           CrossAxisAlignment.end,
-                                      children: const [
+                                      children: [
                                         Text(
-                                          '₹58.23',
+                                          '₹${marketData['vegtables'][0]['maxprice']}',
                                           style: TextStyle(
                                               fontWeight: FontWeight.bold,
                                               fontSize: 20),
@@ -394,22 +417,24 @@ class _HomePageState extends State<HomePage> {
                                   mainAxisAlignment:
                                       MainAxisAlignment.spaceAround,
                                   children: [
-                                    Image.asset('assets/images/chilli.png'),
-                                    const Text(
-                                      'Chilli',
+                                    Container(
+                                      width: 40,
+                                      child: Image.network(
+                                          marketData['fruits'][0]['image']),
+                                    ),
+                                    Text(
+                                      marketData['fruits'][0]['name'],
                                       style: TextStyle(
                                         fontWeight: FontWeight.bold,
                                         fontSize: 20,
                                       ),
                                     ),
-                                    SvgPicture.asset(
-                                        'assets/svgs/negative_graph.svg'),
                                     Column(
                                       crossAxisAlignment:
                                           CrossAxisAlignment.end,
-                                      children: const [
+                                      children: [
                                         Text(
-                                          '₹36.83',
+                                          '₹${marketData['fruits'][0]['maxprice']}',
                                           style: TextStyle(
                                               fontWeight: FontWeight.bold,
                                               fontSize: 20),
