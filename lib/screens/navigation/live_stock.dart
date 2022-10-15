@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
+import 'package:url_launcher/url_launcher_string.dart';
 
 class LiveStock extends StatelessWidget {
   const LiveStock({Key? key}) : super(key: key);
@@ -17,6 +19,30 @@ class LiveStock extends StatelessWidget {
       'Sheep Development Branch',
       'LiveStock Health (Statistics)'
     ];
+
+    List<String> listOfLinks = [
+      'https://doah.gujarat.gov.in/cattle-buffalo-development.htm',
+      'https://doah.gujarat.gov.in/fodder-development.htm',
+      'https://doah.gujarat.gov.in/poultry-development.htm',
+      'https://doah.gujarat.gov.in/veterinary-services-animal.htm',
+      'https://doah.gujarat.gov.in/veterinary-services-animal.htm',
+      'https://doah.gujarat.gov.in/sheep-goat-wool-development.htm',
+      'https://doah.gujarat.gov.in/other-livestock-development.htm',
+      'https://doah.gujarat.gov.in/horse-camel-development.htm',
+      'https://doah.gujarat.gov.in/sheep-development-branch.htm',
+      'https://doah.gujarat.gov.in/livestock-health.htm'
+    ];
+
+    _launchURL(int i) async {
+      print('call for i: $i');
+      var url = listOfLinks[i];
+      Uri uri = Uri.parse(url);
+      if (await canLaunchUrl(uri)) {
+        await launchUrl(uri);
+      } else {
+        throw 'Could not launch $url';
+      }
+    }
 
     return Scaffold(
         appBar: AppBar(
@@ -53,12 +79,16 @@ class LiveStock extends StatelessWidget {
                                 color: Theme.of(context).primaryColor),
                             child: Text(
                               listOfLiveStock[i],
-                              style: const TextStyle(color: Colors.white,fontWeight: FontWeight.bold),
+                              style: const TextStyle(
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.bold),
                               textAlign: TextAlign.center,
                             ),
                           ),
                         ),
-                        onTap: (){},
+                        onTap: () {
+                          _launchURL(i);
+                        },
                       );
                     },
                     separatorBuilder: (context, i) {
