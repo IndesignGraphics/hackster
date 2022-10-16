@@ -8,7 +8,21 @@ class BasicSoilTest extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(AppLocalizations.of(context)?.basicSoilTest ?? 'Basic Soil Test'),
+        title: Text(
+            AppLocalizations.of(context)?.basicSoilTest ?? 'Basic Soil Test'),
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
+      floatingActionButton: ElevatedButton(
+        style: ButtonStyle(
+          backgroundColor: MaterialStateProperty.all(Colors.white),
+        ),
+        child: Text(
+          'Apply For Basic Soil Test',
+          style: TextStyle(
+            color: Theme.of(context).primaryColor,
+          ),
+        ),
+        onPressed: null,
       ),
       body: Container(
         width: double.infinity,

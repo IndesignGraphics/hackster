@@ -10,6 +10,19 @@ class StandardSoilTest extends StatelessWidget {
       appBar: AppBar(
         title: Text(AppLocalizations.of(context)?.standardSoilTest ?? 'Standard Soil Test'),
       ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
+      floatingActionButton: ElevatedButton(
+        style: ButtonStyle(
+          backgroundColor: MaterialStateProperty.all(Colors.white),
+        ),
+        child: Text(
+          'Apply For Standard Soil Test',
+          style: TextStyle(
+            color: Theme.of(context).primaryColor,
+          ),
+        ),
+        onPressed: null,
+      ),
       body: Container(
         width: double.infinity,
         padding: const EdgeInsets.all(10),
