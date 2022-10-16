@@ -369,10 +369,9 @@ class _HomePageState extends State<HomePage> {
                                             return child;
                                           }
                                           return Shimmer.fromColors(
-                                            baseColor:
-                                                Theme.of(context).primaryColor,
-                                            highlightColor: Theme.of(context)
-                                                .primaryColorLight,
+                                            baseColor: Colors.grey.shade300,
+                                            highlightColor:
+                                                Colors.grey.shade100,
                                             child: Container(
                                               height: 30,
                                               width: 40,

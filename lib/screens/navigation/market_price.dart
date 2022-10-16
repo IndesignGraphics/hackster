@@ -5,6 +5,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:http/http.dart' as http;
 import 'package:intl/intl.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:shimmer/shimmer.dart';
 
 class MarketPrice extends StatefulWidget {
   const MarketPrice({Key? key}) : super(key: key);
@@ -171,10 +172,10 @@ class _MarketPriceState extends State<MarketPrice> {
                     ),
               _isLoading
                   ? const Expanded(
-                    child:  Center(
+                      child: Center(
                         child: CircularProgressIndicator(),
                       ),
-                  )
+                    )
                   : Expanded(
                       child: TabBarView(
                         children: [
@@ -200,8 +201,32 @@ class _MarketPriceState extends State<MarketPrice> {
                                           Container(
                                             width: 40,
                                             child: Image.network(
-                                                marketData['vegtables'][i]
-                                                    ['image']),
+                                              marketData['vegtables'][i]
+                                                  ['image'],
+                                              loadingBuilder:
+                                                  (BuildContext context,
+                                                      Widget child,
+                                                      ImageChunkEvent?
+                                                          loadingProgress) {
+                                                if (loadingProgress == null) {
+                                                  return child;
+                                                }
+                                                return Shimmer.fromColors(
+                                                  baseColor:
+                                                      Colors.grey.shade300,
+                                                  highlightColor:
+                                                      Colors.grey.shade100,
+                                                  child: Container(
+                                                    height: 30,
+                                                    width: 40,
+                                                    decoration:
+                                                        const BoxDecoration(
+                                                      color: Colors.blue,
+                                                    ),
+                                                  ),
+                                                );
+                                              },
+                                            ),
                                           ),
                                           Text(
                                             marketData['vegtables'][i]['name'],
@@ -262,8 +287,31 @@ class _MarketPriceState extends State<MarketPrice> {
                                           Container(
                                             width: 40,
                                             child: Image.network(
-                                                marketData['fruits'][i]
-                                                    ['image']),
+                                              marketData['fruits'][i]['image'],
+                                              loadingBuilder:
+                                                  (BuildContext context,
+                                                      Widget child,
+                                                      ImageChunkEvent?
+                                                          loadingProgress) {
+                                                if (loadingProgress == null) {
+                                                  return child;
+                                                }
+                                                return Shimmer.fromColors(
+                                                  baseColor:
+                                                      Colors.grey.shade300,
+                                                  highlightColor:
+                                                      Colors.grey.shade100,
+                                                  child: Container(
+                                                    height: 30,
+                                                    width: 40,
+                                                    decoration:
+                                                        const BoxDecoration(
+                                                      color: Colors.blue,
+                                                    ),
+                                                  ),
+                                                );
+                                              },
+                                            ),
                                           ),
                                           Text(
                                             marketData['fruits'][i]['name'],
@@ -324,8 +372,31 @@ class _MarketPriceState extends State<MarketPrice> {
                                           Container(
                                             width: 40,
                                             child: Image.network(
-                                                marketData['cerels'][i]
-                                                    ['image']),
+                                              marketData['cerels'][i]['image'],
+                                              loadingBuilder:
+                                                  (BuildContext context,
+                                                      Widget child,
+                                                      ImageChunkEvent?
+                                                          loadingProgress) {
+                                                if (loadingProgress == null) {
+                                                  return child;
+                                                }
+                                                return Shimmer.fromColors(
+                                                  baseColor:
+                                                      Colors.grey.shade300,
+                                                  highlightColor:
+                                                      Colors.grey.shade100,
+                                                  child: Container(
+                                                    height: 30,
+                                                    width: 40,
+                                                    decoration:
+                                                        const BoxDecoration(
+                                                      color: Colors.blue,
+                                                    ),
+                                                  ),
+                                                );
+                                              },
+                                            ),
                                           ),
                                           Text(
                                             marketData['cerels'][i]['name'],
@@ -386,8 +457,31 @@ class _MarketPriceState extends State<MarketPrice> {
                                           Container(
                                             width: 40,
                                             child: Image.network(
-                                                marketData['pulses'][i]
-                                                    ['image']),
+                                              marketData['pulses'][i]['image'],
+                                              loadingBuilder:
+                                                  (BuildContext context,
+                                                      Widget child,
+                                                      ImageChunkEvent?
+                                                          loadingProgress) {
+                                                if (loadingProgress == null) {
+                                                  return child;
+                                                }
+                                                return Shimmer.fromColors(
+                                                  baseColor:
+                                                      Colors.grey.shade300,
+                                                  highlightColor:
+                                                      Colors.grey.shade100,
+                                                  child: Container(
+                                                    height: 30,
+                                                    width: 40,
+                                                    decoration:
+                                                        const BoxDecoration(
+                                                      color: Colors.blue,
+                                                    ),
+                                                  ),
+                                                );
+                                              },
+                                            ),
                                           ),
                                           Text(
                                             marketData['pulses'][i]['name'],
