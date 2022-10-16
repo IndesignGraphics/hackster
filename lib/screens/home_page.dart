@@ -2,7 +2,8 @@ import 'dart:async';
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
-import 'package:flutter/scheduler.dart';
+
+// import 'package:flutter/scheduler.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:geocoding/geocoding.dart';
 import 'package:geolocator/geolocator.dart';
@@ -10,7 +11,8 @@ import 'package:hackster/screens/navigation/market_price.dart';
 import 'package:hackster/screens/navigation/weather.dart';
 import 'package:http/http.dart' as http;
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:app_settings/app_settings.dart';
+import 'package:shimmer/shimmer.dart';
+// import 'package:app_settings/app_settings.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -112,8 +114,8 @@ class _HomePageState extends State<HomePage> {
       _isWeatherLoading = false;
     });
 
-    StreamSubscription<ServiceStatus> serviceStatusStream =
-        Geolocator.getServiceStatusStream().listen((ServiceStatus status) {
+    // StreamSubscription<ServiceStatus> serviceStatusStream =
+    Geolocator.getServiceStatusStream().listen((ServiceStatus status) {
       if (!_isLocationAvailable) {
         setState(() {
           _loadWeatherData();
@@ -147,7 +149,7 @@ class _HomePageState extends State<HomePage> {
           )
         : Container(
             padding: const EdgeInsets.all(15),
-            height: MediaQuery.of(context).size.height - 160,
+            height: MediaQuery.of(context).size.height - 125,
             child: SingleChildScrollView(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -157,10 +159,8 @@ class _HomePageState extends State<HomePage> {
                           elevation: 3,
                           child: Container(
                             width: double.infinity,
-                            padding:const EdgeInsets.symmetric(
-                              vertical: 10,
-                              horizontal: 5
-                            ),
+                            padding: const EdgeInsets.symmetric(
+                                vertical: 10, horizontal: 5),
                             child: const Center(
                               child: Text(
                                 'Please turn on your location to see weather data!',
@@ -361,7 +361,28 @@ class _HomePageState extends State<HomePage> {
                                     SizedBox(
                                       width: 40,
                                       child: Image.network(
-                                          marketData['vegtables'][0]['image']),
+                                        marketData['vegtables'][0]['image'],
+                                        loadingBuilder: (BuildContext context,
+                                            Widget child,
+                                            ImageChunkEvent? loadingProgress) {
+                                          if (loadingProgress == null) {
+                                            return child;
+                                          }
+                                          return Shimmer.fromColors(
+                                            baseColor:
+                                                Theme.of(context).primaryColor,
+                                            highlightColor: Theme.of(context)
+                                                .primaryColorLight,
+                                            child: Container(
+                                              height: 30,
+                                              width: 40,
+                                              decoration: const BoxDecoration(
+                                                color: Colors.blue,
+                                              ),
+                                            ),
+                                          );
+                                        },
+                                      ),
                                     ),
                                     Text(
                                       marketData['vegtables'][0]['name'],
@@ -414,7 +435,28 @@ class _HomePageState extends State<HomePage> {
                                     SizedBox(
                                       width: 40,
                                       child: Image.network(
-                                          marketData['fruits'][0]['image']),
+                                        marketData['fruits'][0]['image'],
+                                        loadingBuilder: (BuildContext context,
+                                            Widget child,
+                                            ImageChunkEvent? loadingProgress) {
+                                          if (loadingProgress == null) {
+                                            return child;
+                                          }
+                                          return Shimmer.fromColors(
+                                            baseColor:
+                                                Theme.of(context).primaryColor,
+                                            highlightColor: Theme.of(context)
+                                                .primaryColorLight,
+                                            child: Container(
+                                              height: 30,
+                                              width: 40,
+                                              decoration: const BoxDecoration(
+                                                color: Colors.blue,
+                                              ),
+                                            ),
+                                          );
+                                        },
+                                      ),
                                     ),
                                     Text(
                                       marketData['fruits'][0]['name'],

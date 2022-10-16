@@ -23,6 +23,7 @@ class _LogInState extends State<LogIn> {
   late String number, mVerificationId, userId;
   bool _isCodeSent = false, _isLoading = false;
   late User currentUser;
+  late PhoneAuthCredential credential;
 
   void sendOtp() async {
     setState(() {
@@ -65,24 +66,40 @@ class _LogInState extends State<LogIn> {
       });
       return;
     }
-    PhoneAuthCredential credential = PhoneAuthProvider.credential(
-        verificationId: mVerificationId, smsCode: otpController.text);
-    await _auth.signInWithCredential(credential);
+    try {
+      credential = PhoneAuthProvider.credential(
+          verificationId: mVerificationId, smsCode: otpController.text);
+      await _auth.signInWithCredential(credential);
+    } on Exception {
+      setState(() {
+        _isLoading = false;
+      });
+      if (!mounted) {
+        return;
+      }
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(
+          content: Text('Please Enter valid OTP'),
+        ),
+      );
+      return;
+    }
     currentUser = _auth.currentUser!;
     userId = currentUser.uid;
-    final farmerIDUrl =
-        'https://hack-roso.onrender.com/getfarmer/$number';
-    final response = await http.get(Uri.parse(farmerIDUrl),);
+    final farmerIDUrl = 'https://hack-roso.onrender.com/getfarmer/$number';
+    final response = await http.get(
+      Uri.parse(farmerIDUrl),
+    );
     final farmerData = jsonDecode(response.body);
     final prefs = await SharedPreferences.getInstance();
     final data = {
-      "id":userId,
-      "farmerId":farmerData['farmId'],
-      "mobileNo":number
+      "id": userId,
+      "farmerId": farmerData['farmId'],
+      "mobileNo": number
     };
     String encodedData = jsonEncode(data);
     await prefs.setString(userId, encodedData);
-    if(!mounted){
+    if (!mounted) {
       return;
     }
     Navigator.of(context).pushReplacement(
@@ -139,7 +156,8 @@ class _LogInState extends State<LogIn> {
                                 child: TextFormField(
                                   validator: (value) {
                                     if (value!.isEmpty) {
-                                      return AppLocalizations.of(context)?.pleaseEnterOtp;
+                                      return AppLocalizations.of(context)
+                                          ?.pleaseEnterOtp;
                                     }
                                     return null;
                                   },
@@ -147,7 +165,8 @@ class _LogInState extends State<LogIn> {
                                   controller: otpController,
                                   decoration: InputDecoration(
                                     border: const OutlineInputBorder(),
-                                    labelText: AppLocalizations.of(context)?.enterOtp,
+                                    labelText:
+                                        AppLocalizations.of(context)?.enterOtp,
                                   ),
                                 ),
                               ),
@@ -156,7 +175,9 @@ class _LogInState extends State<LogIn> {
                                 onPressed: () {
                                   verifyOtp(context);
                                 },
-                                child: Text(AppLocalizations.of(context)?.verifyOtp ?? 'Verify OTP'),
+                                child: Text(
+                                    AppLocalizations.of(context)?.verifyOtp ??
+                                        'Verify OTP'),
                               ),
                             ],
                           ),
@@ -172,10 +193,12 @@ class _LogInState extends State<LogIn> {
                                 child: TextFormField(
                                   validator: (value) {
                                     if (value!.isEmpty) {
-                                      return AppLocalizations.of(context)?.pleaseEnterMobileNumber;
+                                      return AppLocalizations.of(context)
+                                          ?.pleaseEnterMobileNumber;
                                     }
                                     if (value.length != 10) {
-                                      return AppLocalizations.of(context)?.pleaseEnterValidMobileNumber;
+                                      return AppLocalizations.of(context)
+                                          ?.pleaseEnterValidMobileNumber;
                                     }
                                     return null;
                                   },
@@ -183,7 +206,8 @@ class _LogInState extends State<LogIn> {
                                   controller: farmerIdController,
                                   decoration: InputDecoration(
                                     border: const OutlineInputBorder(),
-                                    labelText: AppLocalizations.of(context)?.enterMobileNo,
+                                    labelText: AppLocalizations.of(context)
+                                        ?.enterMobileNo,
                                   ),
                                 ),
                               ),
@@ -195,7 +219,9 @@ class _LogInState extends State<LogIn> {
                                     number = farmerIdController.text;
                                     sendOtp();
                                   },
-                                  child: Text(AppLocalizations.of(context)?.sendOtp ?? "Send OTP"),
+                                  child: Text(
+                                      AppLocalizations.of(context)?.sendOtp ??
+                                          "Send OTP"),
                                 ),
                               ),
                             ],
