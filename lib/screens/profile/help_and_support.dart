@@ -6,7 +6,7 @@ class HelpAndSupport extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    TextEditingController _feedbackController = TextEditingController();
+    TextEditingController feedbackController = TextEditingController();
 
     return Scaffold(
       appBar: AppBar(
@@ -14,18 +14,18 @@ class HelpAndSupport extends StatelessWidget {
       ),
       body: SingleChildScrollView(
         child: Container(
-          padding: EdgeInsets.all(10),
+          padding: const EdgeInsets.all(10),
           child: Column(
             children: [
               Text(
                 AppLocalizations.of(context)?.helloFarmer??'Hello farmer,\nFarmer360 is ready get your feedback. Please give your feedback to use and help use to improve our application.',
-                style: TextStyle(fontSize: 20),
+                style: const TextStyle(fontSize: 20),
               ),
-              SizedBox(height: 10,),
+              const SizedBox(height: 10,),
               TextField(
-                controller: _feedbackController,
+                controller: feedbackController,
                 decoration: InputDecoration(
-                  label: Text('Enter Your Feedback'),
+                  label: Text(AppLocalizations.of(context)?.enterYourFeedback ?? 'Enter Your Feedback'),
                 ),
               )
             ],
@@ -36,10 +36,10 @@ class HelpAndSupport extends StatelessWidget {
       floatingActionButton: ElevatedButton(
         onPressed: () {
           ScaffoldMessenger.of(context)
-              .showSnackBar(SnackBar(content: Text('Feedback Submitted')));
-          _feedbackController.clear();
+              .showSnackBar(const SnackBar(content: Text('Feedback Submitted')));
+          feedbackController.clear();
         },
-        child: const Text('Submit'),
+        child: Text(AppLocalizations.of(context)?.submit ?? 'Submit'),
       ),
     );
   }

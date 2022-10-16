@@ -146,5 +146,6 @@
   "contact" : "વધુ મદદ જોઈ છે?\nતમે\nhackster@gmail.com\nપર સીધો અમારો સંપર્ક કરી શકો છો.",
   "enterYourFeedback" : "તમારો પ્રતિસાદ દાખલ કરો.",
   "price" : "ભાવ",
-  "description" : "માહિતી"
+  "description" : "માહિતી",
+  "feedbackSubmitted" : "પ્રતિસાદ સબમિટ થય ગયો છે."
 }

@@ -1,85 +1,126 @@
+import 'dart:convert';
+
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:hackster/screens/other/add_new_crop.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+import 'package:http/http.dart' as http;
 
-class CropHistory extends StatelessWidget {
+class CropHistory extends StatefulWidget {
   const CropHistory({Key? key}) : super(key: key);
+
+  @override
+  State<CropHistory> createState() => _CropHistoryState();
+}
+
+class _CropHistoryState extends State<CropHistory> {
+  final _auth = FirebaseAuth.instance;
+  bool _isLoading = true;
+  var farmerCropHistory;
+
+  void loadFarmerCropHistory() async {
+    final prefs = await SharedPreferences.getInstance();
+    final currentUser = _auth.currentUser!;
+    final userId = currentUser.uid;
+    String? encodedData = prefs.getString(userId);
+    final decodedData = jsonDecode(encodedData!);
+    String mobileNum = decodedData['mobileNo'];
+    final url = "https://hack-roso.onrender.com/getfarmer/$mobileNum";
+    final response = await http.get(Uri.parse(url));
+    final farmerData = jsonDecode(response.body);
+    setState(() {
+      farmerCropHistory = farmerData['yeildInfo'];
+      _isLoading = false;
+    });
+  }
+
+  @override
+  void initState() {
+    loadFarmerCropHistory();
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(AppLocalizations.of(context)?.cropHistory??'Crop History'),
+        title:
+            Text(AppLocalizations.of(context)?.cropHistory ?? 'Crop History'),
       ),
-      body: SizedBox(
-        height: MediaQuery.of(context).size.height,
-        child: ListView.separated(
-          itemBuilder: (context, i) {
-            return ListTile(
-              title: Card(
-                color: Theme.of(context).primaryColorLight,
-                clipBehavior: Clip.hardEdge,
-                shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(10)),
-                child: Container(
-                  padding: const EdgeInsets.all(5),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: [
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            '${AppLocalizations.of(context)?.landName} : Shivji Land',
-                            style: const TextStyle(color: Colors.black),
-                          ),
-                          Text(
-                            '${AppLocalizations.of(context)?.year} : 2022',
-                            style: const TextStyle(color: Colors.black),
-                          ),
-                          Text(
-                            '${AppLocalizations.of(context)?.cropType} : Fruits',
-                            style: const TextStyle(color: Colors.black),
-                          ),
-                          Text(
-                            '${AppLocalizations.of(context)?.cropName} : Banana',
-                            style: const TextStyle(color: Colors.black),
-                          ),
-                          Text(
-                            '${AppLocalizations.of(context)?.quantity} : 1000 Kg',
-                            style: const TextStyle(color: Colors.black),
-                          ),
-                          Text(
-                            '${AppLocalizations.of(context)?.totalPrice} : 15000',
-                            style: const TextStyle(color: Colors.black),
-                          ),
-                          Text(
-                            '${AppLocalizations.of(context)?.harvestingTec} : Hand Harvesting',
-                            style: const TextStyle(color: Colors.black),
-                          ),
-                        ],
+      body: _isLoading
+          ? const Center(
+              child: CircularProgressIndicator(),
+            )
+          : SizedBox(
+              height: MediaQuery.of(context).size.height,
+              child: ListView.separated(
+                itemCount: farmerCropHistory.length,
+                itemBuilder: (context, i) {
+                  return ListTile(
+                    title: Card(
+                      color: Theme.of(context).primaryColorLight,
+                      clipBehavior: Clip.hardEdge,
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(10)),
+                      child: Container(
+                        padding: const EdgeInsets.all(5),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          children: [
+                            Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  '${AppLocalizations.of(context)?.landName} : ${farmerCropHistory[i]['landTitle']}',
+                                  style: const TextStyle(color: Colors.black),
+                                ),
+                                Text(
+                                  '${AppLocalizations.of(context)?.year} : ${farmerCropHistory[i]['year']}',
+                                  style: const TextStyle(color: Colors.black),
+                                ),
+                                Text(
+                                  '${AppLocalizations.of(context)?.cropType} : ${farmerCropHistory[i]['cropType']}',
+                                  style: const TextStyle(color: Colors.black),
+                                ),
+                                Text(
+                                  '${AppLocalizations.of(context)?.cropName} : ${farmerCropHistory[i]['cropName']}',
+                                  style: const TextStyle(color: Colors.black),
+                                ),
+                                Text(
+                                  '${AppLocalizations.of(context)?.quantity} : ${farmerCropHistory[i]['quintity']} Kg',
+                                  style: const TextStyle(color: Colors.black),
+                                ),
+                                Text(
+                                  '${AppLocalizations.of(context)?.totalPrice} : ${farmerCropHistory[i]['totalPrice']}',
+                                  style: const TextStyle(color: Colors.black),
+                                ),
+                                Text(
+                                  '${AppLocalizations.of(context)?.harvestingTec} : ${farmerCropHistory[i]['harvestTech']}',
+                                  style: const TextStyle(color: Colors.black),
+                                ),
+                              ],
+                            ),
+                            Image.asset('assets/images/bill.png'),
+                          ],
+                        ),
                       ),
-                      Image.asset('assets/images/bill.png'),
-                    ],
-                  ),
-                ),
+                    ),
+                  );
+                },
+                separatorBuilder: (context, i) {
+                  return const SizedBox(
+                    height: 5,
+                  );
+                },
               ),
-            );
-          },
-          separatorBuilder: (context, i) {
-            return const SizedBox(
-              height: 5,
-            );
-          },
-          itemCount: 5,
-        ),
-      ),
+            ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
       floatingActionButton: ElevatedButton(
         onPressed: () {
           Navigator.of(context).push(
             MaterialPageRoute(
-              builder: (context) =>const AddNewCrop(),
+              builder: (context) => const AddNewCrop(),
             ),
           );
         },

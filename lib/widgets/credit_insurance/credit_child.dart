@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class CreditChild extends StatelessWidget {
-  const CreditChild({Key? key}) : super(key: key);
+  final creditData;
+  const CreditChild({Key? key, required this.creditData}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -14,12 +15,12 @@ class CreditChild extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text('${AppLocalizations.of(context)?.landName} : Shivji Land'),
+            Text('${AppLocalizations.of(context)?.landName} : ${creditData['landTitle']}'),
             Text('${AppLocalizations.of(context)?.surveyNo} : 100'),
             Text('${AppLocalizations.of(context)?.totalArea} : 1-58-28'),
-            Text('${AppLocalizations.of(context)?.totalCredit} : 2,00,000.00 Rs'),
-            Text('${AppLocalizations.of(context)?.bankName} : State Bank of India'),
-            Text('${AppLocalizations.of(context)?.accountNumber} : 12345678910'),
+            Text('${AppLocalizations.of(context)?.totalCredit} : ${creditData['loanSize']} Rs'),
+            Text('${AppLocalizations.of(context)?.bankName} : ${creditData['bankName']}'),
+            Text('${AppLocalizations.of(context)?.accountNumber} : ${creditData['accountNumber']}'),
           ],
         ),
       ),

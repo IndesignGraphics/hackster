@@ -146,5 +146,6 @@
   "contact" : "Need more Help?\nYou can directly reach to us at\nhackster@gmail.com",
   "enterYourFeedback" : "Enter your Feedback.",
   "price" : "Price",
-  "description" : "Description"
+  "description" : "Description",
+  "feedbackSubmitted" : "Feedback Submitted"
 }
