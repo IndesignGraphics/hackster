@@ -1,6 +1,8 @@
+import 'dart:async';
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:geocoding/geocoding.dart';
 import 'package:geolocator/geolocator.dart';
@@ -8,6 +10,7 @@ import 'package:hackster/screens/navigation/market_price.dart';
 import 'package:hackster/screens/navigation/weather.dart';
 import 'package:http/http.dart' as http;
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:app_settings/app_settings.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -95,6 +98,9 @@ class _HomePageState extends State<HomePage> {
   }
 
   void _loadWeatherData() async {
+    setState(() {
+      _isWeatherLoading = true;
+    });
     await _getCurrentPosition();
     final url =
         'https://api.agromonitoring.com/agro/1.0/weather?appid=1df36a28a1544b19adeab9394f542c71&lat=${_currentPosition?.latitude}&lon=${_currentPosition?.longitude}';
@@ -104,6 +110,15 @@ class _HomePageState extends State<HomePage> {
       weatherData = wData;
 
       _isWeatherLoading = false;
+    });
+
+    StreamSubscription<ServiceStatus> serviceStatusStream =
+        Geolocator.getServiceStatusStream().listen((ServiceStatus status) {
+      if (!_isLocationAvailable) {
+        setState(() {
+          _loadWeatherData();
+        });
+      }
     });
   }
 
@@ -138,9 +153,23 @@ class _HomePageState extends State<HomePage> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   !_isLocationAvailable
-                      ? Center(
-                          child: Text(
-                            'Can\'t fetch weather because locatin is not allowed.',
+                      ? Card(
+                          elevation: 3,
+                          child: Container(
+                            width: double.infinity,
+                            padding:const EdgeInsets.symmetric(
+                              vertical: 10,
+                              horizontal: 5
+                            ),
+                            child: const Center(
+                              child: Text(
+                                'Please turn on your location to see weather data!',
+                                style: TextStyle(
+                                  fontSize: 15,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                            ),
                           ),
                         )
                       : InkWell(
@@ -470,28 +499,28 @@ class _HomePageState extends State<HomePage> {
                   Card(
                     elevation: 3,
                     child: Container(
-                      padding: EdgeInsets.all(5),
+                      padding: const EdgeInsets.all(5),
                       child: Image.asset('assets/images/news1.png'),
                     ),
                   ),
                   Card(
                     elevation: 3,
                     child: Container(
-                      padding: EdgeInsets.all(5),
+                      padding: const EdgeInsets.all(5),
                       child: Image.asset('assets/images/news2.png'),
                     ),
                   ),
                   Card(
                     elevation: 3,
                     child: Container(
-                      padding: EdgeInsets.all(5),
+                      padding: const EdgeInsets.all(5),
                       child: Image.asset('assets/images/news3.jpg'),
                     ),
                   ),
                   Card(
                     elevation: 3,
                     child: Container(
-                      padding: EdgeInsets.all(5),
+                      padding: const EdgeInsets.all(5),
                       child: Image.asset('assets/images/news4.png'),
                     ),
                   ),
