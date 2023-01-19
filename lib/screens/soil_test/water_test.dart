@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:get/get.dart';
 
 class WaterTest extends StatelessWidget {
   const WaterTest({Key? key}) : super(key: key);
@@ -21,7 +22,16 @@ class WaterTest extends StatelessWidget {
             color: Theme.of(context).primaryColor,
           ),
         ),
-        onPressed: null,
+        onPressed: () {
+          Get.snackbar(
+            "Water Test",
+            "Successfully Applied for Water Test",
+            backgroundColor: const Color.fromARGB(75, 0, 0, 0),
+            barBlur: 10,
+            colorText: Colors.white,
+            snackPosition: SnackPosition.BOTTOM,
+          );
+        },
       ),
       body: Container(
         width: double.infinity,

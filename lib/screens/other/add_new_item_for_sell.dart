@@ -23,6 +23,7 @@ class _AddNewItemForSellState extends State<AddNewItemForSell> {
     'Junagadh',
     'Surat',
   ];
+  final _listOfUnits = ['Kg','20Kg()','Ton'];
 
   var cropTypeValue = 'Vegetables';
   var cropNameValue = 'Wheat';

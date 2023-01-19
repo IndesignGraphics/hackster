@@ -65,7 +65,8 @@ class Sell extends StatelessWidget {
             ),
           );
         },
-        child: Text(AppLocalizations.of(context)?.addNewItemForSell??'Add new item for sell'),
+        child: Text(AppLocalizations.of(context)?.addNewItemForSell ??
+            'Add new item for sell'),
       ),
     );
   }

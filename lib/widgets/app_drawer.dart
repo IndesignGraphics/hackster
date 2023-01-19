@@ -13,9 +13,14 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import '../screens/navigation/profile_page.dart';
 
 class AppDrawer extends StatelessWidget {
+  final String farmerName, mobileNumber, profilePic;
 
-  final String farmerName,mobileNumber,profilePic;
-  const AppDrawer({Key? key, required this.farmerName, required this.mobileNumber, required this.profilePic}) : super(key: key);
+  const AppDrawer(
+      {Key? key,
+      required this.farmerName,
+      required this.mobileNumber,
+      required this.profilePic})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -51,7 +56,9 @@ class AppDrawer extends StatelessWidget {
                   onPressed: () {
                     Navigator.pop(context);
                     Navigator.of(context).push(MaterialPageRoute(
-                        builder: (context) => ProfilePage(mobile: mobileNumber,)));
+                        builder: (context) => ProfilePage(
+                              mobile: mobileNumber,
+                            )));
                   },
                   child: Text(
                     AppLocalizations.of(context)?.viewProfile ?? "View Profile",
@@ -63,40 +70,41 @@ class AppDrawer extends StatelessWidget {
           ),
           ListTile(
               leading: const Icon(Icons.credit_card),
-              title: Text(AppLocalizations.of(context)?.creditInsurance ?? "Credit/Insurance"),
+              title: Text(AppLocalizations.of(context)?.creditInsurance ??
+                  "Credit/Insurance"),
               onTap: () {
                 Navigator.pop(context);
-
                 Navigator.of(context).push(MaterialPageRoute(
                     builder: (context) => const CreditInsurance()));
               }),
           ListTile(
             leading: const Icon(Icons.currency_rupee),
-            title: Text(AppLocalizations.of(context)?.marketPrice ?? "Market Price"),
+            title: Text(
+                AppLocalizations.of(context)?.marketPrice ?? "Market Price"),
             onTap: () {
               Navigator.pop(context);
-
-              Navigator.of(context).push(MaterialPageRoute(
-                  builder: (context) => const MarketPrice()));
+              Navigator.of(context).push(
+                  MaterialPageRoute(builder: (context) => const MarketPrice()));
             },
           ),
           ListTile(
             leading: const Icon(Icons.storefront),
-            title: Text(AppLocalizations.of(context)?.marketPlace??"Market Place"),
+            title: Text(
+                AppLocalizations.of(context)?.marketPlace ?? "Market Place"),
             onTap: () {
               Navigator.pop(context);
-              Navigator.of(context).push(MaterialPageRoute(
-                  builder: (context) => const MarketPlace()));
+              Navigator.of(context).push(
+                  MaterialPageRoute(builder: (context) => const MarketPlace()));
             },
           ),
           ListTile(
             leading: const Icon(Icons.agriculture),
-            title: Text(AppLocalizations.of(context)?.cropHistory??"Crop History"),
+            title: Text(
+                AppLocalizations.of(context)?.cropHistory ?? "Crop History"),
             onTap: () {
               Navigator.pop(context);
-
-              Navigator.of(context).push(MaterialPageRoute(
-                  builder: (context) => const CropHistory()));
+              Navigator.of(context).push(
+                  MaterialPageRoute(builder: (context) => const CropHistory()));
             },
           ),
           ListTile(
@@ -104,7 +112,6 @@ class AppDrawer extends StatelessWidget {
             title: Text(AppLocalizations.of(context)?.soilTest ?? "Soil Test"),
             onTap: () {
               Navigator.pop(context);
-
               Navigator.of(context).push(
                   MaterialPageRoute(builder: (context) => const SoilTest()));
             },
@@ -114,29 +121,28 @@ class AppDrawer extends StatelessWidget {
             title: Text(AppLocalizations.of(context)?.weather ?? "Weather"),
             onTap: () {
               Navigator.pop(context);
-
               Navigator.of(context).push(
                   MaterialPageRoute(builder: (context) => const Weather()));
             },
           ),
           ListTile(
             leading: const Icon(Icons.business),
-            title: Text(AppLocalizations.of(context)?.agriBusiness ?? "AgriBusiness"),
+            title: Text(
+                AppLocalizations.of(context)?.agriBusiness ?? "AgriBusiness"),
             onTap: () {
               Navigator.pop(context);
-
               Navigator.of(context).push(MaterialPageRoute(
                   builder: (context) => const AgriBusiness()));
             },
           ),
           ListTile(
             leading: const Icon(Icons.question_answer),
-            title: Text(AppLocalizations.of(context)?.expertTalk ?? "Expert Talk"),
+            title:
+                Text(AppLocalizations.of(context)?.expertTalk ?? "Expert Talk"),
             onTap: () {
               Navigator.pop(context);
-
-              Navigator.of(context).push(MaterialPageRoute(
-                  builder: (context) => const ExpertTalk()));
+              Navigator.of(context).push(
+                  MaterialPageRoute(builder: (context) => const ExpertTalk()));
             },
           ),
           ListTile(
@@ -144,7 +150,6 @@ class AppDrawer extends StatelessWidget {
             title: Text(AppLocalizations.of(context)?.liveStock ?? "Livestock"),
             onTap: () {
               Navigator.pop(context);
-
               Navigator.of(context).push(
                   MaterialPageRoute(builder: (context) => const LiveStock()));
             },

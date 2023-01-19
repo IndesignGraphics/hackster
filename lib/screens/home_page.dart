@@ -1,9 +1,6 @@
 import 'dart:async';
 import 'dart:convert';
-
 import 'package:flutter/material.dart';
-
-// import 'package:flutter/scheduler.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:geocoding/geocoding.dart';
 import 'package:geolocator/geolocator.dart';
@@ -12,7 +9,6 @@ import 'package:hackster/screens/navigation/weather.dart';
 import 'package:http/http.dart' as http;
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:shimmer/shimmer.dart';
-// import 'package:app_settings/app_settings.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -62,7 +58,6 @@ class _HomePageState extends State<HomePage> {
       if (!mounted) {
         return false;
       }
-
       _isLocationAvailable = false;
       ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
           content: Text(
@@ -110,11 +105,8 @@ class _HomePageState extends State<HomePage> {
     final wData = jsonDecode(response.body);
     setState(() {
       weatherData = wData;
-
       _isWeatherLoading = false;
     });
-
-    // StreamSubscription<ServiceStatus> serviceStatusStream =
     Geolocator.getServiceStatusStream().listen((ServiceStatus status) {
       if (!_isLocationAvailable) {
         setState(() {
@@ -278,10 +270,9 @@ class _HomePageState extends State<HomePage> {
                                             ),
                                           ),
                                           Text(
-                                            '${weatherData['wind']['speed']} m/s',
-                                            style: const TextStyle(
-                                                color: Colors.white),
-                                          ),
+                                              '${weatherData['wind']['speed']} m/s',
+                                              style: const TextStyle(
+                                                  color: Colors.white)),
                                         ],
                                       ),
                                       Column(

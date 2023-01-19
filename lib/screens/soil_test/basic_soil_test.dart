@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:get/get.dart';
 
 class BasicSoilTest extends StatelessWidget {
   const BasicSoilTest({Key? key}) : super(key: key);
@@ -22,7 +23,16 @@ class BasicSoilTest extends StatelessWidget {
             color: Theme.of(context).primaryColor,
           ),
         ),
-        onPressed: null,
+        onPressed: () {
+          Get.snackbar(
+            "Basic Soil Test",
+            "Successfully Applied for Basic Soil Test",
+            backgroundColor: const Color.fromARGB(75, 0, 0, 0),
+            barBlur: 10,
+            colorText: Colors.white,
+            snackPosition: SnackPosition.BOTTOM,
+          );
+        },
       ),
       body: Container(
         width: double.infinity,
@@ -37,8 +47,8 @@ class BasicSoilTest extends StatelessWidget {
             ),
             Text(
               AppLocalizations.of(context)?.testIncludes ?? 'Test Includes',
-              style:
-                  TextStyle(fontWeight: FontWeight.bold, color: Colors.white),
+              style: const TextStyle(
+                  fontWeight: FontWeight.bold, color: Colors.white),
             ),
             const SizedBox(
               height: 10,
