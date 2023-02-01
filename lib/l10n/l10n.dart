@@ -171,7 +171,8 @@ class L10n extends Translations{
       "enterYourFeedback" : "Enter your Feedback.",
       "price" : "Price",
       "description" : "Description",
-      "feedbackSubmitted" : "Feedback Submitted"
+      "feedbackSubmitted" : "Feedback Submitted",
+      "contactNumber":"Contact Number"
     },
     'gu':{
       "language": "ગુજરાતી",
@@ -322,7 +323,8 @@ class L10n extends Translations{
       "enterYourFeedback" : "તમારો પ્રતિસાદ દાખલ કરો.",
       "price" : "ભાવ",
       "description" : "માહિતી",
-      "feedbackSubmitted" : "પ્રતિસાદ સબમિટ થય ગયો છે."
+      "feedbackSubmitted" : "પ્રતિસાદ સબમિટ થય ગયો છે.",
+      "contactNumber":"સંપર્ક નંબર"
     },
   };
 }

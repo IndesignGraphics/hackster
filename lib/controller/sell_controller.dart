@@ -40,4 +40,16 @@ class SellController extends GetxController {
       print(response.reasonPhrase);
     }
   }
+
+  Future<List> getItem() async {
+
+    final response = await http.get(Uri.parse('https://hack-roso.onrender.com/getsell'));
+
+    final responseData = jsonDecode(response.body);
+
+    // print(responseData[0]['_id']);
+
+    return responseData;
+  }
+
 }
