@@ -4,10 +4,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:geocoding/geocoding.dart';
 import 'package:geolocator/geolocator.dart';
+import 'package:get/get.dart';
 import 'package:hackster/screens/navigation/market_price.dart';
 import 'package:hackster/screens/navigation/weather.dart';
 import 'package:http/http.dart' as http;
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+// import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:shimmer/shimmer.dart';
 
 class HomePage extends StatefulWidget {
@@ -323,8 +324,7 @@ class _HomePageState extends State<HomePage> {
                             color: const Color(0xFF2A3832),
                             padding: const EdgeInsets.all(10),
                             child: Text(
-                              AppLocalizations.of(context)?.marketPrice ??
-                                  'Market Price',
+                              "marketPrice".tr,
                               style: const TextStyle(
                                   fontWeight: FontWeight.bold,
                                   color: Colors.white,
@@ -487,8 +487,7 @@ class _HomePageState extends State<HomePage> {
                                           const MarketPrice()));
                                 },
                                 child: Text(
-                                  AppLocalizations.of(context)?.viewALlRates ??
-                                      'View All Rates',
+                                  "viewALlRates".tr,
                                   style: const TextStyle(
                                       color: Color(0xFF2A3832), fontSize: 15),
                                 ),

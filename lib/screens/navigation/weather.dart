@@ -4,9 +4,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:geocoding/geocoding.dart';
 import 'package:geolocator/geolocator.dart';
+import 'package:get/get.dart';
 import 'package:http/http.dart' as http;
 import 'package:intl/intl.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+// import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class Weather extends StatefulWidget {
   const Weather({Key? key}) : super(key: key);
@@ -98,10 +99,10 @@ class _WeatherState extends State<Weather> {
     final forecastresponse = await http.get(Uri.parse(forecasturl));
     final wData = jsonDecode(response.body);
     final fData = jsonDecode(forecastresponse.body);
+    if(!mounted) return;
     setState(() {
       weatherData = wData;
       forecastData = fData;
-
       _isLoading = false;
     });
   }
@@ -124,7 +125,7 @@ class _WeatherState extends State<Weather> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(AppLocalizations.of(context)?.weather ?? 'Weather'),
+        title: Text("weather".tr),
         centerTitle: true,
       ),
       body: _isLoading

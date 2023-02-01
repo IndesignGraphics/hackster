@@ -2,9 +2,10 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:get/get.dart';
 import 'package:http/http.dart' as http;
 import 'package:intl/intl.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+// import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:shimmer/shimmer.dart';
 
 class MarketPrice extends StatefulWidget {
@@ -51,7 +52,7 @@ class _MarketPriceState extends State<MarketPrice> {
       child: Scaffold(
         appBar: AppBar(
           title:
-              Text(AppLocalizations.of(context)?.marketPrice ?? 'Market Price'),
+              Text("marketPrice".tr),
         ),
         body: Container(
           padding: const EdgeInsets.all(10),
@@ -94,8 +95,7 @@ class _MarketPriceState extends State<MarketPrice> {
                           height: 30,
                         ),
                         Text(
-                          AppLocalizations.of(context)?.vegetables ??
-                              'Vegetables',
+                          "vegetables".tr,
                           style: const TextStyle(
                             color: Colors.white,
                             fontSize: 29,
@@ -155,16 +155,16 @@ class _MarketPriceState extends State<MarketPrice> {
                           isScrollable: true,
                           tabs: [
                             Tab(
-                              text: AppLocalizations.of(context)?.vegetables,
+                              text: "vegetables".tr,
                             ),
                             Tab(
-                              text: AppLocalizations.of(context)?.fruits,
+                              text: "fruits".tr,
                             ),
                             Tab(
-                              text: AppLocalizations.of(context)?.cereals,
+                              text: "cereals".tr,
                             ),
                             Tab(
-                              text: AppLocalizations.of(context)?.pulses,
+                              text: "pulses".tr,
                             ),
                           ],
                         ),

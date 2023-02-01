@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:get/get.dart';
+// import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class AgriBusiness extends StatelessWidget {
   const AgriBusiness({Key? key}) : super(key: key);
@@ -8,7 +9,7 @@ class AgriBusiness extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(AppLocalizations.of(context)?.agriBusiness ??'AgriBusiness'),
+        title: Text("agriBusiness".tr),
       ),
       body: Container(
         height: MediaQuery.of(context).size.height-100,

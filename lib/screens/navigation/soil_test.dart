@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:hackster/screens/soil_test/basic_soil_test.dart';
 import 'package:hackster/screens/soil_test/water_test.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+// import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 import '../soil_test/standard_soil_test.dart';
 
@@ -13,7 +14,7 @@ class SoilTest extends StatelessWidget {
     final width = MediaQuery.of(context).size.width - 20;
     return Scaffold(
       appBar: AppBar(
-        title: Text(AppLocalizations.of(context)?.soilTest ?? 'Soil Test'),
+        title: Text("soilTest".tr),
       ),
       body: Container(
         height: MediaQuery.of(context).size.height,
@@ -45,8 +46,7 @@ class SoilTest extends StatelessWidget {
                               width: (width / 3) - 10,
                             ),
                             Text(
-                              AppLocalizations.of(context)?.basicSoilTest ??
-                                  'Basic Soil Test',
+                              "basicSoilTest".tr,
                               style: const TextStyle(color: Colors.white),
                             ),
                             const SizedBox(),
@@ -81,8 +81,7 @@ class SoilTest extends StatelessWidget {
                               width: (width / 3) - 10,
                             ),
                             Text(
-                              AppLocalizations.of(context)?.standardSoilTest ??
-                                  'Standard Soil Test',
+                              "standardSoilTest".tr,
                               style: const TextStyle(color: Colors.white),
                             ),
                             const SizedBox(),
@@ -117,8 +116,7 @@ class SoilTest extends StatelessWidget {
                               width: (width / 3) - 10,
                             ),
                             Text(
-                              AppLocalizations.of(context)?.waterTest ??
-                                  'Water Test',
+                              "waterTest".tr,
                               style: const TextStyle(color: Colors.white),
                             ),
                             const SizedBox(),
@@ -140,7 +138,7 @@ class SoilTest extends StatelessWidget {
                 height: 20,
               ),
               Text(
-                AppLocalizations.of(context)?.soilTestReports ?? 'Soil Test Reports',
+                "soilTestReports".tr,
                 style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 28),
               ),
               const SizedBox(
@@ -164,7 +162,7 @@ class SoilTest extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Text(
-                            AppLocalizations.of(context)?.basicSoilTest ?? 'Basic Soil Test',
+                            "basicSoilTest".tr,
                             style: const TextStyle(fontWeight: FontWeight.bold),
                           ),
                           Column(
@@ -201,7 +199,7 @@ class SoilTest extends StatelessWidget {
                             height: 5,
                           ),
                           Text(
-                            AppLocalizations.of(context)?.soilSampleAnalysis ?? 'Soil Sample Analysis',
+                            "soilSampleAnalysis".tr,
                             style: const TextStyle(
                                 color: Colors.white,
                                 fontWeight: FontWeight.bold),
@@ -210,42 +208,42 @@ class SoilTest extends StatelessWidget {
                             height: 10,
                           ),
                           Text(
-                            '1. ${AppLocalizations.of(context)?.ph} : 5.4',
+                            '1. ${"ph".tr} : 5.4',
                             style: const TextStyle(color: Colors.white),
                           ),
                           const SizedBox(
                             height: 5,
                           ),
                           Text(
-                            '2. ${AppLocalizations.of(context)?.organicCarbon} : 120',
+                            '2. ${"organicCarbon".tr} : 120',
                             style: const TextStyle(color: Colors.white),
                           ),
                           const SizedBox(
                             height: 5,
                           ),
                           Text(
-                            '3. ${AppLocalizations.of(context)?.potassium} : 22',
+                            '3. ${"potassium".tr} : 22',
                             style: const TextStyle(color: Colors.white),
                           ),
                           const SizedBox(
                             height: 5,
                           ),
                           Text(
-                            '4. ${AppLocalizations.of(context)?.phosphorus} : 23',
+                            '4. ${"phosphorus".tr} : 23',
                             style: const TextStyle(color: Colors.white),
                           ),
                           const SizedBox(
                             height: 5,
                           ),
                           Text(
-                            '5. ${AppLocalizations.of(context)?.electricalConductivity} : 30%',
+                            '5. ${"electricalConductivity".tr} : 30%',
                             style: const TextStyle(color: Colors.white),
                           ),
                           const SizedBox(
                             height: 5,
                           ),
                           Text(
-                            '6. ${AppLocalizations.of(context)?.nitrogen} : 120-200',
+                            '6. ${"nitrogen".tr} : 120-200',
                             style: const TextStyle(color: Colors.white),
                           ),
                           const SizedBox(
@@ -278,7 +276,7 @@ class SoilTest extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Text(
-                            AppLocalizations.of(context)?.basicSoilTest ?? 'Basic Soil Test',
+                            "basicSoilTest".tr,
                             style: const TextStyle(fontWeight: FontWeight.bold),
                           ),
                           Column(
@@ -315,7 +313,7 @@ class SoilTest extends StatelessWidget {
                             height: 5,
                           ),
                           Text(
-                            AppLocalizations.of(context)?.soilSampleAnalysis ?? 'Soil Sample Analysis',
+                            "soilSampleAnalysis".tr,
                             style: const TextStyle(
                                 color: Colors.white,
                                 fontWeight: FontWeight.bold),
@@ -324,42 +322,42 @@ class SoilTest extends StatelessWidget {
                             height: 10,
                           ),
                           Text(
-                            '1. ${AppLocalizations.of(context)?.ph} : 5.4',
+                            '1. ${"ph".tr} : 5.4',
                             style: const TextStyle(color: Colors.white),
                           ),
                           const SizedBox(
                             height: 5,
                           ),
                           Text(
-                            '2. ${AppLocalizations.of(context)?.organicCarbon} : 120',
+                            '2. ${"organicCarbon".tr} : 120',
                             style: const TextStyle(color: Colors.white),
                           ),
                           const SizedBox(
                             height: 5,
                           ),
                           Text(
-                            '3. ${AppLocalizations.of(context)?.potassium} : 22',
+                            '3. ${"potassium".tr} : 22',
                             style: const TextStyle(color: Colors.white),
                           ),
                           const SizedBox(
                             height: 5,
                           ),
                           Text(
-                            '4. ${AppLocalizations.of(context)?.phosphorus} : 23',
+                            '4. ${"phosphorus".tr} : 23',
                             style: const TextStyle(color: Colors.white),
                           ),
                           const SizedBox(
                             height: 5,
                           ),
                           Text(
-                            '5. ${AppLocalizations.of(context)?.electricalConductivity} : 30%',
+                            '5. ${"electricalConductivity".tr} : 30%',
                             style: const TextStyle(color: Colors.white),
                           ),
                           const SizedBox(
                             height: 5,
                           ),
                           Text(
-                            '6. ${AppLocalizations.of(context)?.nitrogen} : 120-200',
+                            '6. ${"nitrogen".tr} : 120-200',
                             style: const TextStyle(color: Colors.white),
                           ),
                           const SizedBox(

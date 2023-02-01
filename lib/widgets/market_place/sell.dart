@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:hackster/screens/other/add_new_item_for_sell.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class Sell extends StatelessWidget {
   const Sell({Key? key}) : super(key: key);
@@ -25,23 +25,23 @@ class Sell extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            '${AppLocalizations.of(context)?.cropType} : Vegetables',
+                            '${"cropType".tr} : Vegetables',
                             style: const TextStyle(fontSize: 16),
                           ),
                           Text(
-                            '${AppLocalizations.of(context)?.cropName} : Tamatar',
+                            '${"cropName".tr} : Tamatar',
                             style: const TextStyle(fontSize: 16),
                           ),
                           Text(
-                            '${AppLocalizations.of(context)?.quantity} : 200kg',
+                            '${"quantity".tr} : 200kg',
                             style: const TextStyle(fontSize: 16),
                           ),
                           Text(
-                            '${AppLocalizations.of(context)?.price} : 1500',
+                            '${"price".tr} : 1500',
                             style: const TextStyle(fontSize: 16),
                           ),
                           Text(
-                            '${AppLocalizations.of(context)?.description} : This is good.',
+                            '${"description".tr} : This is good.',
                             style: const TextStyle(fontSize: 16),
                           ),
                         ],
@@ -65,8 +65,7 @@ class Sell extends StatelessWidget {
             ),
           );
         },
-        child: Text(AppLocalizations.of(context)?.addNewItemForSell ??
-            'Add new item for sell'),
+        child: Text("addNewItemForSell".tr),
       ),
     );
   }

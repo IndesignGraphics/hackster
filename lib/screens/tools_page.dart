@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:get/get.dart';
+// import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class ToolsPage extends StatelessWidget {
   const ToolsPage({Key? key}) : super(key: key);
@@ -128,7 +129,7 @@ class ToolsPage extends StatelessWidget {
                 ),
                 Expanded(
                   child: Text(
-                    AppLocalizations.of(context)?.fertilizers ?? 'Fertilizers',
+                    "fertilizers".tr,
                     style: const TextStyle(
                       fontWeight: FontWeight.bold,
                       fontSize: 18,
@@ -136,7 +137,7 @@ class ToolsPage extends StatelessWidget {
                   ),
                 ),
                 Text(
-                  AppLocalizations.of(context)?.viewAll ?? 'View All',
+                  "viewAll".tr,
                   style: const TextStyle(
                       color: Colors.blue, fontWeight: FontWeight.bold),
                 ),
@@ -228,7 +229,7 @@ class ToolsPage extends StatelessWidget {
                 ),
                 Expanded(
                   child: Text(
-                    AppLocalizations.of(context)?.pesticides ?? 'Pesticides',
+                    "pesticides".tr,
                     style: const TextStyle(
                       fontWeight: FontWeight.bold,
                       fontSize: 18,
@@ -236,7 +237,7 @@ class ToolsPage extends StatelessWidget {
                   ),
                 ),
                 Text(
-                  AppLocalizations.of(context)?.viewAll ?? 'View All',
+                  "viewAll".tr,
                   style: const TextStyle(
                       color: Colors.blue, fontWeight: FontWeight.bold),
                 ),
@@ -328,7 +329,7 @@ class ToolsPage extends StatelessWidget {
                 ),
                 Expanded(
                   child: Text(
-                    AppLocalizations.of(context)?.herbicides ?? 'Seeds',
+                    "herbicides".tr,
                     style: const TextStyle(
                       fontWeight: FontWeight.bold,
                       fontSize: 18,
@@ -336,7 +337,7 @@ class ToolsPage extends StatelessWidget {
                   ),
                 ),
                 Text(
-                  AppLocalizations.of(context)?.viewAll ?? 'View All',
+                  "viewAll".tr,
                   style: const TextStyle(
                       color: Colors.blue, fontWeight: FontWeight.bold),
                 ),

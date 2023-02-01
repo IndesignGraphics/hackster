@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+// import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:get/get.dart';
 
 class BasicSoilTest extends StatelessWidget {
@@ -10,7 +10,7 @@ class BasicSoilTest extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-            AppLocalizations.of(context)?.basicSoilTest ?? 'Basic Soil Test'),
+            "basicSoilTest".tr),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
       floatingActionButton: ElevatedButton(
@@ -46,7 +46,7 @@ class BasicSoilTest extends StatelessWidget {
               height: 10,
             ),
             Text(
-              AppLocalizations.of(context)?.testIncludes ?? 'Test Includes',
+              "testIncludes".tr,
               style: const TextStyle(
                   fontWeight: FontWeight.bold, color: Colors.white),
             ),
@@ -54,42 +54,42 @@ class BasicSoilTest extends StatelessWidget {
               height: 10,
             ),
             Text(
-              '1. ${AppLocalizations.of(context)?.ph}',
+              '1. ${"ph".tr}',
               style: TextStyle(color: Colors.white),
             ),
             const SizedBox(
               height: 5,
             ),
             Text(
-              '2. ${AppLocalizations.of(context)?.organicCarbon}',
+              '2. ${"organicCarbon".tr}',
               style: TextStyle(color: Colors.white),
             ),
             const SizedBox(
               height: 5,
             ),
             Text(
-              '3. ${AppLocalizations.of(context)?.potassium}',
+              '3. ${"potassium".tr}',
               style: TextStyle(color: Colors.white),
             ),
             const SizedBox(
               height: 5,
             ),
             Text(
-              '4. ${AppLocalizations.of(context)?.phosphorus}',
+              '4. ${"phosphorus".tr}',
               style: TextStyle(color: Colors.white),
             ),
             const SizedBox(
               height: 5,
             ),
             Text(
-              '5. ${AppLocalizations.of(context)?.electricalConductivity}',
+              '5. ${"electricalConductivity".tr}',
               style: TextStyle(color: Colors.white),
             ),
             const SizedBox(
               height: 5,
             ),
             Text(
-              '6. ${AppLocalizations.of(context)?.nitrogen}',
+              '6. ${"nitrogen".tr}',
               style: TextStyle(color: Colors.white),
             ),
           ],

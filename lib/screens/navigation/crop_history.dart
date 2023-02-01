@@ -2,8 +2,9 @@ import 'dart:convert';
 
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:hackster/screens/other/add_new_crop.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+// import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:http/http.dart' as http;
 
@@ -46,7 +47,7 @@ class _CropHistoryState extends State<CropHistory> {
     return Scaffold(
       appBar: AppBar(
         title:
-            Text(AppLocalizations.of(context)?.cropHistory ?? 'Crop History'),
+            Text("cropHistory".tr),
       ),
       body: _isLoading
           ? const Center(
@@ -72,31 +73,31 @@ class _CropHistoryState extends State<CropHistory> {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Text(
-                                  '${AppLocalizations.of(context)?.landName} : ${farmerCropHistory[i]['landTitle']}',
+                                  '${"landName".tr} : ${farmerCropHistory[i]['landTitle']}',
                                   style: const TextStyle(color: Colors.black),
                                 ),
                                 Text(
-                                  '${AppLocalizations.of(context)?.year} : ${farmerCropHistory[i]['year']}',
+                                  '${"year".tr} : ${farmerCropHistory[i]['year']}',
                                   style: const TextStyle(color: Colors.black),
                                 ),
                                 Text(
-                                  '${AppLocalizations.of(context)?.cropType} : ${farmerCropHistory[i]['cropType']}',
+                                  '${"cropType".tr} : ${farmerCropHistory[i]['cropType']}',
                                   style: const TextStyle(color: Colors.black),
                                 ),
                                 Text(
-                                  '${AppLocalizations.of(context)?.cropName} : ${farmerCropHistory[i]['cropName']}',
+                                  '${"cropName".tr} : ${farmerCropHistory[i]['cropName']}',
                                   style: const TextStyle(color: Colors.black),
                                 ),
                                 Text(
-                                  '${AppLocalizations.of(context)?.quantity} : ${farmerCropHistory[i]['quintity']} Kg',
+                                  '${"quantity".tr} : ${farmerCropHistory[i]['quintity']} Kg',
                                   style: const TextStyle(color: Colors.black),
                                 ),
                                 Text(
-                                  '${AppLocalizations.of(context)?.totalPrice} : ${farmerCropHistory[i]['totalPrice']}',
+                                  '${"totalPrice".tr} : ${farmerCropHistory[i]['totalPrice']}',
                                   style: const TextStyle(color: Colors.black),
                                 ),
                                 Text(
-                                  '${AppLocalizations.of(context)?.harvestingTec} : ${farmerCropHistory[i]['harvestTech']}',
+                                  '${"harvestingTec".tr} : ${farmerCropHistory[i]['harvestTech']}',
                                   style: const TextStyle(color: Colors.black),
                                 ),
                               ],
@@ -124,7 +125,7 @@ class _CropHistoryState extends State<CropHistory> {
             ),
           );
         },
-        child: Text(AppLocalizations.of(context)?.addCrop ?? 'Add Crop'),
+        child: Text("addCrop".tr),
       ),
     );
   }

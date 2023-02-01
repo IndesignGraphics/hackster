@@ -2,15 +2,18 @@ import 'dart:convert';
 
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:hackster/provider/locale_provider.dart';
+import 'package:get/get.dart';
+import 'package:hackster/controller/farmer_controller.dart';
+// import 'package:hackster/provider/locale_provider.dart';
+
 // import 'package:hackster/screens/crop_care.dart';
 import 'package:hackster/screens/government_scheme.dart';
 import 'package:hackster/screens/tools_page.dart';
 import 'package:hackster/widgets/app_drawer.dart';
-import 'package:provider/provider.dart';
+// import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:http/http.dart' as http;
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+// import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 import 'home_page.dart';
 
@@ -29,6 +32,8 @@ class _MainScreenState extends State<MainScreen> {
   late String farmerName, mobileNumber, profilePic;
 
   bool _isLoading = true;
+
+  final FarmerController _farmerController = Get.put(FarmerController());
 
   void getFarmerData() async {
     final prefs = await SharedPreferences.getInstance();
@@ -59,6 +64,7 @@ class _MainScreenState extends State<MainScreen> {
       {'page': const ToolsPage()},
     ];
     getFarmerData();
+    _farmerController.getFarmerData();
     super.initState();
   }
 
@@ -70,7 +76,7 @@ class _MainScreenState extends State<MainScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final provider = Provider.of<LocaleProvider>(context, listen: false);
+    // final provider = Provider.of<LocaleProvider>(context, listen: false);
     return _isLoading
         ? const Scaffold(
             body: Center(
@@ -87,24 +93,35 @@ class _MainScreenState extends State<MainScreen> {
                 // ),
                 DropdownButton<String>(
                   dropdownColor: Theme.of(context).primaryColor,
-                    value: AppLocalizations.of(context)?.language,
-                    items: const [
-                      DropdownMenuItem(
-                        value: 'English',
-                        child: Text('Eng',style: TextStyle(color: Colors.white),),
+                  value: "language".tr,
+                  items: const [
+                    DropdownMenuItem(
+                      value: 'English',
+                      child: Text(
+                        'Eng',
+                        style: TextStyle(color: Colors.white),
                       ),
-                      DropdownMenuItem(
-                        value: 'ગુજરાતી',
-                        child: Text('ગુજ',style: TextStyle(color: Colors.white),),
-                      )
-                    ],
-                    onChanged: (value) {
-                      if (value == 'English') {
-                        provider.locale = const Locale('en');
-                      } else {
-                        provider.locale = const Locale('gu');
-                      }
-                    })
+                    ),
+                    DropdownMenuItem(
+                      value: 'ગુજરાતી',
+                      child: Text(
+                        'ગુજ',
+                        style: TextStyle(color: Colors.white),
+                      ),
+                    )
+                  ],
+                  onChanged: (value) {
+                    if (value == 'English') {
+                      var locale = const Locale('en');
+                      Get.updateLocale(locale);
+                      // provider.locale = const Locale('en');
+                    } else {
+                      var locale = const Locale('gu');
+                      Get.updateLocale(locale);
+                      // provider.locale = const Locale('gu');
+                    }
+                  },
+                )
               ],
             ),
             drawer: AppDrawer(
@@ -124,19 +141,19 @@ class _MainScreenState extends State<MainScreen> {
                   icon: _selectedPageIndex == 0
                       ? const Icon(Icons.home_filled)
                       : const Icon(Icons.home_outlined),
-                  label: AppLocalizations.of(context)?.home,
+                  label: "home".tr,
                 ),
                 BottomNavigationBarItem(
                   icon: _selectedPageIndex == 1
                       ? const Icon(Icons.paid)
                       : const Icon(Icons.paid_outlined),
-                  label: AppLocalizations.of(context)?.governmentScheme,
+                  label: "governmentScheme".tr,
                 ),
                 BottomNavigationBarItem(
                   icon: _selectedPageIndex == 2
                       ? const Icon(Icons.handyman)
                       : const Icon(Icons.handyman_outlined),
-                  label: AppLocalizations.of(context)?.tools,
+                  label: "tools".tr,
                 ),
               ],
             ),

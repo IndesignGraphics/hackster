@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+// import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:get/get.dart';
 
 class StandardSoilTest extends StatelessWidget {
@@ -9,7 +9,7 @@ class StandardSoilTest extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(AppLocalizations.of(context)?.standardSoilTest ?? 'Standard Soil Test'),
+        title: Text("standardSoilTest".tr),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
       floatingActionButton: ElevatedButton(
@@ -45,7 +45,7 @@ class StandardSoilTest extends StatelessWidget {
               height: 10,
             ),
             Text(
-              AppLocalizations.of(context)?.testIncludes ?? 'Test Includes',
+              "testIncludes".tr,
               style:
                   TextStyle(fontWeight: FontWeight.bold, color: Colors.white),
             ),
@@ -53,98 +53,98 @@ class StandardSoilTest extends StatelessWidget {
               height: 10,
             ),
             Text(
-              '1. ${AppLocalizations.of(context)?.ph}',
+              '1. ${"ph".tr}',
               style: TextStyle(color: Colors.white),
             ),
             const SizedBox(
               height: 5,
             ),
             Text(
-              '2. ${AppLocalizations.of(context)?.organicCarbon}',
+              '2. ${"organicCarbon".tr}',
               style: TextStyle(color: Colors.white),
             ),
             const SizedBox(
               height: 5,
             ),
              Text(
-              '3. ${AppLocalizations.of(context)?.potassium}',
+              '3. ${"potassium".tr}',
               style: TextStyle(color: Colors.white),
             ),
             const SizedBox(
               height: 5,
             ),
             Text(
-              '4. ${AppLocalizations.of(context)?.phosphorus}',
+              '4. ${"phosphorus".tr}',
               style: TextStyle(color: Colors.white),
             ),
             const SizedBox(
               height: 5,
             ),
             Text(
-              '5. ${AppLocalizations.of(context)?.electricalConductivity}',
+              '5. ${"electricalConductivity".tr}',
               style: TextStyle(color: Colors.white),
             ),
             const SizedBox(
               height: 5,
             ),
             Text(
-              '6. ${AppLocalizations.of(context)?.nitrogen}',
+              '6. ${"nitrogen".tr}',
               style: TextStyle(color: Colors.white),
             ),
             const SizedBox(
               height: 5,
             ),
             Text(
-              '7. ${AppLocalizations.of(context)?.calcium}',
+              '7. ${"calcium".tr}',
               style: TextStyle(color: Colors.white),
             ),
             const SizedBox(
               height: 5,
             ),
             Text(
-              '8. ${AppLocalizations.of(context)?.magnesium}',
+              '8. ${"magnesium".tr}',
               style: TextStyle(color: Colors.white),
             ),
             const SizedBox(
               height: 5,
             ),
             Text(
-              '9. ${AppLocalizations.of(context)?.sulfur}',
+              '9. ${"sulfur".tr}',
               style: TextStyle(color: Colors.white),
             ),
             const SizedBox(
               height: 5,
             ),
             Text(
-              '10. ${AppLocalizations.of(context)?.zinc}',
+              '10. ${"zinc".tr}',
               style: TextStyle(color: Colors.white),
             ),
             const SizedBox(
               height: 5,
             ),
             Text(
-              '11. ${AppLocalizations.of(context)?.manganese}',
+              '11. ${"manganese".tr}',
               style: TextStyle(color: Colors.white),
             ),
             const SizedBox(
               height: 5,
             ),
             Text(
-              '12. ${AppLocalizations.of(context)?.iron}',
+              '12. ${"iron".tr}',
               style: TextStyle(color: Colors.white),
             ),
             const SizedBox(
               height: 5,
             ),
             Text(
-              '13. ${AppLocalizations.of(context)?.copper}',
+              '13. ${"copper".tr}',
               style: TextStyle(color: Colors.white),
             ),
             const SizedBox(
               height: 5,
             ),
             Text(
-              '14. ${AppLocalizations.of(context)?.boron}',
+              '14. ${"boron".tr}',
               style: TextStyle(color: Colors.white),
             ),
           ],

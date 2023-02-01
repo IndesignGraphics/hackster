@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:get/get.dart';
+// import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class ProfileInfo extends StatelessWidget {
   final farmerData;
@@ -31,7 +32,7 @@ class ProfileInfo extends StatelessWidget {
                 child:Row(
                   children: [
                     Text(
-                      '${AppLocalizations.of(context)?.farmerID} : ',
+                      '${"farmerID".tr} : ',
                       style: const TextStyle(fontSize: 18),
                     ),
                     Text(
@@ -55,7 +56,7 @@ class ProfileInfo extends StatelessWidget {
                 child: Row(
                   children: [
                     Text(
-                      '${AppLocalizations.of(context)?.farmerName} : ',
+                      '${"farmerName".tr} : ',
                       style: const TextStyle(fontSize: 18),
                     ),
                     Text(
@@ -79,7 +80,7 @@ class ProfileInfo extends StatelessWidget {
                 child: Row(
                   children: [
                     Text(
-                      '${AppLocalizations.of(context)?.aadharNumber} : ',
+                      '${"aadharNumber".tr} : ',
                       style: const TextStyle(fontSize: 18),
                     ),
                     Text(
@@ -103,7 +104,7 @@ class ProfileInfo extends StatelessWidget {
                 child: Row(
                   children: [
                     Text(
-                      '${AppLocalizations.of(context)?.emailID} : ',
+                      '${"emailID".tr} : ',
                       style: const TextStyle(fontSize: 18),
                     ),
                     Text(
@@ -127,7 +128,7 @@ class ProfileInfo extends StatelessWidget {
                 child: Row(
                   children: [
                     Text(
-                      '${AppLocalizations.of(context)?.mobileNumber} : ',
+                      '${"mobileNumber".tr} : ',
                       style: const TextStyle(fontSize: 18),
                     ),
                     Text(
@@ -151,7 +152,7 @@ class ProfileInfo extends StatelessWidget {
                 child: Row(
                   children: [
                     Text(
-                      '${AppLocalizations.of(context)?.gender} : ',
+                      '${"gender".tr} : ',
                       style: const TextStyle(fontSize: 18),
                     ),
                     Text(
@@ -175,7 +176,7 @@ class ProfileInfo extends StatelessWidget {
                 child: Row(
                   children: [
                     Text(
-                      '${AppLocalizations.of(context)?.dateOfBirth} : ',
+                      '${"dateOfBirth".tr} : ',
                       style: const TextStyle(fontSize: 18),
                     ),
                     Text(
@@ -223,7 +224,7 @@ class ProfileInfo extends StatelessWidget {
                 child: Row(
                   children: [
                     Text(
-                      '${AppLocalizations.of(context)?.district} : ',
+                      '${"district".tr} : ',
                       style: const TextStyle(fontSize: 18),
                     ),
                     Text(
@@ -247,7 +248,7 @@ class ProfileInfo extends StatelessWidget {
                 child: Row(
                   children:[
                     Text(
-                      '${AppLocalizations.of(context)?.taluko} : ',
+                      '${"taluko".tr} : ',
                       style: const TextStyle(fontSize: 18),
                     ),
                     Text(
@@ -270,7 +271,7 @@ class ProfileInfo extends StatelessWidget {
                 child: Row(
                   children: [
                     Text(
-                      '${AppLocalizations.of(context)?.address} : ',
+                      '${"address".tr} : ',
                       style: TextStyle(fontSize: 18),
                     ),
                     Text(

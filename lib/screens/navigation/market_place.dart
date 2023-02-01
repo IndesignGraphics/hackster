@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:hackster/widgets/market_place/purchase.dart';
 import 'package:hackster/widgets/market_place/sell.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+// import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class MarketPlace extends StatelessWidget {
   const MarketPlace({Key? key}) : super(key: key);
@@ -12,14 +13,14 @@ class MarketPlace extends StatelessWidget {
       length: 2,
       child: Scaffold(
         appBar: AppBar(
-          title: Text(AppLocalizations.of(context)?.marketPlace ?? 'Market Place'),
+          title: Text("marketPlace".tr),
           bottom: TabBar(
             tabs: [
               Tab(
-                child: Text(AppLocalizations.of(context)?.purchase ?? 'Purchase'),
+                child: Text("purchase".tr),
               ),
               Tab(
-                child: Text(AppLocalizations.of(context)?.sell ?? 'Sell'),
+                child: Text("sell".tr),
               )
             ],
           ),

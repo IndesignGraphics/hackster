@@ -1,13 +1,14 @@
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:hackster/screens/profile/bank_info.dart';
 import 'package:hackster/screens/profile/contact_us.dart';
 import 'package:hackster/screens/profile/farm_details.dart';
 import 'package:hackster/screens/profile/help_and_support.dart';
 import 'package:hackster/screens/profile/privacy_policy.dart';
 import 'package:hackster/screens/profile/profile_info.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+// import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 // import 'package:hackster/screens/profile/qualification.dart';
 import 'package:http/http.dart' as http;
@@ -51,7 +52,7 @@ class _ProfilePageState extends State<ProfilePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(AppLocalizations.of(context)?.profile ?? 'Profile'),
+        title: Text("profile".tr),
       ),
       body: _isLoading
           ? const Center(
@@ -118,9 +119,7 @@ class _ProfilePageState extends State<ProfilePage> {
                                     const SizedBox(
                                       width: 10,
                                     ),
-                                    Text(AppLocalizations.of(context)
-                                            ?.profileInformation ??
-                                        'Profile Information'),
+                                    Text("profileInformation".tr),
                                   ],
                                 ),
                               ),
@@ -147,9 +146,7 @@ class _ProfilePageState extends State<ProfilePage> {
                                     const SizedBox(
                                       width: 10,
                                     ),
-                                    Text(AppLocalizations.of(context)
-                                            ?.farmDetails ??
-                                        'Farm Details'),
+                                    Text("farmDetails".tr),
                                   ],
                                 ),
                               ),
@@ -195,9 +192,7 @@ class _ProfilePageState extends State<ProfilePage> {
                                     const SizedBox(
                                       width: 10,
                                     ),
-                                    Text(AppLocalizations.of(context)
-                                            ?.bankDetails ??
-                                        'Bank Info'),
+                                    Text("bankDetails".tr),
                                   ],
                                 ),
                               ),
@@ -229,9 +224,7 @@ class _ProfilePageState extends State<ProfilePage> {
                                     const SizedBox(
                                       width: 10,
                                     ),
-                                    Text(AppLocalizations.of(context)
-                                            ?.helpAndSupport ??
-                                        'Help and Support'),
+                                    Text("helpAndSupport".tr),
                                   ],
                                 ),
                               ),
@@ -253,7 +246,7 @@ class _ProfilePageState extends State<ProfilePage> {
                                     const SizedBox(
                                       width: 10,
                                     ),
-                                    Text(AppLocalizations.of(context)?.contactUs ?? 'Contact Us'),
+                                    Text("contactUs".tr),
                                   ],
                                 ),
                               ),
@@ -276,7 +269,7 @@ class _ProfilePageState extends State<ProfilePage> {
                                     const SizedBox(
                                       width: 10,
                                     ),
-                                    Text(AppLocalizations.of(context)?.privacyPolicy ?? 'Privacy Policy'),
+                                    Text("privacyPolicy".tr),
                                   ],
                                 ),
                               ),

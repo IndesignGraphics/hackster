@@ -1,7 +1,8 @@
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:get/get.dart';
+// import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 import 'package:http/http.dart' as http;
 
@@ -39,7 +40,7 @@ class _BankInfoState extends State<BankInfo> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(AppLocalizations.of(context)?.bankDetails ?? 'Bank Info'),
+        title: Text("bankDetails".tr),
       ),
       body: _isLoading
           ? const Center(
@@ -61,7 +62,7 @@ class _BankInfoState extends State<BankInfo> {
                     child: Row(
                       children: [
                         Text(
-                          '${AppLocalizations.of(context)?.bankName} : ',
+                          '${"bankName".tr} : ',
                           style: const TextStyle(fontSize: 18),
                         ),
                         Text(
@@ -88,7 +89,7 @@ class _BankInfoState extends State<BankInfo> {
                     child: Row(
                       children: [
                         Text(
-                          '${AppLocalizations.of(context)?.branchName} : ',
+                          '${"branchName".tr} : ',
                           style: const TextStyle(fontSize: 18),
                         ),
                         Text(
@@ -115,7 +116,7 @@ class _BankInfoState extends State<BankInfo> {
                     child: Row(
                       children: [
                         Text(
-                          '${AppLocalizations.of(context)?.taluko} : ',
+                          '${"taluko".tr} : ',
                           style: const TextStyle(fontSize: 18),
                         ),
                         Text(
@@ -142,7 +143,7 @@ class _BankInfoState extends State<BankInfo> {
                     child: Row(
                       children: [
                         Text(
-                          '${AppLocalizations.of(context)?.accountNumber} : ',
+                          '${"accountNumber".tr} : ',
                           style: const TextStyle(fontSize: 18),
                         ),
                         Text(
@@ -169,7 +170,7 @@ class _BankInfoState extends State<BankInfo> {
                     child: Row(
                       children: [
                         Text(
-                          '${AppLocalizations.of(context)?.ifscCode}  : ',
+                          '${"ifscCode".tr}  : ',
                           style: const TextStyle(fontSize: 18),
                         ),
                         Text(

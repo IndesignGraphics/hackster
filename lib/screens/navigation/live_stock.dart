@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:url_launcher/url_launcher.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+// import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class LiveStock extends StatelessWidget {
   const LiveStock({Key? key}) : super(key: key);
@@ -8,16 +9,16 @@ class LiveStock extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     List<String?> listOfLiveStock = [
-      AppLocalizations.of(context)?.cattleAndBuffaloDevelopment,
-      AppLocalizations.of(context)?.fodderDevelopment,
-      AppLocalizations.of(context)?.poultryDevelopment,
-      AppLocalizations.of(context)?.dairyDevelopment,
-      AppLocalizations.of(context)?.veterinaryServiceAndAnimalHealth,
-      AppLocalizations.of(context)?.sheepGoatAndWoolDevelopment,
-      AppLocalizations.of(context)?.otherLiveStockDevelopment,
-      AppLocalizations.of(context)?.horseAndCamelDevelopment,
-      AppLocalizations.of(context)?.sheepDevelopmentBranch,
-      AppLocalizations.of(context)?.livestockHealth
+      "cattleAndBuffaloDevelopment".tr,
+      "fodderDevelopment".tr,
+      "poultryDevelopment".tr,
+      "dairyDevelopment".tr,
+      "veterinaryServiceAndAnimalHealth".tr,
+      "sheepGoatAndWoolDevelopment".tr,
+      "otherLiveStockDevelopment".tr,
+      "horseAndCamelDevelopment".tr,
+      "sheepDevelopmentBranch".tr,
+      "livestockHealth".tr
     ];
 
     List<String> listOfLinks = [
@@ -46,7 +47,7 @@ class LiveStock extends StatelessWidget {
 
     return Scaffold(
         appBar: AppBar(
-          title: Text(AppLocalizations.of(context)?.liveStock ?? 'LiveStock'),
+          title: Text("liveStock".tr),
         ),
         body: Column(
           children: [

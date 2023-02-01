@@ -2,10 +2,11 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:get/get.dart';
 import 'package:http/http.dart' as http;
 import 'package:hackster/screens/main_screen.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+// import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class LogIn extends StatefulWidget {
   const LogIn({Key? key}) : super(key: key);
@@ -133,7 +134,7 @@ class _LogInState extends State<LogIn> {
                 Align(
                   alignment: Alignment.center,
                   child: Text(
-                    AppLocalizations.of(context)?.logIn ?? "Login",
+                    "logIn".tr,
                     style: const TextStyle(
                       fontWeight: FontWeight.bold,
                       fontSize: 36,
@@ -156,8 +157,7 @@ class _LogInState extends State<LogIn> {
                                 child: TextFormField(
                                   validator: (value) {
                                     if (value!.isEmpty) {
-                                      return AppLocalizations.of(context)
-                                          ?.pleaseEnterOtp;
+                                      return "pleaseEnterOtp".tr;
                                     }
                                     return null;
                                   },
@@ -166,7 +166,7 @@ class _LogInState extends State<LogIn> {
                                   decoration: InputDecoration(
                                     border: const OutlineInputBorder(),
                                     labelText:
-                                        AppLocalizations.of(context)?.enterOtp,
+                                        "enterOtp".tr,
                                   ),
                                 ),
                               ),
@@ -175,9 +175,7 @@ class _LogInState extends State<LogIn> {
                                 onPressed: () {
                                   verifyOtp(context);
                                 },
-                                child: Text(
-                                    AppLocalizations.of(context)?.verifyOtp ??
-                                        'Verify OTP'),
+                                child: Text("verifyOtp".tr),
                               ),
                             ],
                           ),
@@ -193,12 +191,10 @@ class _LogInState extends State<LogIn> {
                                 child: TextFormField(
                                   validator: (value) {
                                     if (value!.isEmpty) {
-                                      return AppLocalizations.of(context)
-                                          ?.pleaseEnterMobileNumber;
+                                      return "pleaseEnterMobileNumber".tr;
                                     }
                                     if (value.length != 10) {
-                                      return AppLocalizations.of(context)
-                                          ?.pleaseEnterValidMobileNumber;
+                                      return "pleaseEnterValidMobileNumber".tr;
                                     }
                                     return null;
                                   },
@@ -206,8 +202,7 @@ class _LogInState extends State<LogIn> {
                                   controller: farmerIdController,
                                   decoration: InputDecoration(
                                     border: const OutlineInputBorder(),
-                                    labelText: AppLocalizations.of(context)
-                                        ?.enterMobileNo,
+                                    labelText: "enterMobileNo".tr,
                                   ),
                                 ),
                               ),
@@ -220,8 +215,7 @@ class _LogInState extends State<LogIn> {
                                     sendOtp();
                                   },
                                   child: Text(
-                                      AppLocalizations.of(context)?.sendOtp ??
-                                          "Send OTP"),
+                                      "sendOtp".tr),
                                 ),
                               ),
                             ],

@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:hackster/widgets/credit_insurance/credit.dart';
 import 'package:hackster/widgets/credit_insurance/insurance.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+// import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class CreditInsurance extends StatelessWidget {
   const CreditInsurance({Key? key}) : super(key: key);
@@ -12,14 +13,14 @@ class CreditInsurance extends StatelessWidget {
       length: 2,
       child: Scaffold(
         appBar: AppBar(
-          title: Text(AppLocalizations.of(context)?.creditInsurance??'Credit/Insurance'),
+          title: Text("creditInsurance".tr),
           bottom: TabBar(
             tabs: [
               Tab(
-                child: Text(AppLocalizations.of(context)?.credit??'Credit'),
+                child: Text("credit".tr),
               ),
               Tab(
-                child: Text(AppLocalizations.of(context)?.insurance??'Insurance'),
+                child: Text("insurance".tr),
               )
             ],
           ),

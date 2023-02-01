@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:get/get.dart';
+// import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class CropCare extends StatelessWidget {
   const CropCare({Key? key}) : super(key: key);
@@ -32,7 +33,7 @@ class CropCare extends StatelessWidget {
                         size: 50,
                       ),
                       Text(
-                        AppLocalizations.of(context)?.fertilizers ?? 'Fertilizers',
+                        "fertilizers".tr,
                         style: const TextStyle(
                             fontWeight: FontWeight.bold, fontSize: 20),
                       ),
@@ -54,7 +55,7 @@ class CropCare extends StatelessWidget {
                         size: 50,
                       ),
                       Text(
-                        AppLocalizations.of(context)?.pesticides ?? 'Pesticides',
+                        "pesticides".tr,
                         style: const TextStyle(
                             fontWeight: FontWeight.bold, fontSize: 20),
                       ),
@@ -76,7 +77,7 @@ class CropCare extends StatelessWidget {
                         size: 50,
                       ),
                       Text(
-                        AppLocalizations.of(context)?.tips ??'Tips',
+                        "tips".tr,
                         style: const TextStyle(
                             fontWeight: FontWeight.bold, fontSize: 20),
                       )
@@ -98,7 +99,7 @@ class CropCare extends StatelessWidget {
                   Align(
                     alignment: Alignment.topLeft,
                     child: Text(
-                      AppLocalizations.of(context)?.healYourCrop ?? 'Heal Your Crop',
+                      "healYourCrop".tr,
                       style: const TextStyle(
                         fontSize: 28,
                         fontWeight: FontWeight.bold,
@@ -114,7 +115,7 @@ class CropCare extends StatelessWidget {
                             Icons.add_a_photo,
                             size: 100,
                           ),
-                          Text(AppLocalizations.of(context)?.takePicture ??'Take Picture')
+                          Text("takePicture".tr)
                         ],
                       ),
                       const Icon(Icons.arrow_forward_ios),
@@ -124,7 +125,7 @@ class CropCare extends StatelessWidget {
                             Icons.security_update_warning,
                             size: 100,
                           ),
-                          Text(AppLocalizations.of(context)?.seeDiagnosis ?? 'See Diagnosis')
+                          Text("seeDiagnosis".tr)
                         ],
                       ),
                       const Icon(Icons.arrow_forward_ios),
@@ -134,7 +135,7 @@ class CropCare extends StatelessWidget {
                             Icons.medical_services,
                             size: 100,
                           ),
-                          Text(AppLocalizations.of(context)?.getMedicine ?? 'Get Medicine')
+                          Text("getMedicine".tr)
                         ],
                       ),
                     ],
@@ -151,8 +152,7 @@ class CropCare extends StatelessWidget {
                       ),
                       child: Padding(
                         padding: const EdgeInsets.all(10),
-                        child: Text(
-                          AppLocalizations.of(context)?.takePicture ?? 'Take a Picture',
+                        child: Text("takePicture".tr,
                           style: const TextStyle(
                             fontWeight: FontWeight.bold,
                             fontSize: 24,
@@ -175,13 +175,13 @@ class CropCare extends StatelessWidget {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Text(AppLocalizations.of(context)?.previousPicture ?? 'Previous Pictures'),
+                      Text("previousPicture".tr),
                       TextButton(
                         onPressed: () {},
                         style: TextButton.styleFrom(
                           foregroundColor: Colors.blueGrey,
                         ),
-                        child: Text(AppLocalizations.of(context)?.viewAll ?? 'View All'),
+                        child: Text("viewAll".tr),
                       )
                     ],
                   ),

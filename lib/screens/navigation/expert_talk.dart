@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:get/get.dart';
+// import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class ExpertTalk extends StatelessWidget {
   const ExpertTalk({Key? key}) : super(key: key);
@@ -8,7 +9,7 @@ class ExpertTalk extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(AppLocalizations.of(context)?.expertTalk ?? 'Expert Talk'),
+        title: Text("expertTalk".tr),
         centerTitle: true,
       ),
       body: Container(
@@ -18,26 +19,26 @@ class ExpertTalk extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                AppLocalizations.of(context)?.getToKnowUs ?? 'Get To Know Us',
+                "getToKnowUs".tr,
                 style: const TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
               ),
               Text(
-                AppLocalizations.of(context)?.weAreHereToHelp ?? "We're here to help",
+                "weAreHereToHelp".tr,
                 style: const TextStyle(color: Color(0xFF3A3636), fontSize: 20),
               ),
               Text(
-                AppLocalizations.of(context)?.feelFreeToAskQuestionsOn ?? 'Feel Free to ask Questions on',
+                "feelFreeToAskQuestionsOn".tr,
                 style: const TextStyle(color: Color(0xFF3A3636), fontSize: 20),
               ),
               Text(
-                AppLocalizations.of(context)?.variousTopics ?? 'Various topics.',
+                "variousTopics".tr,
                 style: const TextStyle(color: Color(0xFF3A3636), fontSize: 20),
               ),
               const SizedBox(
                 height: 20,
               ),
               Text(
-                AppLocalizations.of(context)?.fertilizerExpert ?? 'Fertilizer Expert',
+                "fertilizerExpert".tr,
                 style: const TextStyle(
                     color: Color(0xFF3A3636),
                     fontWeight: FontWeight.bold,
@@ -106,7 +107,7 @@ class ExpertTalk extends StatelessWidget {
                 height: 15,
               ),
               Text(
-                AppLocalizations.of(context)?.pesticideExpert ?? 'Pesticide Expert',
+                "pesticideExpert".tr,
                 style: const TextStyle(
                     color: Color(0xFF3A3636),
                     fontWeight: FontWeight.bold,
@@ -175,7 +176,7 @@ class ExpertTalk extends StatelessWidget {
                 height: 15,
               ),
               Text(
-                AppLocalizations.of(context)?.liveStockExpert ?? 'Livestock Expert',
+                "liveStockExpert".tr,
                 style: const TextStyle(
                     color: Color(0xFF3A3636),
                     fontWeight: FontWeight.bold,

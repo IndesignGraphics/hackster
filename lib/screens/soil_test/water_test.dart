@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+// import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:get/get.dart';
 
 class WaterTest extends StatelessWidget {
@@ -45,7 +45,7 @@ class WaterTest extends StatelessWidget {
               height: 10,
             ),
             Text(
-              AppLocalizations.of(context)?.testIncludes ?? 'Test Includes',
+              "testIncludes".tr,
               style:
                   const TextStyle(fontWeight: FontWeight.bold, color: Colors.white),
             ),
@@ -53,98 +53,98 @@ class WaterTest extends StatelessWidget {
               height: 10,
             ),
             Text(
-              '1. ${AppLocalizations.of(context)?.turbidity}',
+              '1. ${"turbidity".tr}',
               style: const TextStyle(color: Colors.white),
             ),
             const SizedBox(
               height: 5,
             ),
             Text(
-              '2. ${AppLocalizations.of(context)?.temperature}',
+              '2. ${"temperature".tr}',
               style: const TextStyle(color: Colors.white),
             ),
             const SizedBox(
               height: 5,
             ),
             Text(
-              '3. ${AppLocalizations.of(context)?.ph}',
+              '3. ${"ph".tr}',
               style: const TextStyle(color: Colors.white),
             ),
             const SizedBox(
               height: 5,
             ),
             Text(
-              '4. ${AppLocalizations.of(context)?.acidity}',
+              '4. ${"acidity".tr}',
               style: const TextStyle(color: Colors.white),
             ),
             const SizedBox(
               height: 5,
             ),
             Text(
-              '5. ${AppLocalizations.of(context)?.electricalConductivity}',
+              '5. ${"electricalConductivity".tr}',
               style: const TextStyle(color: Colors.white),
             ),
             const SizedBox(
               height: 5,
             ),
             Text(
-              '6. ${AppLocalizations.of(context)?.alkalinity}',
+              '6. ${"alkalinity".tr}',
               style: const TextStyle(color: Colors.white),
             ),
             const SizedBox(
               height: 5,
             ),
             Text(
-              '7. ${AppLocalizations.of(context)?.bacteria}',
+              '7. ${"bacteria".tr}',
               style: const TextStyle(color: Colors.white),
             ),
             const SizedBox(
               height: 5,
             ),
             Text(
-              '8. ${AppLocalizations.of(context)?.viruses}',
+              '8. ${"viruses".tr}',
               style: const TextStyle(color: Colors.white),
             ),
             const SizedBox(
               height: 5,
             ),
             Text(
-              '9. ${AppLocalizations.of(context)?.chloride}',
+              '9. ${"chloride".tr}',
               style: const TextStyle(color: Colors.white),
             ),
             const SizedBox(
               height: 5,
             ),
             Text(
-              '10. ${AppLocalizations.of(context)?.dissolvedOxygen}',
+              '10. ${"dissolvedOxygen".tr}',
               style: const TextStyle(color: Colors.white),
             ),
             const SizedBox(
               height: 5,
             ),
             Text(
-              '11. ${AppLocalizations.of(context)?.hardness}',
+              '11. ${"hardness".tr}',
               style: const TextStyle(color: Colors.white),
             ),
             const SizedBox(
               height: 5,
             ),
             Text(
-              '12. ${AppLocalizations.of(context)?.bioChemicalOxygenDemand}',
+              '12. ${"bioChemicalOxygenDemand".tr}',
               style: const TextStyle(color: Colors.white),
             ),
             const SizedBox(
               height: 5,
             ),
             Text(
-              '13. ${AppLocalizations.of(context)?.chemicalOxygenDemand}',
+              '13. ${"chemicalOxygenDemand".tr}',
               style: const TextStyle(color: Colors.white),
             ),
             const SizedBox(
               height: 5,
             ),
             Text(
-              '14. ${AppLocalizations.of(context)?.radioactiveSubstances}',
+              '14. ${"radioactiveSubstances".tr}',
               style: const TextStyle(color: Colors.white),
             ),
           ],
