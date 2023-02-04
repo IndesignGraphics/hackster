@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:hackster/controller/farmer_controller.dart';
 import 'package:hackster/controller/sell_controller.dart';
 
 class Purchase extends StatefulWidget {
@@ -14,6 +15,8 @@ class Purchase extends StatefulWidget {
 class _PurchaseState extends State<Purchase> {
   bool _isLoading = true;
   SellController sellController = Get.put(SellController());
+  FarmerController farmerController = Get.put(FarmerController());
+
   List itemData = [];
 
   @override
@@ -23,7 +26,19 @@ class _PurchaseState extends State<Purchase> {
   }
 
   void getData() async {
-    itemData = await sellController.getItem();
+    final data = await sellController.getItem();
+
+    var farmerId = farmerController.farmerID;
+    var length = data.length;
+
+    for (int i = 0; i < length; i++) {
+      var sellerId = data[i]['sellerId'];
+
+      if (farmerId != sellerId) {
+        itemData.add(data[i]);
+      }
+    }
+
     setState(() {
       _isLoading = false;
     });

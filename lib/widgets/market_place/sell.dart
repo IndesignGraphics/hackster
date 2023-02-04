@@ -60,41 +60,63 @@ class _SellState extends State<Sell> {
                 child: ListView.builder(
                   itemCount: filterData.length,
                   itemBuilder: (context, i) {
-                    return Card(
-                      elevation: 3,
-                      child: Container(
-                        padding: const EdgeInsets.all(10),
-                        child: Row(children: [
-                          Expanded(
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                  '${"cropType".tr} : ${filterData[i]['cropType']}',
-                                  style: const TextStyle(fontSize: 16),
-                                ),
-                                Text(
-                                  '${"cropName".tr} : ${filterData[i]['cropName']}',
-                                  style: const TextStyle(fontSize: 16),
-                                ),
-                                Text(
-                                  '${"quantity".tr} : ${filterData[i]['quantity']}',
-                                  style: const TextStyle(fontSize: 16),
-                                ),
-                                Text(
-                                  '${"price".tr} : ${filterData[i]['price']}',
-                                  style: const TextStyle(fontSize: 16),
-                                ),
-                                Text(
-                                  '${"description".tr} : ${filterData[i]['description']}',
-                                  style: const TextStyle(fontSize: 16),
-                                ),
-                              ],
+                    return Dismissible(
+                      direction: DismissDirection.endToStart,
+                      resizeDuration: Duration(milliseconds: 500),
+                      background: Container(
+                        padding: EdgeInsets.only(right: 28.0),
+                        alignment: AlignmentDirectional.centerEnd,
+                        color: Colors.red,
+                        child: Icon(
+                          Icons.delete,
+                          color: Colors.white,
+                        ),
+                      ),
+                      key: Key(filterData[i]['description']),
+                      onDismissed: (direction) {
+                        filterData.removeAt(i);
+
+                        ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                          content: const Text('Item removed'),
+                          duration: const Duration(seconds: 1),
+                        ));
+                      },
+                      child: Card(
+                        elevation: 3,
+                        child: Container(
+                          padding: const EdgeInsets.all(10),
+                          child: Row(children: [
+                            Expanded(
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    '${"cropType".tr} : ${filterData[i]['cropType']}',
+                                    style: const TextStyle(fontSize: 16),
+                                  ),
+                                  Text(
+                                    '${"cropName".tr} : ${filterData[i]['cropName']}',
+                                    style: const TextStyle(fontSize: 16),
+                                  ),
+                                  Text(
+                                    '${"quantity".tr} : ${filterData[i]['quantity']}',
+                                    style: const TextStyle(fontSize: 16),
+                                  ),
+                                  Text(
+                                    '${"price".tr} : ${filterData[i]['price']}',
+                                    style: const TextStyle(fontSize: 16),
+                                  ),
+                                  Text(
+                                    '${"description".tr} : ${filterData[i]['description']}',
+                                    style: const TextStyle(fontSize: 16),
+                                  ),
+                                ],
+                              ),
                             ),
-                          ),
-                          Image.memory(base64Decode(filterData[i]['image']),
-                              width: MediaQuery.of(context).size.width / 2.5),
-                        ]),
+                            Image.memory(base64Decode(filterData[i]['image']),
+                                width: MediaQuery.of(context).size.width / 2.5),
+                          ]),
+                        ),
                       ),
                     );
                   },
