@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:hackster/controller/cart_controller.dart';
+import 'package:hackster/models/tool.dart';
 // import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class ToolsPage extends StatelessWidget {
@@ -106,6 +108,8 @@ class ToolsPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    CartController cartController = Get.put(CartController());
+
     return SingleChildScrollView(
       child: Container(
         padding: const EdgeInsets.all(10),
@@ -171,11 +175,14 @@ class ToolsPage extends StatelessWidget {
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          ClipRRect(
-                            borderRadius: BorderRadius.circular(10),
-                            child: Image.asset(
-                              _listOfFertilizers[i]['image']!,
-                              height: 130,
+                          Container(
+                            alignment: Alignment.center,
+                            child: ClipRRect(
+                              borderRadius: BorderRadius.circular(10),
+                              child: Image.asset(
+                                _listOfFertilizers[i]['image']!,
+                                height: 130,
+                              ),
                             ),
                           ),
                           const SizedBox(
@@ -190,18 +197,62 @@ class ToolsPage extends StatelessWidget {
                           const SizedBox(
                             height: 5,
                           ),
-                          Text(
-                            'From ₹${_listOfFertilizers[i]['price']}',
-                            style: const TextStyle(
-                              color: Colors.teal,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                           Text(
-                            _listOfFertilizers[i]['quantity']!,
-                            style: const TextStyle(
-                              color: Colors.grey,
-                              fontWeight: FontWeight.bold,
+                          Expanded(
+                            child: Row(
+                              children: [
+                                Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Text(
+                                      'From ₹${_listOfFertilizers[i]['price']}',
+                                      style: const TextStyle(
+                                        color: Colors.teal,
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                    ),
+                                    Text(
+                                      _listOfFertilizers[i]['quantity']!,
+                                      style: const TextStyle(
+                                        color: Colors.grey,
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                                Expanded(
+                                  child: SizedBox(
+                                    width: 0,
+                                  ),
+                                ),
+                                IconButton(
+                                  icon: Icon(
+                                    Icons.add_box,
+                                  ),
+                                  iconSize: 30,
+                                  color: Colors.green,
+                                  onPressed: () {
+                                    cartController.addToCart(
+                                      tool: Tool(
+                                        title: _listOfFertilizers[i]['title'],
+                                        image: _listOfFertilizers[i]['image'],
+                                        price: _listOfFertilizers[i]['price'],
+                                        quantity: _listOfFertilizers[i]['quantity'],
+                                        category: 'Fertilizers',
+                                        toolId: 'Fertilizers$i',
+                                        availableStock: 10,
+                                      ),
+                                      count: 1,
+                                    );
+
+                                    ScaffoldMessenger.of(context).showSnackBar(
+                                      SnackBar(
+                                        content: Text('Item Added'),
+                                        duration: Duration(seconds: 1),
+                                      ),
+                                    );
+                                  },
+                                ),
+                              ],
                             ),
                           ),
                         ],
@@ -271,17 +322,20 @@ class ToolsPage extends StatelessWidget {
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          ClipRRect(
-                            borderRadius: BorderRadius.circular(10),
-                            child: Image.asset(
-                              _listOfPesticides[i]['image']!,
-                              height: 130,
+                          Container(
+                            alignment: Alignment.center,
+                            child: ClipRRect(
+                              borderRadius: BorderRadius.circular(10),
+                              child: Image.asset(
+                                _listOfPesticides[i]['image']!,
+                                height: 130,
+                              ),
                             ),
                           ),
                           const SizedBox(
                             height: 10,
                           ),
-                           Text(
+                          Text(
                             _listOfPesticides[i]['title']!,
                             style: const TextStyle(
                               fontWeight: FontWeight.bold,
@@ -290,18 +344,49 @@ class ToolsPage extends StatelessWidget {
                           const SizedBox(
                             height: 5,
                           ),
-                           Text(
-                            'From ₹${_listOfPesticides[i]['price']!}',
-                            style: const TextStyle(
-                              color: Colors.teal,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                           Text(
-                            _listOfPesticides[i]['quantity']!,
-                            style: const TextStyle(
-                              color: Colors.grey,
-                              fontWeight: FontWeight.bold,
+                          Expanded(
+                            child: Row(
+                              children: [
+                                Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Text(
+                                      'From ₹${_listOfPesticides[i]['price']!}',
+                                      style: const TextStyle(
+                                        color: Colors.teal,
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                    ),
+                                    Text(
+                                      _listOfPesticides[i]['quantity']!,
+                                      style: const TextStyle(
+                                        color: Colors.grey,
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                                Expanded(
+                                  child: SizedBox(
+                                    width: 0,
+                                  ),
+                                ),
+                                IconButton(
+                                  icon: Icon(
+                                    Icons.add_box,
+                                  ),
+                                  iconSize: 30,
+                                  color: Colors.green,
+                                  onPressed: () {
+                                    ScaffoldMessenger.of(context).showSnackBar(
+                                      SnackBar(
+                                        content: Text('Item Added'),
+                                        duration: Duration(seconds: 1),
+                                      ),
+                                    );
+                                  },
+                                ),
+                              ],
                             ),
                           ),
                         ],
@@ -371,34 +456,71 @@ class ToolsPage extends StatelessWidget {
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          ClipRRect(
-                            borderRadius: BorderRadius.circular(10),
-                            child: Image.asset(_listOfSeeds[i]['image']!,height: 130,),
+                          Container(
+                            alignment: Alignment.center,
+                            child: ClipRRect(
+                              borderRadius: BorderRadius.circular(10),
+                              child: Image.asset(
+                                _listOfSeeds[i]['image']!,
+                                height: 130,
+                              ),
+                            ),
                           ),
                           const SizedBox(
                             height: 10,
                           ),
-                           Text(
+                          Text(
                             _listOfSeeds[i]['title']!,
-                            style:const TextStyle(
+                            style: const TextStyle(
                               fontWeight: FontWeight.bold,
                             ),
                           ),
                           const SizedBox(
                             height: 5,
                           ),
-                           Text(
-                            'From ₹${_listOfSeeds[i]['price']}',
-                            style: const TextStyle(
-                              color: Colors.teal,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                           Text(
-                            _listOfSeeds[i]['quantity']!,
-                            style: const TextStyle(
-                              color: Colors.grey,
-                              fontWeight: FontWeight.bold,
+                          Expanded(
+                            child: Row(
+                              children: [
+                                Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Text(
+                                      'From ₹${_listOfSeeds[i]['price']}',
+                                      style: const TextStyle(
+                                        color: Colors.teal,
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                    ),
+                                    Text(
+                                      _listOfSeeds[i]['quantity']!,
+                                      style: const TextStyle(
+                                        color: Colors.grey,
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                                Expanded(
+                                  child: SizedBox(
+                                    width: 0,
+                                  ),
+                                ),
+                                IconButton(
+                                  icon: Icon(
+                                    Icons.add_box,
+                                  ),
+                                  iconSize: 30,
+                                  color: Colors.green,
+                                  onPressed: () {
+                                    ScaffoldMessenger.of(context).showSnackBar(
+                                      SnackBar(
+                                        content: Text('Item Added'),
+                                        duration: Duration(seconds: 1),
+                                      ),
+                                    );
+                                  },
+                                ),
+                              ],
                             ),
                           ),
                         ],

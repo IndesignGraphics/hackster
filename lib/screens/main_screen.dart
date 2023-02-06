@@ -8,6 +8,7 @@ import 'package:hackster/controller/farmer_controller.dart';
 
 // import 'package:hackster/screens/crop_care.dart';
 import 'package:hackster/screens/government_scheme.dart';
+import 'package:hackster/screens/shop_cart.dart';
 import 'package:hackster/screens/tools_page.dart';
 import 'package:hackster/widgets/app_drawer.dart';
 // import 'package:provider/provider.dart';
@@ -121,7 +122,13 @@ class _MainScreenState extends State<MainScreen> {
                       // provider.locale = const Locale('gu');
                     }
                   },
-                )
+                ),
+                IconButton(
+                  onPressed: (){
+                    Navigator.of(context).push(MaterialPageRoute(builder: ((context) => ShopCart())));
+                  },
+                  icon: Icon(Icons.shopping_cart),
+                ),
               ],
             ),
             drawer: AppDrawer(
