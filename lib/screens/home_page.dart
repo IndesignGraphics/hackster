@@ -5,6 +5,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:geocoding/geocoding.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:get/get.dart';
+import 'package:hackster/screens/agri_news.dart';
 import 'package:hackster/screens/navigation/market_price.dart';
 import 'package:hackster/screens/navigation/weather.dart';
 import 'package:http/http.dart' as http;
@@ -527,32 +528,72 @@ class _HomePageState extends State<HomePage> {
                     color: Theme.of(context).primaryColor,
                     thickness: 3,
                   ),
-                  Card(
-                    elevation: 3,
-                    child: Container(
-                      padding: const EdgeInsets.all(5),
-                      child: Image.asset('assets/images/news1.png'),
+                  InkWell(
+                    onTap: () {
+                      Navigator.of(context).push(
+                        MaterialPageRoute(
+                          builder: (ctx) =>
+                              AgriNews(image: 'assets/images/news1.png'),
+                        ),
+                      );
+                    },
+                    child: Card(
+                      elevation: 3,
+                      child: Container(
+                        padding: const EdgeInsets.all(5),
+                        child: Image.asset('assets/images/news1.png'),
+                      ),
                     ),
                   ),
-                  Card(
-                    elevation: 3,
-                    child: Container(
-                      padding: const EdgeInsets.all(5),
-                      child: Image.asset('assets/images/news2.png'),
+                  InkWell(
+                    onTap: () {
+                      Navigator.of(context).push(
+                        MaterialPageRoute(
+                          builder: (ctx) =>
+                              AgriNews(image: 'assets/images/news2.png'),
+                        ),
+                      );
+                    },
+                    child: Card(
+                      elevation: 3,
+                      child: Container(
+                        padding: const EdgeInsets.all(5),
+                        child: Image.asset('assets/images/news2.png'),
+                      ),
                     ),
                   ),
-                  Card(
-                    elevation: 3,
-                    child: Container(
-                      padding: const EdgeInsets.all(5),
-                      child: Image.asset('assets/images/news3.jpg'),
+                  InkWell(
+                    onTap: () {
+                      Navigator.of(context).push(
+                        MaterialPageRoute(
+                          builder: (ctx) =>
+                              AgriNews(image: 'assets/images/news3.jpg'),
+                        ),
+                      );
+                    },
+                    child: Card(
+                      elevation: 3,
+                      child: Container(
+                        padding: const EdgeInsets.all(5),
+                        child: Image.asset('assets/images/news3.jpg'),
+                      ),
                     ),
                   ),
-                  Card(
-                    elevation: 3,
-                    child: Container(
-                      padding: const EdgeInsets.all(5),
-                      child: Image.asset('assets/images/news4.png'),
+                  InkWell(
+                    onTap: () {
+                      Navigator.of(context).push(
+                        MaterialPageRoute(
+                          builder: (ctx) =>
+                              AgriNews(image: 'assets/images/news4.png'),
+                        ),
+                      );
+                    },
+                    child: Card(
+                      elevation: 3,
+                      child: Container(
+                        padding: const EdgeInsets.all(5),
+                        child: Image.asset('assets/images/news4.png'),
+                      ),
                     ),
                   ),
                 ],
