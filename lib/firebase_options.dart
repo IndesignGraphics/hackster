@@ -55,6 +55,8 @@ class DefaultFirebaseOptions {
     messagingSenderId: '574293582520',
     projectId: 'hackster-38cbf',
     storageBucket: 'hackster-38cbf.appspot.com',
+    databaseURL: 'https://hackster-38cbf-default-rtdb.asia-southeast1.firebasedatabase.app',
+
   );
 
   static const FirebaseOptions ios = FirebaseOptions(
@@ -65,5 +67,6 @@ class DefaultFirebaseOptions {
     storageBucket: 'hackster-38cbf.appspot.com',
     iosClientId: '574293582520-840nnvuiot0g7r8ggmbns2lqlbhea5ve.apps.googleusercontent.com',
     iosBundleId: 'com.indesigngraphics.hackster',
+    databaseURL: 'https://hackster-38cbf-default-rtdb.asia-southeast1.firebasedatabase.app',
   );
 }

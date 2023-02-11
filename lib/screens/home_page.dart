@@ -1,6 +1,8 @@
 import 'dart:async';
 import 'dart:convert';
+import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:geocoding/geocoding.dart';
 import 'package:geolocator/geolocator.dart';
@@ -9,7 +11,6 @@ import 'package:hackster/screens/agri_news.dart';
 import 'package:hackster/screens/navigation/market_price.dart';
 import 'package:hackster/screens/navigation/weather.dart';
 import 'package:http/http.dart' as http;
-// import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:shimmer/shimmer.dart';
 
 class HomePage extends StatefulWidget {
@@ -24,9 +25,22 @@ class _HomePageState extends State<HomePage> {
   late String subLocality, area;
   bool _isMarketLoading = true;
   bool _isWeatherLoading = true;
+  bool _isNewsLoading = true;
   bool _isLocationAvailable = false;
   late var weatherData;
   late var marketData;
+  List newsData = [];
+  DatabaseReference reference = FirebaseDatabase.instance.ref();
+
+  void _loadNewsData() async {
+    final snapshot = await reference.child('agriNews').get();
+    newsData = snapshot.children.toList();
+    print(newsData.length);
+
+    setState(() {
+      _isNewsLoading = false;
+    });
+  }
 
   Future<bool> _handleLocationPermission() async {
     bool serviceEnabled;
@@ -130,6 +144,7 @@ class _HomePageState extends State<HomePage> {
 
   @override
   void initState() {
+    _loadNewsData();
     _loadMarketData();
     _loadWeatherData();
     super.initState();
@@ -137,7 +152,7 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
-    return _isMarketLoading || _isWeatherLoading
+    return _isMarketLoading || _isWeatherLoading || _isNewsLoading
         ? const Center(
             child: CircularProgressIndicator(),
           )
@@ -186,7 +201,7 @@ class _HomePageState extends State<HomePage> {
                                     height: 10,
                                   ),
                                   Text(
-                                    subLocality,
+                                    'Rajkot',
                                     style: const TextStyle(
                                         color: Colors.white, fontSize: 28),
                                   ),
@@ -210,9 +225,7 @@ class _HomePageState extends State<HomePage> {
                                       Row(
                                         children: [
                                           Text(
-                                            (weatherData['main']['temp'] -
-                                                    273.15)
-                                                .toStringAsFixed(2),
+                                            '${(weatherData['main']['temp'] - 273.15).toStringAsFixed(2)}°C',
                                             style: const TextStyle(
                                                 color: Colors.white,
                                                 fontSize: 20),
@@ -528,74 +541,121 @@ class _HomePageState extends State<HomePage> {
                     color: Theme.of(context).primaryColor,
                     thickness: 3,
                   ),
-                  InkWell(
-                    onTap: () {
-                      Navigator.of(context).push(
-                        MaterialPageRoute(
-                          builder: (ctx) =>
-                              AgriNews(image: 'assets/images/news1.png'),
-                        ),
-                      );
-                    },
-                    child: Card(
-                      elevation: 3,
-                      child: Container(
-                        padding: const EdgeInsets.all(5),
-                        child: Image.asset('assets/images/news1.png'),
-                      ),
+                  Align(
+                    alignment: Alignment.centerLeft,
+                    child: Wrap(
+                      direction: Axis.vertical,
+                      children: newsData
+                          .map((e) {
+                            return Container(
+                              margin: EdgeInsets.symmetric(vertical: 5),
+                              child: Stack(
+                                children: [
+                                  Container(
+                                    width: MediaQuery.of(context).size.width,
+                                    child: Image.network(
+                                      e.value['imageUrl'],
+                                      fit: BoxFit.cover,
+                                    ),
+                                  ),
+                                  Text(
+                                    'datadatad fadlfjasdlfkjsdaif meaoigcnaesoiujlkjlkhkjhkjhkjhjk',
+                                    style: TextStyle(
+                                      color: Colors.white,
+                                      fontSize: 22,
+                                    ),
+
+                                  ),
+                                ],
+                              ),
+                            );
+                          })
+                          .toList()
+                          .cast<Widget>(),
                     ),
                   ),
-                  InkWell(
-                    onTap: () {
-                      Navigator.of(context).push(
-                        MaterialPageRoute(
-                          builder: (ctx) =>
-                              AgriNews(image: 'assets/images/news2.png'),
-                        ),
-                      );
-                    },
-                    child: Card(
-                      elevation: 3,
-                      child: Container(
-                        padding: const EdgeInsets.all(5),
-                        child: Image.asset('assets/images/news2.png'),
-                      ),
-                    ),
-                  ),
-                  InkWell(
-                    onTap: () {
-                      Navigator.of(context).push(
-                        MaterialPageRoute(
-                          builder: (ctx) =>
-                              AgriNews(image: 'assets/images/news3.jpg'),
-                        ),
-                      );
-                    },
-                    child: Card(
-                      elevation: 3,
-                      child: Container(
-                        padding: const EdgeInsets.all(5),
-                        child: Image.asset('assets/images/news3.jpg'),
-                      ),
-                    ),
-                  ),
-                  InkWell(
-                    onTap: () {
-                      Navigator.of(context).push(
-                        MaterialPageRoute(
-                          builder: (ctx) =>
-                              AgriNews(image: 'assets/images/news4.png'),
-                        ),
-                      );
-                    },
-                    child: Card(
-                      elevation: 3,
-                      child: Container(
-                        padding: const EdgeInsets.all(5),
-                        child: Image.asset('assets/images/news4.png'),
-                      ),
-                    ),
-                  ),
+
+                  // Container(
+                  //   child: ListView.builder(
+                  //     physics: NeverScrollableScrollPhysics(),
+                  //     itemCount: newsData.length,
+                  //     itemBuilder: (ctx, i) {
+                  //       print(newsData.elementAt(i).value['imageUrl']);
+                  //       return Image.network(
+                  //           newsData.elementAt(i).value['imageUrl']);
+                  //     },
+                  //   ),
+                  // ),
+
+                  // InkWell(
+                  //   onTap: () {
+                  //     _loadNewsData();
+                  //     Navigator.of(context).push(
+                  //       MaterialPageRoute(
+                  //         builder: (ctx) =>
+                  //             AgriNews(image: 'assets/images/news1.png'),
+                  //       ),
+                  //     );
+                  //   },
+                  //   child: Card(
+                  //     elevation: 3,
+                  //     child: Container(
+                  //       padding: const EdgeInsets.all(5),
+                  //       child: Image.asset('assets/images/news1.png'),
+                  //     ),
+                  //   ),
+                  // ),
+                  // InkWell(
+                  //   onTap: () {
+                  //     Navigator.of(context).push(
+                  //       MaterialPageRoute(
+                  //         builder: (ctx) =>
+                  //             AgriNews(image: 'assets/images/news2.png'),
+                  //       ),
+                  //     );
+                  //   },
+                  //   child: Card(
+                  //     elevation: 3,
+                  //     child: Container(
+                  //       padding: const EdgeInsets.all(5),
+                  //       child: Image.asset('assets/images/news2.png'),
+                  //     ),
+                  //   ),
+                  // ),
+                  // InkWell(
+                  //   onTap: () {
+                  //     Navigator.of(context).push(
+                  //       MaterialPageRoute(
+                  //         builder: (ctx) =>
+                  //             AgriNews(image: 'assets/images/news3.jpg'),
+                  //       ),
+                  //     );
+                  //   },
+                  //   child: Card(
+                  //     elevation: 3,
+                  //     child: Container(
+                  //       padding: const EdgeInsets.all(5),
+                  //       child: Image.asset('assets/images/news3.jpg'),
+                  //     ),
+                  //   ),
+                  // ),
+                  // InkWell(
+                  //   onTap: () {
+                  //     Navigator.of(context).push(
+                  //       MaterialPageRoute(
+                  //         builder: (ctx) =>
+                  //             AgriNews(image: 'assets/images/news4.png'),
+                  //       ),
+                  //     );
+                  //   },
+                  //   child: Card(
+                  //     elevation: 3,
+                  //     child: Container(
+                  //       padding: const EdgeInsets.all(5),
+                  //       child: Image.asset('assets/images/news4.png'),
+                  //     ),
+                  //   ),
+                  // ),
                 ],
               ),
             ),

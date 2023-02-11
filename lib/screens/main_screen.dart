@@ -4,17 +4,12 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:hackster/controller/farmer_controller.dart';
-// import 'package:hackster/provider/locale_provider.dart';
-
-// import 'package:hackster/screens/crop_care.dart';
 import 'package:hackster/screens/government_scheme.dart';
 import 'package:hackster/screens/shop_cart.dart';
 import 'package:hackster/screens/tools_page.dart';
 import 'package:hackster/widgets/app_drawer.dart';
-// import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:http/http.dart' as http;
-// import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 import 'home_page.dart';
 

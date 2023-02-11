@@ -94,7 +94,7 @@ class LiveStock extends StatelessWidget {
                     },
                     separatorBuilder: (context, i) {
                       return const SizedBox(
-                        height: 10,
+                        height: 0,
                       );
                     },
                     itemCount: listOfLiveStock.length),

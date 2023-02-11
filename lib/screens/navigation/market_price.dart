@@ -5,6 +5,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:http/http.dart' as http;
 import 'package:intl/intl.dart';
+
 // import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:shimmer/shimmer.dart';
 
@@ -20,6 +21,7 @@ class _MarketPriceState extends State<MarketPrice> {
     'Rajkot',
     'amreli',
     'jamnagar',
+    'ahmedabad'
   ];
 
   var date = DateFormat('MMM d,y').format(DateTime.now());
@@ -51,8 +53,7 @@ class _MarketPriceState extends State<MarketPrice> {
       length: 4,
       child: Scaffold(
         appBar: AppBar(
-          title:
-              Text("marketPrice".tr),
+          title: Text("marketPrice".tr),
         ),
         body: Container(
           padding: const EdgeInsets.all(10),
@@ -193,7 +194,9 @@ class _MarketPriceState extends State<MarketPrice> {
                                     ),
                                     child: Container(
                                       padding: const EdgeInsets.symmetric(
-                                          vertical: 10),
+                                        vertical: 10,
+                                        horizontal: 30,
+                                      ),
                                       child: Row(
                                         mainAxisAlignment:
                                             MainAxisAlignment.spaceAround,
@@ -228,11 +231,15 @@ class _MarketPriceState extends State<MarketPrice> {
                                               },
                                             ),
                                           ),
-                                          Text(
-                                            marketData['vegtables'][i]['name'],
-                                            style: TextStyle(
-                                              fontWeight: FontWeight.bold,
-                                              fontSize: 20,
+                                          Expanded(
+                                            child: Text(
+                                              marketData['vegtables'][i]
+                                                  ['name'],
+                                              style: TextStyle(
+                                                fontWeight: FontWeight.bold,
+                                                fontSize: 20,
+                                              ),
+                                              textAlign: TextAlign.center,
                                             ),
                                           ),
                                           SizedBox(
@@ -279,7 +286,9 @@ class _MarketPriceState extends State<MarketPrice> {
                                     ),
                                     child: Container(
                                       padding: const EdgeInsets.symmetric(
-                                          vertical: 10),
+                                        vertical: 10,
+                                        horizontal: 30,
+                                      ),
                                       child: Row(
                                         mainAxisAlignment:
                                             MainAxisAlignment.spaceAround,
@@ -313,11 +322,14 @@ class _MarketPriceState extends State<MarketPrice> {
                                               },
                                             ),
                                           ),
-                                          Text(
-                                            marketData['fruits'][i]['name'],
-                                            style: TextStyle(
-                                              fontWeight: FontWeight.bold,
-                                              fontSize: 20,
+                                          Expanded(
+                                            child: Text(
+                                              marketData['fruits'][i]['name'],
+                                              style: TextStyle(
+                                                fontWeight: FontWeight.bold,
+                                                fontSize: 20,
+                                              ),
+                                              textAlign: TextAlign.center,
                                             ),
                                           ),
                                           SizedBox(
@@ -364,7 +376,9 @@ class _MarketPriceState extends State<MarketPrice> {
                                     ),
                                     child: Container(
                                       padding: const EdgeInsets.symmetric(
-                                          vertical: 10),
+                                        vertical: 10,
+                                        horizontal: 30,
+                                      ),
                                       child: Row(
                                         mainAxisAlignment:
                                             MainAxisAlignment.spaceAround,
@@ -398,11 +412,14 @@ class _MarketPriceState extends State<MarketPrice> {
                                               },
                                             ),
                                           ),
-                                          Text(
-                                            marketData['cerels'][i]['name'],
-                                            style: TextStyle(
-                                              fontWeight: FontWeight.bold,
-                                              fontSize: 20,
+                                          Expanded(
+                                            child: Text(
+                                              marketData['cerels'][i]['name'],
+                                              style: TextStyle(
+                                                fontWeight: FontWeight.bold,
+                                                fontSize: 20,
+                                              ),
+                                              textAlign: TextAlign.center,
                                             ),
                                           ),
                                           SizedBox(
@@ -449,7 +466,9 @@ class _MarketPriceState extends State<MarketPrice> {
                                     ),
                                     child: Container(
                                       padding: const EdgeInsets.symmetric(
-                                          vertical: 10),
+                                        vertical: 10,
+                                        horizontal: 30,
+                                      ),
                                       child: Row(
                                         mainAxisAlignment:
                                             MainAxisAlignment.spaceAround,
@@ -483,11 +502,14 @@ class _MarketPriceState extends State<MarketPrice> {
                                               },
                                             ),
                                           ),
-                                          Text(
-                                            marketData['pulses'][i]['name'],
-                                            style: TextStyle(
-                                              fontWeight: FontWeight.bold,
-                                              fontSize: 20,
+                                          Expanded(
+                                            child: Text(
+                                              marketData['pulses'][i]['name'],
+                                              style: TextStyle(
+                                                fontWeight: FontWeight.bold,
+                                                fontSize: 20,
+                                              ),
+                                              textAlign: TextAlign.center,
                                             ),
                                           ),
                                           SizedBox(

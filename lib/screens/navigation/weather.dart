@@ -140,7 +140,7 @@ class _WeatherState extends State<Weather> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    '$subLocality,',
+                    'Rajkot,',
                     style: const TextStyle(
                       color: Colors.white,
                       fontSize: 25,
